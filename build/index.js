@@ -1,4 +1,5 @@
 
+process.chdir('./build')
 const Mustache = require('mustache')
 const showdown  = require('showdown')
 const converter = new showdown.Converter()
