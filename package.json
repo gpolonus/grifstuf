@@ -2,14 +2,10 @@
   "name": "grifstuf",
   "version": "1.0.0",
   "description": "grifstuf",
-  "main": "./dist/index.html",
+  "main": "./public/index.html",
   "scripts": {
-    "setup": "rm -rf ./dist && cp -R ./public ./dist && mkdir ./dist/blog",
-    "build": "npm run setup && node ./build/index.js",
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "deploy": "",
-    "post-build": "rm -rf ./dist/*.map"
+    "setup": "rm -rf ./public && cp -R ./assets ./public && mkdir ./public/blog",
+    "build": "npm run setup && node ./build/index.js"
   },
   "author": "",
   "license": "ISC",

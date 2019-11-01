@@ -14,18 +14,20 @@ const getIndexTemp = getFile(indexFile)
 
 const pagesPath = '../src/pages'
 
+const releaseFolder = 'public'
+
 // Building main page
 const mainTemplateFile = `${pagesPath}/main.mustache`
-const indexBuildFile = '../dist/index.html'
+const indexBuildFile = `../${releaseFolder}/index.html`
 
 // Building Blog Pages
 const blogPostsTemplateFile = `${pagesPath}/blogPosts.mustache`
 const blogTemplateFile = `${pagesPath}/blog.mustache`
 const blogsPath = '../src/blog'
 const blogTitle = title => `Blog | ${title}`
-const blogBuildPath = '../dist/blog'
+const blogBuildPath = `../${releaseFolder}/blog`
 const blogPostBuildFile = file => `${blogBuildPath}/${file}.html`
-const blogBuildFile = '../dist/blog/index.html'
+const blogBuildFile = `../${releaseFolder}/blog/index.html`
 
 // Building Stuf Pages
 
