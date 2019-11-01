@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="header">
+    <h1 class="title title--jumbo">grifstuf</h1>
+  </div>
+  <div>
+    <h2>stuf and things</h2>
+    <p>Someday soon there will be stuf here.</p>
+  </div>
+</div>
+<script>
+  const img = new Image()
+  img.onload = function() {
+    document.querySelector('.main .header').style.backgroundImage = `linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ), url(/images/lippy-70p-70.jpg)`
+    img.remove()
+  }
+  img.src = '/images/lippy-70p-70.jpg'
+</script>

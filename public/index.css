@@ -1,0 +1,47 @@
+
+body {
+  margin: 50px 0 0 0;
+}
+
+div.main {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+div.main div.header {
+  width: 100%;
+  height: 88%;
+  position: relative;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3)
+  ), url(/images/lippy-1p-70.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+nav {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  z-index: 2;
+  top: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+.title.title--jumbo {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  color: white;
+}

@@ -1,0 +1,30 @@
+{
+  "links": [
+    {
+      "title": "home",
+      "path": ""
+    },
+    {
+      "title": "blog",
+      "path": "blog"
+    },
+    {
+      "title": "contact",
+      "path": "contact"
+    },
+    {
+      "title": "about",
+      "path": "about"
+    }
+  ],
+  "blogPosts": [
+    {
+      "title": "This Site's Stack",
+      "file": "this-sites-stack"
+    },
+    {
+      "title": "Potato Scripts",
+      "file": "potato-scripts"
+    }
+  ]
+}
