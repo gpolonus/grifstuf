@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+const path = require('path');
 
 const log = function(...things) {
   if(things.length === 1) {
@@ -29,13 +30,18 @@ function getContentsSync(filePath) {
 
 function writeContents(filePath, contents) {
   return new Promise(resolve => {
-    fs.writeFile(filePath, contents, function(err) {
+    fs.mkdir(path.dirname(filePath), { recursive: true}, err => {
       if(err) {
-          return console.log(err);
+        return console.log(err);
       }
-      console.log(`${filePath} was saved!`);
-      resolve(null)
-    });
+      fs.writeFile(filePath, contents, function(err) {
+        if(err) {
+          return console.log(err);
+        }
+        console.log(`${filePath} was saved!`);
+        resolve(null)
+      })
+    })
   })
 }
 

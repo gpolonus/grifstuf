@@ -1,0 +1,9 @@
+
+.blog,
+.blog-post {
+  position: relative;
+}
+
+div.blog-post p {
+  line-height: 1.5;
+}

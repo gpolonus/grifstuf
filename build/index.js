@@ -5,7 +5,7 @@ const showdown  = require('showdown')
 const converter = new showdown.Converter()
 const { getContents, writeContents, getJSONFile, getFile } = require('./funcs')
 
-// Base View and Templates
+// Base View and File Locations
 const dataFile = '../data.json'
 const getView = getJSONFile(dataFile)
 
@@ -14,29 +14,39 @@ const getIndexTemp = getFile(indexFile)
 
 const pagesPath = '../src/pages'
 
-const releaseFolder = 'public'
+const releaseFolder = '../public'
 
 // Building main page
 const mainTemplateFile = `${pagesPath}/main.mustache`
-const indexBuildFile = `../${releaseFolder}/index.html`
+const indexBuildFile = `${releaseFolder}/index.html`
 
 // Building Blog Pages
 const blogPostsTemplateFile = `${pagesPath}/blogPosts.mustache`
 const blogTemplateFile = `${pagesPath}/blog.mustache`
 const blogsPath = '../src/blog'
 const blogTitle = title => `Blog | ${title}`
-const blogBuildPath = `../${releaseFolder}/blog`
-const blogPostBuildFile = file => `${blogBuildPath}/${file}.html`
-const blogBuildFile = `../${releaseFolder}/blog/index.html`
+const blogBuildPath = `${releaseFolder}/blog`
+const blogPostBuildFile = file => `${blogBuildPath}/${file}/index.html`
+const blogBuildFile = `${releaseFolder}/blog/index.html`
 
 // Building Stuf Pages
 
-async function renderPage(content, view = {}, partials = {}) {
+
+// Building Normie Pages
+const aboutTemplate = `${pagesPath}/about.mustache`
+const aboutBuildPath = `${releaseFolder}/about/index.html`
+const contactTemplate = `${pagesPath}/contact.mustache`
+const contactBuildPath = `${releaseFolder}/contact/index.html`
+
+// Rendering functions
+async function renderPage(content, title, view = {}, css = '', partials = {}) {
   const indexTemplate = await getIndexTemp()
 
   const defaultView = await getView()
   view = {
     ...view,
+    css,
+    title,
     ...defaultView
   }
 
@@ -51,27 +61,21 @@ async function renderMain() {
 
 async function renderBlogIndex() {
   const defaultView = await getView()
-  const view = {
-    ...defaultView,
-    title: 'blog',
-    css: 'blog'
-  }
   const bt = await getContents(blogTemplateFile)
-  const blogIndex = await renderPage(bt, view)
+  const blogIndex = await renderPage(bt, 'blog', defaultView, 'blog')
   await writeContents(blogBuildFile, blogIndex)
+}
+
+const mdrender = (contents, render) => {
+  return converter.makeHtml(render(contents))
 }
 
 async function renderBlogs() {
   const defaultView = await getView()
 
-  const mdrender = (contents, render) => {
-    return converter.makeHtml(render(contents))
-  }
-
   const view = {
     ...defaultView,
     mdrender: () => mdrender,
-    css: 'blog'
   }
 
   const bt = await getContents(blogPostsTemplateFile)
@@ -81,9 +85,8 @@ async function renderBlogs() {
     const bView = {
       ...view,
       contents,
-      title: blogTitle(title)
     }
-    const blogPage = await renderPage(bt, bView)
+    const blogPage = await renderPage(bt, blogTitle(title), bView, 'blog')
     await writeContents(blogPostBuildFile(file), blogPage)
   });
 }
@@ -92,11 +95,21 @@ async function renderStuf() {
 
 }
 
+async function createPage(file, template, title, css = '', view = {}) {
+  const contents = await renderPage(template, title, css, view)
+  await writeContents(file, contents)
+}
+
 async function run() {
   await renderMain()
   await renderBlogIndex()
   await renderBlogs()
   await renderStuf()
+
+  const about = await getContents(aboutTemplate)
+  createPage(aboutBuildPath, about, 'about')
+  const contact = await getContents(contactTemplate)
+  createPage(contactBuildPath, contact, 'contact')
 }
 
 run()
