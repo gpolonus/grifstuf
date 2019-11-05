@@ -15,6 +15,10 @@
     {
       "title": "about",
       "path": "about"
+    },
+    {
+      "title": "lippy",
+      "path": "lippy"
     }
   ],
   "blogPosts": [
@@ -26,5 +30,10 @@
       "title": "Potato Scripts",
       "file": "potato-scripts"
     }
+  ],
+  "pages": [
+    "about",
+    "contact",
+    "lippy"
   ]
 }

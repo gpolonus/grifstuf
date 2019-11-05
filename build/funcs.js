@@ -72,24 +72,26 @@ function getPartialsSync(partials, partialPath = '.') {
   }), {})
 }
 
-function getFile(path) {
+function getFile(path, lambda = d => d) {
   let file
   return async function() {
     if(file) {
       return file
     } else {
-      return await getContents(path)
+      file = lambda(await getContents(path))
+      return file
     }
   }
 }
 
-function getJSONFile(path) {
+function getJSONFile(path, lambda = d => d) {
   let file
   return async function() {
     if(file) {
       return file
     } else {
-      return await getJSON(path)
+      file = lambda(await getJSON(path))
+      return file
     }
   }
 }
