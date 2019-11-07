@@ -18,9 +18,6 @@ render could be on a loop or called after state updates
 */
 
 
-
-
-
 /**
  * State closure and state mutation function
  * @param {any} state Initial State
@@ -29,7 +26,7 @@ render could be on a loop or called after state updates
  * Returns
  *  object holding state mutation functions
 */
-function run(state, actions, render) {
+export function run(state, actions, render) {
   let s = state
   const a = Object.entries(actions).reduce((ac, [name, action]) => ({
     ...ac,
@@ -56,7 +53,7 @@ function run(state, actions, render) {
  *  stop function
  * ]
  */
-function loop(state, actions, render, time, every) {
+export function loop(state, actions, render, time, every) {
   let s = state
   const a = Object.entries(actions).reduce((ac, [name, action]) => ({
     ...ac,
@@ -84,27 +81,3 @@ function loop(state, actions, render, time, every) {
     }
   ]
 }
-
-
-/**
- * Example
- */
-
-const state = {
-  message: 'Hello World!',
-  data: 5
-}
-
-const actions = {
-  change1: (message) => (s) => ({ ...s, message }),
-  change2: (data) => (s) => ({ ...s, data })
-}
-
-const render = (s, a) => {
-  alert(JSON.stringify(s))
-}
-
-const triggers = run(state, actions, render)
-
-triggers.change1('Goodbye World!')
-triggers.change2(18)
