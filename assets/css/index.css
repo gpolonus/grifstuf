@@ -68,3 +68,11 @@ ul.basic-list {
 ul.basic-list li {
   padding: 5px;
 }
+
+ul.basic-list--flat li {
+  display: inline-block;
+}
+
+div.landing-contents {
+  padding: 0 20px;
+}

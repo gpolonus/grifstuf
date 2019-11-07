@@ -36,11 +36,11 @@ const blogBuildPath = `${releaseFolder}/blog`
 const blogPostBuildFile = file => `${blogBuildPath}/${file}/index.html`
 const blogBuildFile = `${releaseFolder}/blog/index.html`
 
-// Building Stuf Pages
+// Building stuf Pages
 
 
 // Rendering functions
-async function renderPage(content, title, view = {}, css = '', partials = {}) {
+async function renderPage(content, title = '', view = {}, css = '', partials = {}) {
   const indexTemplate = await getIndexTemplate()
 
   const defaultView = await getView()
@@ -56,7 +56,10 @@ async function renderPage(content, title, view = {}, css = '', partials = {}) {
 
 async function renderMain() {
   const mt = await getContents(mainTemplateFile)
-  const main = await renderPage(mt)
+  const defaultView = await getView()
+  const main = await renderPage(mt, '', {
+    featuredPosts: defaultView.blogPosts.slice(0, 2)
+  })
   await writeContents(indexBuildFile, main)
 }
 

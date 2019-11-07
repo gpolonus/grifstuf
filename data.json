@@ -29,6 +29,10 @@
     {
       "title": "Potato Scripts",
       "file": "potato-scripts"
+    },
+    {
+      "title": "Picking a JavaScript Framework",
+      "file": "js-frameworks"
     }
   ],
   "pages": [
