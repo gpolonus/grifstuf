@@ -1,7 +1,8 @@
 
-.blog,
-.blog-post {
+div.blog,
+div.blog-post {
   position: relative;
+  padding-bottom: 40px;
 }
 
 div.blog-post p {

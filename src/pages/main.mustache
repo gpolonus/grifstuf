@@ -1,25 +1,23 @@
-<div class="main">
-  <div class="header">
-    <h1 class="title title--jumbo">grifstuf</h1>
+<div class="header">
+  <h1 class="title title--jumbo">grifstuf</h1>
+</div>
+<div class="landing-contents">
+  <div>
+    <h2>latest blog posts</h2>
+    <ul class="basic-list basic-list--flat">
+    {{#featuredPosts}}
+      <li>
+        <a href="/blog/{{file}}">
+          {{title}}
+        </a>
+      </li>
+    {{/featuredPosts}}
+    <ul>
   </div>
-  <div class="landing-contents">
-    <div>
-      <h2>latest blog posts</h2>
-      <ul class="basic-list basic-list--flat">
-      {{#featuredPosts}}
-        <li>
-          <a href="/blog/{{file}}">
-            {{title}}
-          </a>
-        </li>
-      {{/featuredPosts}}
-      <ul>
-    </div>
 
-    <div>
-      <h2>stuf and things</h2>
-      <p>Someday soon there will be stuf here.</p>
-    </div>
+  <div>
+    <h2>stuf and things</h2>
+    <p>Someday soon there will be stuf here.</p>
   </div>
 </div>
 <script>
