@@ -5,16 +5,18 @@
   "main": "./public/index.html",
   "scripts": {
     "setup": "rm -rf ./public && cp -R ./assets ./public && mkdir ./public/blog",
+    "dev.rebuild": "npx onchange ./build/* ./src/* ./assets/* -- node ./build/index.js",
+    "dev.reload": "npx live-server ./public",
     "build": "npm run setup && node ./build/index.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "markdown-it": "^10.0.0",
     "live-server": "^1.2.1",
+    "markdown-it": "^10.0.0",
     "mustache": "^3.1.0",
+    "onchange": "^6.1.0",
     "uglify-js": "^3.6.5"
   }
 }

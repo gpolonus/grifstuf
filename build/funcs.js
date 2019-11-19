@@ -47,7 +47,7 @@ function writeContents(filePath, contents) {
 
 async function readThenWriteContents(source, destination, cb) {
   let contents = await getContents(source)
-  let contents = cb(contents)
+  contents = cb(contents)
   writeContents(destination, contents)
 }
 
