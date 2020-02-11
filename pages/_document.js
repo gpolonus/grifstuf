@@ -18,6 +18,9 @@ export default class extends Document {
           <title>
             grifstuf
           </title>
+
+          {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149108384-1"></script>
         </Head>
         <body>
           <Main />
