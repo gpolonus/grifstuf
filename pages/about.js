@@ -25,7 +25,7 @@ export default () => (
         <a href="mailto:grif@grifstuf.com">grif@grifstuf.com</a>
       </li>
       <li>
-        <a href="https://www.linkedin.com/in/griffin-polonus-95a1296a/">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/griffin-polonus/">LinkedIn</a>
       </li>
       <li>
         <a href="https://github.com/gpolonus">GitHub</a>
