@@ -1,1 +1,0 @@
-export function run(e,t,n){let r=e;const c=Object.entries(t).reduce((e,[t,u])=>({...e,[t]:e=>{r=u(e,r),n(r,c)}}),{});return c}

@@ -1,14 +1,18 @@
 
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Nunito+Sans&display=swap');
+
 body {
   margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
-h1, h2, h3, p {
-  margin: 0;
+h1, h2, h3 {
+  font-family: 'Arvo', monospace;
 }
 
 h1, h2, h3, p {
   padding: 10px 0;
+  margin: 0;
 }
 
 div.main {
@@ -43,6 +47,7 @@ nav {
 
 nav li {
   display: inline-block;
+  padding: 5px;
 }
 
 .title.title--jumbo {
@@ -88,4 +93,19 @@ div.landing-contents {
 footer {
   text-align: center;
   font-size: 75%;
+}
+
+
+/**
+BLOG ONLY STUFF
+*/
+
+div.blog,
+div.blog-post {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+div.blog-post p {
+  line-height: 1.5;
 }
