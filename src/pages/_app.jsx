@@ -23,6 +23,9 @@ const links = [
 
 export default ({ Component, pageProps }) => (
   <>
+    <title>
+      grifstuf
+    </title>
     <nav>
       <ul>
         <li>
