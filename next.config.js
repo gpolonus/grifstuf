@@ -8,7 +8,7 @@ const withMDX = require('@next/mdx')({
 const exportPathMap = async () => {
   const blogPostPages = (await getBlogPosts()).reduce((ac, {path}) => ({
     ...ac,
-    [`/blog/${path}`]: { page: "/blog/[blog]" }
+    [`/blog/${path}`]: { page: `/blog/${path}` }
   }), {})
 
   return {
