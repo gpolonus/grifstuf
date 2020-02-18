@@ -4,7 +4,8 @@ const fetch = require('isomorphic-unfetch')
 
 let data
 const anyjsonURL = '//api.anyjsoncms.com/entries'
-const API_KEY = process.env.ANY_JSON_API_KEY
+// const API_KEY = process.env.ANY_JSON_API_KEY
+const API_KEY = process.env.ANY_JSON_API_KEY || '3d6addb92fbfbab5c1000d03d48ea0c77deff207'
 
 const BLOG_POST_TYPE = 'blogPost'
 const STUF_TYPE = 'stuf'
@@ -36,12 +37,16 @@ const processRaw = (raw) => {
 const processBlog = ({ id, value: {
     blog_post_content,
     blog_post_title,
-    blog_post_path
+    blog_post_path,
+    blog_post_featured,
+    blog_post_draft
   }}) => ({
   id,
   content: blog_post_content,
   title: blog_post_title,
   path: blog_post_path,
+  featured: blog_post_featured,
+  published: !blog_post_draft,
   type: BLOG_POST_TYPE
 })
 
@@ -53,7 +58,7 @@ const processStuf = ({ id, value: { stuf_desc, stuf_link, stuf_title } }) => ({
   type: STUF_TYPE
 })
 
-const getBlogPosts = async () => (await getData()).filter(t => t.type === BLOG_POST_TYPE)
+const getBlogPosts = async () => (await getData()).filter(t => t.type === BLOG_POST_TYPE && t.published)
 
 const getStuf = async () => (await getData()).filter(t => t.type === STUF_TYPE)
 

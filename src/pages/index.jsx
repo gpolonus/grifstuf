@@ -1,29 +1,21 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { getBlogPosts } from '../services/Data'
 
-const featuredPosts = [
-  {
-    title: "This Site's Stack",
-    path: "this-sites-stack"
-  },
-  {
-    title: "Potato Scripts",
-    path: "potato-scripts"
-  },
-  // {
-  //   title: "Picking a JavaScript Framework",
-  //   path: "js-frameworks"
-  // }
-]
+const getInitialProps = async () => {
+  const posts = await getBlogPosts()
+  const featuredPosts = posts.filter(p => p.featured)
+  return { featuredPosts }
+}
 
-export default () => (
+const Index = ({ featuredPosts }) => (
   <div className="landing-contents">
     <h1>
-      grifstuf
+      GRIFSTUF
     </h1>
     <div>
-      <h2>latest blog posts</h2>
+      <h2>Blog Posts</h2>
       <ul className="basic-list basic-list--flat">
       {
         featuredPosts.map(({ title, path }) => (
@@ -38,10 +30,9 @@ export default () => (
       }
       </ul>
     </div>
-
-    <div>
-      <h2>stuf and things</h2>
-      <p>Someday soon there will be stuf here.</p>
-    </div>
   </div>
 )
+
+Index.getInitialProps = getInitialProps
+
+export default Index
