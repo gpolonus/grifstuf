@@ -44,11 +44,21 @@ nav {
   width: 100%;
   z-index: 2;
   top: 0;
+  display: flex;
+}
+
+nav ul {
+  padding-inline-start: 10px;
 }
 
 nav li {
   display: inline-block;
   padding: 5px;
+}
+
+nav img.lippy {
+  height: 50px;
+  margin: auto 5px;
 }
 
 .title.title--jumbo {

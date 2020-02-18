@@ -5,7 +5,6 @@ const fetch = require('isomorphic-unfetch')
 let data
 const anyjsonURL = '//api.anyjsoncms.com/entries'
 const API_KEY = process.env.ANY_JSON_API_KEY
-console.log('API_KEY', API_KEY)
 
 const BLOG_POST_TYPE = 'blogPost'
 const STUF_TYPE = 'stuf'
@@ -21,6 +20,7 @@ const fetchData = async () => {
       'ApiKey': API_KEY
     }
   })
+  console.log('API_KEY', API_KEY)
   console.log('status', response.status)
   return await response.json()
 }
