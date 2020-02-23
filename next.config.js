@@ -23,9 +23,5 @@ const exportPathMap = async () => {
 
 module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-  env: {
-    ACCESS_TOKEN: process.env.ACCESS_TOKEN,
-    SPACE_ID: process.env.SPACE_ID
-  },
   exportPathMap,
 })

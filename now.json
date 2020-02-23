@@ -1,6 +1,8 @@
 {
-  "env": {
-    "SPACE_ID": "@contentful-space-id",
-    "ACCESS_TOKEN": "@contentful-access-token"
+  "build": {
+    "env": {
+      "SPACE_ID": "@contentful-space-id",
+      "ACCESS_TOKEN": "@contentful-access-token"
+    }
   }
 }
