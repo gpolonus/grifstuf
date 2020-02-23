@@ -1,6 +1,6 @@
 
 const { getBlogPosts } = require('./src/utils/data')
-require('dotenv').config()
+// require('dotenv').config()
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/
