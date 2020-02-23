@@ -4,5 +4,9 @@
       "SPACE_ID": "@contentful-space-id",
       "ACCESS_TOKEN": "@contentful-access-token"
     }
+  },
+  "env": {
+    "SPACE_ID": "@contentful-space-id",
+    "ACCESS_TOKEN": "@contentful-access-token"
   }
 }
