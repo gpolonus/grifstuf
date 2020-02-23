@@ -1,79 +1,15 @@
 
-// import unfetch from 'isomorphic-unfetch'
-const fetch = require('isomorphic-unfetch')
+const { getBlogPosts: gbp } = require('../utils/data')
 
-let data
-const anyjsonURL = '//api.anyjsoncms.com/entries'
-// const API_KEY = process.env.ANY_JSON_API_KEY
-const API_KEY = process.env.ANY_JSON_API_KEY || '3d6addb92fbfbab5c1000d03d48ea0c77deff207'
+let blogPosts
 
-const BLOG_POST_TYPE = 'blogPost'
-const STUF_TYPE = 'stuf'
-
-const models = {
-  [BLOG_POST_TYPE]: '5e44415052269b0bda9aa20b',
-  [STUF_TYPE]: '5e443f2552269b0bda9aa20a'
-}
-
-const fetchData = async () => {
-  const response = await fetch(anyjsonURL, {
-    headers: {
-      'ApiKey': API_KEY
-    }
-  })
-  console.log('API_KEY', API_KEY)
-  console.log('status', response.status)
-  return await response.json()
-}
-
-const processRaw = (raw) => {
-  const processMap = {
-    [models.blogPost]: processBlog,
-    [models.stuf]: processStuf
+const getBlogPosts = async () => {
+  if(!blogPosts) {
+    blogPosts = await gbp()
   }
-  return raw.map(r => processMap[r.modelId] && processMap[r.modelId](r))
-}
-
-const processBlog = ({ id, value: {
-    blog_post_content,
-    blog_post_title,
-    blog_post_path,
-    blog_post_featured,
-    blog_post_draft
-  }}) => ({
-  id,
-  content: blog_post_content,
-  title: blog_post_title,
-  path: blog_post_path,
-  featured: blog_post_featured,
-  published: !blog_post_draft,
-  type: BLOG_POST_TYPE
-})
-
-const processStuf = ({ id, value: { stuf_desc, stuf_link, stuf_title } }) => ({
-  id,
-  description: stuf_desc,
-  url: stuf_link,
-  title: stuf_title,
-  type: STUF_TYPE
-})
-
-const getBlogPosts = async () => (await getData()).filter(t => t.type === BLOG_POST_TYPE && t.published)
-
-const getStuf = async () => (await getData()).filter(t => t.type === STUF_TYPE)
-
-const getData = async () => {
-  console.log('HIT GET DATA')
-  if(!data) {
-    const raw = await fetchData()
-    data = processRaw(raw)
-  }
-
-  return data
+  return blogPosts
 }
 
 module.exports = {
-  getBlogPosts,
-  getStuf,
-  getData
+  getBlogPosts
 }

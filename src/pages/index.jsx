@@ -1,7 +1,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { getBlogPosts } from '../services/Data'
+import { getBlogPosts } from '../services/data'
 
 const getInitialProps = async () => {
   const posts = await getBlogPosts()
@@ -9,7 +9,7 @@ const getInitialProps = async () => {
   return { featuredPosts }
 }
 
-const Index = ({ featuredPosts }) => (
+const Index = ({ featuredPosts = [] }) => (
   <div className="landing-contents">
     <h1>
       GRIFSTUF

@@ -1,5 +1,13 @@
+---
+title: This Site's Stack v1
+path: this-sites-stack-v1
+featured: false
+published: true
+---
 
-# This Site's Stack
+# This Site's Stack v1
+
+_This post was made for the first version of this site. Since then it has been [refactored](/blog/this-sites-stack-v2)_
 
 _"A journey of a thousand miles begins with a single step."_ - Chinese Proverb
 

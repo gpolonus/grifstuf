@@ -1,4 +1,7 @@
 {
   "presets": ["next/babel"],
-  "plugins": ["wildcard"]
+  "plugins": [
+    "wildcard",
+    "babel-plugin-inline-import"
+  ]
 }

@@ -1,3 +1,9 @@
+---
+title: Cassandra Effect in Agile
+path: cassandra-effect
+featured: false
+published: false
+---
 
 # Estimating Decision Cost aka the Cassandra Effect
 

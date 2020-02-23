@@ -1,5 +1,6 @@
 {
   "env": {
-    "ANY_JSON_API_KEY": "@any-json-api-key"
+    "SPACE_ID": "@contentful-space-id",
+    "ACCESS_TOKEN": "@contentful-access-token"
   }
 }

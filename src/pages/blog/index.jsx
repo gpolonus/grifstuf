@@ -1,27 +1,18 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { getBlogPosts } from '../../services/data'
 
-const blogPosts = [
-  {
-    title: "This Site's Stack",
-    path: "this-sites-stack"
-  },
-  {
-    title: "Potato Scripts",
-    path: "potato-scripts"
-  },
-  // {
-  //   title: "Picking a JavaScript Framework",
-  //   path: "js-frameworks"
-  // }
-]
+const getInitialProps = async () => {
+  const posts = await getBlogPosts()
+  return { posts }
+}
 
-export default () => (
+const BlogIndex = ({ posts }) => (
   <div className="blog text-contents">
     <h1>grifstuf blog</h1>
     {
-      blogPosts.map(({ title, path }) => (
+      posts.map(({ title, path }) => (
         <h2 key={path}>
           <Link href={`/blog/${ path }`}>
             <a>
@@ -33,3 +24,7 @@ export default () => (
     }
   </div>
 )
+
+BlogIndex.getInitialProps = getInitialProps
+
+export default BlogIndex

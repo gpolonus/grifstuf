@@ -1,14 +1,15 @@
 
-const { getBlogPosts } = require('./src/services/Data')
+const { getBlogPosts } = require('./src/utils/data')
+require('dotenv').config()
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/
 })
 
 const exportPathMap = async () => {
-  const blogPostPages = (await getBlogPosts()).reduce((ac, {path}) => ({
+  const blogPostPages = (await getBlogPosts()).reduce((ac, { path }) => ({
     ...ac,
-    [`/blog/${path}`]: { page: `/blog/${path}` }
+    [`/blog/${ path }`]: { page: `/blog/[blog]`, query: { blog: path } }
   }), {})
 
   return {
@@ -22,5 +23,9 @@ const exportPathMap = async () => {
 
 module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  env: {
+    ACCESS_TOKEN: process.env.ACCESS_TOKEN,
+    SPACE_ID: process.env.SPACE_ID
+  },
   exportPathMap,
 })
