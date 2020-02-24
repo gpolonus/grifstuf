@@ -5,7 +5,7 @@ import './index.css'
 export default ({ Component, pageProps }) => (
   <>
     <title>
-      grifstuf
+      GRIFSTUF
     </title>
     <Nav />
     <div className="main">

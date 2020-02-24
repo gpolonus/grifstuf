@@ -1,7 +1,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { getBlogPosts } from '../services/data'
+import { getBlogPosts } from '../services/data-iso'
 
 const getInitialProps = async () => {
   const posts = await getBlogPosts()

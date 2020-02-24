@@ -19,10 +19,10 @@ h1, h2, h3, p {
 div.main {
   margin: 0;
   position: fixed;
-  top: 50px;
+  top: 61px;
   left: 0;
   width: 100%;
-  height: calc(100% - 50px);
+  height: calc(100% - 61px);
   overflow: scroll;
 }
 

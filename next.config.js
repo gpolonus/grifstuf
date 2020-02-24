@@ -1,6 +1,7 @@
 
-const { getBlogPosts } = require('./src/utils/data')
 require('dotenv').config()
+const { getBlogPosts } = require('./src/services/data-iso')
+const { getStufMetdata } = require('./src/services/stuf-metadata-be')
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/
@@ -12,12 +13,19 @@ const exportPathMap = async () => {
     [`/blog/${ path }`]: { page: `/blog/[blog]`, query: { blog: path } }
   }), {})
 
+  const stufPages = getStufMetdata().reduce((ac, { title, path }) => ({
+    ...ac,
+    [`/stuf/${ path }`]: { page: `/stuf/${ path }` }
+  }), {})
+
   return {
     '/': { page: '/' },
-    '/blog': { page: '/blog' },
     '/lippy': { page: '/lippy' },
     '/about': { page: '/about' },
+    '/blog': { page: '/blog' },
     ...blogPostPages,
+    '/stuf': { page: '/stuf' },
+    ...stufPages,
   }
 }
 

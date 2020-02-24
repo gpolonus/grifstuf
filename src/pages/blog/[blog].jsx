@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { useRouter } from 'next/router'
-import { getBlogPosts } from '../../services/data'
+import { getBlogPosts } from '../../services/data-iso'
 import MarkDown from 'react-markdown'
 
 async function getInitialProps() {

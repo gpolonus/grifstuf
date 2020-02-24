@@ -36,7 +36,7 @@ In order of priority:
 
 [] Images are nice and optimized.
 
-[] As close to 100s on Lighthouse as Possible (check this later)
+[] As close to 100s on Lighthouse as Possible
 
 
 ### Creating Content To Be Wicked Easy
