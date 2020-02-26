@@ -4,5 +4,8 @@ import mo from '../utils/mo'
 
 export default mo(() => {
   delete rawStufs.index
-  return rawStufs
+  return Object.values(rawStufs).map((stuf) => ({
+    run: stuf,
+    ...stuf.attributes
+  }))
 })

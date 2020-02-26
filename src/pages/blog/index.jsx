@@ -10,7 +10,7 @@ const getInitialProps = async () => {
 
 const BlogIndex = ({ posts }) => (
   <div className="blog text-contents">
-    <h1>grifstuf blog</h1>
+    <h1>Blog</h1>
     {
       posts.map(({ title, path }) => (
         <h2 key={path}>

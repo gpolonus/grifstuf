@@ -22,27 +22,27 @@ Previous needs led to using custom Mustache build along with a dead-simple MVC s
 
 - List out things I've done
     - Canvas things
-        - graphTheory.html
-        - hills
+        - [] graphTheory.html
+        - [x] hills
             - 3
-        - leeannsThing.html
-        -  mirrormouse
+        - [] leeannsThing.html
+        - [] mirrormouse
             - 2
             - fix 3
-        - morphing stuff
+        - [] morphing stuff
             - get rid of the haiku at the beginning, it's weird
-        - nextLine.html
-        - playCanvas
+        - [] nextLine.html
+        - [] playCanvas
             - i love the idea of being able to draw something then have it drawable somewhere else
                 - this requires some fixing
-        - randomPaths.html
-        - spinning thing
+        - [] randomPaths.html
+        - [] spinning thing
             - 1 and 2
-        - starsTest
-        - thing
-        - thing1
+        - [] starsTest
+        - [] thing
+        - [] thing1
             - give some instructions
-        - zombieGame
+        - [] zombieGame
             - maybe 2 as well
     - knot stuff?
         - absolutely

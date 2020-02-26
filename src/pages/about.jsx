@@ -4,7 +4,7 @@ import React from 'react'
 export default () => (
   <div className="text-contents">
     <h1>
-    about grif
+    About Grif
     </h1>
     <p>Hi, I'm grif. This site is for my stuf. I like building things and annoying my wife and friends.</p>
 

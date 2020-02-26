@@ -53,14 +53,15 @@ In order of priority:
 
 [x] React
 
-[] TypeScript
+[x] TypeScript
 
 
 ### A Site With Content In It
 
 [] Make stuf design
 
-[] Make stuf in Contentful
+[] Make stuf in ~~Contentful~~ the codebase
+- when code is the content, best to just serve it from the code
 
 [] outline some blog posts
 

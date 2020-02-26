@@ -17,7 +17,7 @@ const run = (canvas, pw, ph) => {
   const bigDisc = new Image()
   bigDisc.src = "/images/bigDisc.png"
 
-  const [t, start, stop] = loop(
+  const [ t, start, stop ] = loop(
     state(pw, ph, chaserSpeed),
     actions(pw, ph, maxNumberChasers),
     render(ctx, pw, ph, bigDisc),
@@ -31,10 +31,12 @@ const run = (canvas, pw, ph) => {
 
   start()
 
-  return () => {
+  const cleanup = () => {
     stop()
     ctx.canvas.removeEventListener('mousemove', handler)
   }
+
+  return [ t, cleanup ]
 }
 
 const render = (ctx, pw, ph, bigDisc) => ({ mouse: [x, y], hit, chasers, sections }) => {
@@ -177,6 +179,7 @@ const keyBooleans = (t) => () => {
 const attributes = {
   title: 'hills3',
   path: 'hills3',
+  featured: true
 }
 
 const component = CanvasStuf(run, attributes)
