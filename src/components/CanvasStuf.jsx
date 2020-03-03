@@ -8,7 +8,7 @@ export const CanvasStuf = (run, attributes = { title: 'STUF' }, Controls = null)
 
   let triggers
   const getTriggers = () => triggers
-f
+
   const startRun = canvas => {
     if(!canvas) {
       return
