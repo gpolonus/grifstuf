@@ -2,7 +2,7 @@
 # Today's Todos
 
 1. [x] Figure out what you want
-2. [x] Go do that
+2. [] Go do that
 3. [] Write an outline of a blog post
 4. [] design what the stuff will be
 5. [] make the stuff functionality

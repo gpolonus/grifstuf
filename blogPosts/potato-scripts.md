@@ -1,9 +1,3 @@
----
-title: Potato Scripts
-path: potato-scripts
-featured: true
-published: true
----
 
 # Potato Scripts
 

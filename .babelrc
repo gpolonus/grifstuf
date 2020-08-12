@@ -1,9 +1,0 @@
-{
-  "presets": ["next/babel"],
-  "plugins": [
-    ["wildcard", {
-      "noModifyCase": true
-    }],
-    "babel-plugin-inline-import"
-  ]
-}
