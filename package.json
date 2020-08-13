@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "The grifstuf portfolio site.",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gpolonus/grifstuf.git"
@@ -16,8 +15,11 @@
   },
   "homepage": "https://github.com/gpolonus/grifstuf#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
   },
   "devDependencies": {
-    "now": "^17.0.4",
+    "now": "^17.0.4"
   }
 }
