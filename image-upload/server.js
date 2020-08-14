@@ -1,22 +1,20 @@
 
 const app = require('express')();
-const multer = require('multur')();
+const multer = require('multer')();
 const bodyParser = require('express')();
 const path = require('path');
 const fs = require('fs');
 const imageData = require('./imageData.json');
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, './images/'),
-  filename: (req, file, cb) => cb(null, file.originalname)
-})
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => cb(null, './images/'),
+//   filename: (req, file, cb) => cb(null, file.originalname)
+// })
 
-const upload = multer({
-  storage
-}).array('image', 1)
+const upload = multer().array('image', 1)
 
 app.use(bodyParser())
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, './public')));
 
 app.get('/images', (req, res) => {
   res.send(JSON.stringify(imageData));
