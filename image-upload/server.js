@@ -1,36 +1,55 @@
 
-const app = require('express')();
+const express = require('express');
+const app = express()
 const multer = require('multer');
-const bodyParser = require('express')();
+const bodyParser = require('express');
 const path = require('path');
 const fs = require('fs');
+const mime = require('mime')
 const imageData = require('./imageData.json');
 
-const upload = multer().array('image', 1)
+const destinationPath = './public/uploads'
+
+const storage = multer.diskStorage({
+  destination: (_, __, cb) => cb(null, destinationPath),
+  filename: (req, file, cb) => cb(null, console.log({body: req.body, name: req.body.name}) || `${req.body.name}.${mime.getExtension(file.mimetype)}`)
+});
+
+const upload = multer({ storage }).single('image');
 
 app.use(bodyParser())
 app.use(express.static(path.join(__dirname, './public')));
 
 app.get('/images', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(imageData));
 })
 
-app.post('/image', upload, (req, res) => {
+app.post('/upload', upload, (req, res) => {
   console.log(req.file)
   const newData = {
-    file: req.file,
+    name: req.body.name,
+    filename: req.file.filename,
     date: Date.now()
   }
   imageData.push(newData)
-  saveImageFile(imageData)
+  saveImageFile(imageData).then(() => {
+    res.sendStatus(200)
+  }).catch(err => {
+    console.log(err)
+    res.sendStatus(500)
+  })
 })
 
 const saveImageFile = (imageData) => {
-  const data = new Uint8Array(Buffer.from(JSON.stringify(imageData)));
-  fs.writeFile('./imageData.json', data, (err) => {
-    if (err) throw err;
-    console.log('The file has been saved!');
-  });
+  return new Promise((resolve, reject) => {
+    const data = new Uint8Array(Buffer.from(JSON.stringify(imageData)));
+    fs.writeFile('./imageData.json', data, (err) => {
+      if (err) reject(err);
+      console.log('The file has been saved!');
+      resolve();
+    });
+  })
 }
 
 const port = process.env.NODE_ENV === 'PROD' ? 80 : 8080;

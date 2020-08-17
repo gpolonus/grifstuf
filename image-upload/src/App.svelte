@@ -1,12 +1,30 @@
 <script>
-  const onchange = (e) => {
-    console.log(e.target.files)
+  import axios from 'axios'
+
+  let formEl
+
+  const handleSubmit = (event) => {
+    console.log(event)
+    const fd = new FormData(formEl)
+    axios.post('upload', fd, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
   }
 </script>
 
 <main>
 	<h1>Doodle Uploader</h1>
-	<input type="file" accept="image/*" on:change={onchange} />
+  <form
+    on:submit|preventDefault={handleSubmit}
+    enctype="multipart/form-data"
+    bind:this={formEl}
+  >
+    <input name="name" type="text" />
+    <input name="image" type="file" accept="image/*" />
+    <input type="submit" value="Submit">
+  </form>
 </main>
 
 <style>
