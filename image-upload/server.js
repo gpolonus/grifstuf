@@ -8,11 +8,11 @@ const fs = require('fs');
 const mime = require('mime')
 const imageData = require('./imageData.json');
 
-const destinationPath = './public/uploads'
+const destinationPath = path.join(__dirname, './public/uploads')
 
 const storage = multer.diskStorage({
   destination: (_, __, cb) => cb(null, destinationPath),
-  filename: (req, file, cb) => cb(null, console.log({body: req.body, name: req.body.name}) || `${req.body.name}.${mime.getExtension(file.mimetype)}`)
+  filename: (req, file, cb) => cb(null, `${req.body.name}.${mime.getExtension(file.mimetype)}`)
 });
 
 const upload = multer({ storage }).single('image');
@@ -44,7 +44,7 @@ app.post('/upload', upload, (req, res) => {
 const saveImageFile = (imageData) => {
   return new Promise((resolve, reject) => {
     const data = new Uint8Array(Buffer.from(JSON.stringify(imageData)));
-    fs.writeFile('./imageData.json', data, (err) => {
+    fs.writeFile(path.join(__dirname, './imageData.json'), data, (err) => {
       if (err) reject(err);
       console.log('The file has been saved!');
       resolve();

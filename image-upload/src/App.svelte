@@ -3,6 +3,8 @@
 
   let formEl
 
+  let response
+
   const handleSubmit = (event) => {
     console.log(event)
     const fd = new FormData(formEl)
@@ -10,6 +12,9 @@
       headers: {
         'Content-Type': 'multipart/form-data'
       }
+    })
+    .then(res => {
+      response = res
     });
   }
 </script>
@@ -25,6 +30,17 @@
     <input name="image" type="file" accept="image/*" />
     <input type="submit" value="Submit">
   </form>
+  {#if !!response}
+    {#if response.status === 200} 
+      <div>
+        Submitted!
+      </div>
+    {:else}
+      <div>
+        {response.body}
+      </div>
+    {/if}
+  {/if}
 </main>
 
 <style>
