@@ -1,0 +1,20 @@
+
+<svelte:head>
+	<title>Sapper project template</title>
+</svelte:head>
+
+<style>
+  img {
+    width: 100%;
+  }
+</style>
+
+# GrifStuf!
+
+I pinky promise I will put content on this site on a regular basis.
+
+I am trying to use Neovim to make this, so bear with me.
+
+For the time being, I am going to post my doodles and here's my favorite fish:
+
+![Lippy the Fish](lippy-25p-70.jpg)

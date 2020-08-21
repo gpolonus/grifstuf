@@ -1,0 +1,19 @@
+<svelte:head>
+	<title>About</title>
+</svelte:head>
+
+# About Grif
+
+Hi, I'm grif. This site is for my stuf. I like building things and annoying my wife and friends.
+
+*"If by chance some day you're not feeling well and you should remember some  
+silly thing I've said or done and it brings back a smile to your face or a  
+chuckle to your heart, then my purpose as your clown has been fulfilled."*
+
+\- Red Skelton
+
+## Contact Grif
+
+- [grif@grifstuf.com](mailto:grif@grifstuf.com)
+- [LinkedIn](https://www.linkedin.com/in/griffin-polonus/)
+- [GitHub](https://github.com/gpolonus)
