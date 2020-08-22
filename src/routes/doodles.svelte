@@ -18,8 +18,17 @@
     padding: 10px;
     text-align: center;
   }
+
+  h1 {
+    text-align: center;
+  }
 </style>
 
+<svelte:head>
+  <title>Grif's Doodles</title>
+</svelte:head>
+
+<h1>Grif's Doodles</h1>
 <div class='doodle-list'>
   {#each fixedDateDoodles as doodle}
     <div class='doodle'>

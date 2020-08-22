@@ -1,6 +1,6 @@
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>GrifStuf</title>
 </svelte:head>
 
 <style>
