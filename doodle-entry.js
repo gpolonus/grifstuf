@@ -8,7 +8,7 @@ process.stdin.on('data', (data) => {
 
 function makeDoodleEntry(data) {
   if (!data) return ''
-  const name = data;
+  const [name, alt] = data.split('|');
   const title = name.split('.')[0].replace(/\_/g, ' ');
   const date = Date.now();
 
@@ -17,5 +17,5 @@ function makeDoodleEntry(data) {
   url: ${name}
   title: ${title}
   date: ${date}
-  alt:`
+  alt: ${alt}`
 }

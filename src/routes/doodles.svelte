@@ -5,7 +5,7 @@
   const fixedDateDoodles = doodles.map(d => ({
     ...d,
     date: new Date(d.date).toLocaleString()
-  }))
+  })).reverse();
 </script>
 
 <style>

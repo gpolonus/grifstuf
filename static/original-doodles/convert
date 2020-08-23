@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir -p "../converts/output-$1/"
+~/Downloads/magick mogrify -path "../converts/output-$1/" -resize "$1" "$2"
+
