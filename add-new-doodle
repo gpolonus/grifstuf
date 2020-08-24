@@ -10,4 +10,5 @@ mv "./new-doodles/$NEW_DOODLE" "./static/original-doodles/$DOODLE_FILENAME"
 
 git add .
 git commit -m "Attempted auto add of $1 with alt text $2"
+git push
 
