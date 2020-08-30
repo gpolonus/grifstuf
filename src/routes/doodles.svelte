@@ -1,6 +1,7 @@
 
 <script>
   import doodles from './doodles.yaml'
+  import Doodle from '../components/Doodle.svelte'
 
   const fixedDateDoodles = doodles.map(d => ({
     ...d,
@@ -31,18 +32,11 @@
 <h1>Grif's Doodles</h1>
 <div class='doodle-list'>
   {#each fixedDateDoodles as doodle}
-    <div class='doodle'>
-      <h3>
-        {doodle.title}
-      </h3>
-      <div class='doodle-date'>
-        {doodle.date}
-      </div>
-      <img
-        src='/converts/output-300/{doodle.url}'
-        alt={doodle.alt}
-        title={doodle.alt}
-      />
-    </div>
+    <Doodle
+      title={doodle.title}
+      alt={doodle.alt}
+      url={doodle.url}
+      date={doodle.date}
+    />
   {/each}
 </div>
