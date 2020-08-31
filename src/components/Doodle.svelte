@@ -5,6 +5,7 @@
   let rotate = 0;
   $: doodle = doodles[doodles.length - 1 - num]
   $: date = doodle.date && new Date(doodle.date).toLocaleString()
+  $: fullUrl = `/converts/output-1000/${doodle.url}`
   $: url = `/converts/output-300/${doodle.url}`
   $: title = doodle.title
   $: alt = doodle.alt
@@ -18,11 +19,7 @@
   .doodle {
     text-align: center;
   }
-
-  .doodle img {
-    cursor: pointer;
-  }
-
+  
   .doodle .controls h2 {
     display: inline-block;
     text-decoration: underline;
@@ -53,6 +50,11 @@
     {/if}
     <h2 on:click={() => rotate -= 90}> 
       Rotate
+    </h2>
+    <h2> 
+      <a href={fullUrl} target='_blank'>
+        Full
+      </a>
     </h2>
   </div>
   <h3>
