@@ -2,5 +2,7 @@
 
 # neovim config 
 mkdir -p ~/.config/nvim
-cp ./.config/nvim/init.vim ~/.config/nvim/init.vim
+cp init.vim ~/.config/nvim/init.vim
 
+# tmux conf
+cp ./tmux.conf ~/.tmux.conf
