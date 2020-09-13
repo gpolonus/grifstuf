@@ -1,5 +1,8 @@
 #!/bin/bash
 
-mkdir -p "../converts/output-$1/"
-~/Downloads/magick mogrify -path "../converts/output-$1/" -resize "$1" "$2"
+NEW_SIZE=$1
+SRC_FILE=$2
+
+mkdir -p "../converts/output-$NEW_SIZE/"
+~/Downloads/magick mogrify -path "../converts/output-$NEW_SIZE/" -resize "$NEW_SIZE" "$SRC_FILE"
 
