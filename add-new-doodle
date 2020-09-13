@@ -1,8 +1,9 @@
 #!/bin/bash
 
 DOODLE_TITLE="$1"
-DOODLE_FILENAME="${DOODLE_TITLE// /_}.jpg"
 ALT_TEXT="$2"
+
+DOODLE_FILENAME="${DOODLE_TITLE// /_}.jpg"
 NEW_DOODLE="$(ls ./new-doodles | grep '\.jpg$')"
 mv "./new-doodles/$NEW_DOODLE" "./static/original-doodles/$DOODLE_FILENAME"
 
