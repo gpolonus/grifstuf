@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "$1|$2" | node ./doodle-entry.js >> ./src/components/doodles.yaml
+# echo "$1|$2" | node ./doodle-entry.js >> ./src/components/doodles.yaml
 cd ./static/original-doodles
 ./convert 300 "$1" 
 ./convert 600 "$1" 
