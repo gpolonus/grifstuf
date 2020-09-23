@@ -6,7 +6,8 @@
 		"dev": "sapper dev --ext '.svelte .svx'",
 		"build-leg": "sapper build --legacy--ext '.svelte .svx'",
 		"build": "sapper build --ext '.svelte .svx'",
-		"export": "sapper export --legacy --ext '.svelte .svx'",
+		"export": "sapper export --ext '.svelte .svx'",
+		"export-leg": "sapper export --legacy --ext '.svelte .svx'",
 		"start": "node __sapper__/build"
 	},
 	"dependencies": {

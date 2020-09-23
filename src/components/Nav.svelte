@@ -16,6 +16,7 @@
 
 	li {
 		display: inline-block;
+		font-size: 1.3rem;
 	}
 
 	.selected {
