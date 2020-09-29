@@ -7,7 +7,12 @@ DOODLE_FILENAME="${DOODLE_TITLE// /_}.jpg"
 NEW_DOODLE="$(ls ./new-doodles | grep '\.jpg$')"
 mv "./new-doodles/$NEW_DOODLE" "./static/original-doodles/$DOODLE_FILENAME"
 
-./add-doodle-from-file $DOODLE_FILENAME "$ALT_TEXT"
+echo "$DOODLE_FILENAME|$ALT_TEXT" | node ./doodle-entry.js >> ./src/components/doodles.yaml
+cd ./static/original-doodles
+./convert 300 "$DOODLE_FILENAME" 
+./convert 600 "$DOODLE_FILENAME" 
+./convert 1000 "$DOODLE_FILENAME" 
+cd ../../
 
 git add .
 git commit -m "Attempted auto add of $1 with alt text $2"
