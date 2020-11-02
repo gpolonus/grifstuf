@@ -14,4 +14,3 @@
 </script>
 
 <Doodle num={doodleNum} />
-
