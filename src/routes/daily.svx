@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>Daily Plan</title>
+</svelte:head> 
+
 # Daily Plan
 
 *07:00 AM* - WAKE UP and STUFF:
@@ -18,21 +22,27 @@
 
 *05:00 PM* - Off Work and cooking
 
-*06:30 PM* - Dinner
+*05:30 PM* - Dinner
 
 *Rest Of Night* - Nightly Thing:
 
 - Mon
+  - Clean Kitchen
   - Bucketizer @ 8
 - Tue
+  - Clean Living Room
   - Movie Night
 - Wed
+  - Clean Bedroom
   - Work night:
     - Bucketizer
 - Thu
+  - Clean Bathrooms
   - Talking @ 8
 - Fri
-  - Something
+  - Clean/Reorganize Office
+  - Packing
+  - Work Night
 
 *10:00 PM* - Read in Bed
 

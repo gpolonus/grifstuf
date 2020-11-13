@@ -1,9 +1,9 @@
 <script>
   import doodles from './doodles.yaml'
 
-  export let num = 0
+  export let num = doodles.length - 1
   let rotate = 0;
-  $: doodle = doodles[doodles.length - 1 - num]
+  $: doodle = doodles[num]
   $: date = doodle.date && new Date(doodle.date).toLocaleString()
   $: fullUrl = `/converts/output-1000/${doodle.url}`
   $: url = `/converts/output-300/${doodle.url}`
@@ -12,16 +12,24 @@
 </script>
 
 <style>
-  h1 {
-    text-align: center;
-  }
-
   .doodle {
     text-align: center;
   }
   
-  .doodle .controls h2 {
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
     display: inline-block;
+    text-decoration: underline;
+  }
+
+  h2.dead {
+    text-decoration: line-through;
+  }
+  
+  .controls a h2 {
     text-decoration: underline;
     cursor: pointer;
   }
@@ -40,22 +48,30 @@
           Prev
         </h2>
       </a>
+    {:else}
+      <h2 class='dead'>
+        Prev
+      </h2>
     {/if}
     {#if num < doodles.length - 1}
       <a href='/doodles/{num + 1}'>
-        <h2>
+        <h2 class='link'>
           Next
         </h2>
       </a>
+    {:else}
+      <h2 class='dead'>
+        Next
+      </h2>
     {/if}
     <h2 on:click={() => rotate -= 90}> 
       Rotate
     </h2>
-    <h2> 
-      <a href={fullUrl} target='_blank'>
+    <a href={fullUrl} target='_blank'>
+      <h2>
         Full
-      </a>
-    </h2>
+      </h2>
+    </a>
   </div>
   <h3>
     {title}

@@ -36,8 +36,8 @@
   <ul>
     <li><a class:selected='{segment === undefined}' href='.'>home</a></li>
     <li><a class:selected='{segment === "doodles"}' href='doodles'>doodles</a></li>
-    <li><a class:selected='{segment === "about"}' href='about'>about</a></li>
     <li><a class:selected='{segment === "daily"}' href='daily'>daily</a></li>
+    <li><a class:selected='{segment === "about"}' href='about'>about</a></li>
     <!-- <li><a class:selected='{segment === "stuf"}' href='stuf'>stuf</a></li> -->
     <!-- <li><a class:selected='{segment === "blog"}' href='blog'>blog</a></li> -->
   </ul>
