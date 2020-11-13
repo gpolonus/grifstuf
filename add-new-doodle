@@ -16,5 +16,4 @@ cd ../../
 
 git add .
 git commit -m "Attempted auto add of $1 with alt text $2"
-git push
 
