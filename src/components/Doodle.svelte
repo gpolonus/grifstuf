@@ -23,15 +23,16 @@
   h2 {
     display: inline-block;
     text-decoration: underline;
+    cursor: pointer;
   }
 
   h2.dead {
+    cursor: initial;
     text-decoration: line-through;
   }
   
   .controls a h2 {
     text-decoration: underline;
-    cursor: pointer;
   }
 </style>
 
