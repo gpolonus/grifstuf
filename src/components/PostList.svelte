@@ -6,7 +6,7 @@
 <ul>
 	{#each posts as post}
 		<li>
-			<a href='{post.url}'>
+			<a href='/distractions/{post.url}'>
 				{post.title}
 			</a>
 		</li>
