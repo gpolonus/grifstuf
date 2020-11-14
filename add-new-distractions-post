@@ -2,10 +2,10 @@
 
 TITLE="$1"
 
-FILENAME="${TITLE// /_}.svx"
+FILENAME=$(echo "${TITLE// /_}.svx" | tr '[:upper:]' '[:lower:]')
 
-echo "$TITLE" | node ./distractions-entry.js >> ./src/components/distractions.yaml
-touch "$FILENAME"
+echo "$TITLE" | node ./distractions-entry.js >> ./src/data/distractions.yaml
+touch "./src/routes/distractions/$FILENAME"
 
 git add .
 git commit -m "Added new distractions blog post: $1"
