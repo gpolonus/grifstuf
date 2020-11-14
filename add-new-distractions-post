@@ -1,0 +1,12 @@
+#!/bin/bash
+
+TITLE="$1"
+
+FILENAME="${TITLE// /_}.svx"
+
+echo "$TITLE" | node ./distractions-entry.js >> ./src/components/distractions.yaml
+touch "$FILENAME"
+
+git add .
+git commit -m "Added new distractions blog post: $1"
+
