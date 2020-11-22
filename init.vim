@@ -42,6 +42,10 @@ vnoremap \{ I{<Esc>A}<Esc>
 " put brackets around selection 
 nnoremap <S-\>{ c{}<ESC>P
 
+nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
+
+:command Wd write|bdelete
+
 call plug#begin()
 
 Plug 'sheerun/vim-polyglot'
@@ -53,6 +57,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'stephpy/vim-yaml' 
 Plug 'tpope/vim-surround' 
 Plug 'tpope/vim-commentary'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'vim-scripts/asmM6502.vim'
 
