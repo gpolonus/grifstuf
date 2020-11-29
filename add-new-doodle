@@ -2,6 +2,7 @@
 
 DOODLE_TITLE="$1"
 ALT_TEXT="$2"
+COMMAND="$3"
 
 DOODLE_FILENAME="${DOODLE_TITLE// /_}.jpg"
 NEW_DOODLE="$(ls ./new-doodles | grep '\.jpg$')"
@@ -17,3 +18,6 @@ cd ../../
 git add .
 git commit -m "Attempted auto add of $1 with alt text $2"
 
+if [$COMMAND = "push"]; then
+  git push
+fi
