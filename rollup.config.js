@@ -101,7 +101,7 @@ export default {
 		onwarn
 	},
 
-	serviceworker: {
+	serviceworker: process.env.NODE_ENV !== "development" && {
 		input: config.serviceworker.input(),
 		output: config.serviceworker.output(),
 		plugins: [
