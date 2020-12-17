@@ -5,15 +5,14 @@ ALT_TEXT="$2"
 COMMAND="$3"
 
 DOODLE_FILENAME="${DOODLE_TITLE// /_}.jpg"
-DOODLE_FILENAME="${DOODLE_FILENAME//?/}"
 NEW_DOODLE="$(ls ./new-doodles | grep '\.jpg$')"
 mv "./new-doodles/$NEW_DOODLE" "./static/original-doodles/$DOODLE_FILENAME"
 
 echo "$DOODLE_FILENAME|$ALT_TEXT" | node ./doodle-entry.js >> ./src/components/doodles.yaml
 cd ./static/original-doodles
-./convert 300 "$DOODLE_FILENAME" 
-./convert 600 "$DOODLE_FILENAME" 
-./convert 1000 "$DOODLE_FILENAME" 
+./convert 300 "$DOODLE_FILENAME"
+./convert 600 "$DOODLE_FILENAME"
+./convert 1000 "$DOODLE_FILENAME"
 cd ../../
 
 git add .
