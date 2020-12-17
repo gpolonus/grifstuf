@@ -5,6 +5,7 @@ ALT_TEXT="$2"
 COMMAND="$3"
 
 DOODLE_FILENAME="${DOODLE_TITLE// /_}.jpg"
+DOODLE_FILENAME="${DOODLE_FILENAME//?/}"
 NEW_DOODLE="$(ls ./new-doodles | grep '\.jpg$')"
 mv "./new-doodles/$NEW_DOODLE" "./static/original-doodles/$DOODLE_FILENAME"
 
