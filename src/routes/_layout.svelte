@@ -14,6 +14,12 @@
 		box-sizing: border-box;
 	}
 
+  @media only screen and (max-width: 550px) {
+    main {
+      padding: 1rem 0;
+    }
+  }
+
 	main.home {
 		position: relative;
 		height: 90vh;
