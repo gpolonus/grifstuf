@@ -1,9 +1,9 @@
 <script>
-  import { renderable, width } from './game.js';
+  import { height, renderable, width } from './game.js';
 
   const color = 'hsl(0, 0%, 90%)';
   const pointSize = 30;
-  const divisions = Math.floor($width / pointSize) || 1;
+  const divisions = Math.floor(($width > $height ? $width : $height) / pointSize) || 1;
   let zooming = 0
 
   const degToRad = Math.PI / 180;
