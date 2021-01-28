@@ -1,7 +1,7 @@
 <script>
 	import { renderable } from './game.js';
 	export let color = null;
-	
+
 	renderable(props => {
 		const { context, width, height } = props;
 		context.clearRect(0, 0, width, height);

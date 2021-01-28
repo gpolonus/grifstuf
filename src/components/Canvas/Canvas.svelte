@@ -14,13 +14,14 @@
 
 	export let killLoopOnError = true;
 	export let attributes = {};
-	
+
 	let listeners = [];
 	let canvas;
 	let context;
 	let frame;
 
 	onMount(() => {
+		console.log('happening!')
 		// prepare canvas stores
 		context = canvas.getContext('2d', attributes);
 		canvasStore.set(canvas);
@@ -34,14 +35,14 @@
 			}
 			entity.ready = true;
 		});
-		
+
 		// start game loop
 		return createLoop((elapsed, dt) => {
 			time.set(elapsed);
 			render(dt);
 		});
 	});
-	
+
 	setContext(key, {
 		add (fn) {
 			this.remove(fn);
@@ -52,7 +53,7 @@
 			if (idx >= 0) listeners.splice(idx, 1);
 		}
 	});
-	
+
 	function render (dt) {
 		context.save();
 		context.scale($pixelRatio, $pixelRatio);
@@ -71,13 +72,16 @@
 		});
 		context.restore();
 	}
-	
+
 	function handleResize () {
-		width.set(window.innerWidth);
-		height.set(window.innerHeight);
-		pixelRatio.set(window.devicePixelRatio);
+		console.log(typeof window)
+		if (typeof window !== 'undefined') {
+			width.set(window.innerWidth);
+			height.set(window.innerHeight);
+			pixelRatio.set(window.devicePixelRatio);
+		}
 	}
-	
+
 	function createLoop (fn) {
 		let elapsed = 0;
 		let lastTime = performance.now();
@@ -94,6 +98,15 @@
 		};
 	}
 </script>
+
+<style>
+	canvas {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+</style>
 
 <canvas
 	bind:this={canvas}

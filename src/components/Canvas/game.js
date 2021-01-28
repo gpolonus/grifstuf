@@ -2,9 +2,9 @@ import { getContext, onMount, onDestroy } from 'svelte';
 import { writable, derived } from 'svelte/store';
 
 // Some props for the app
-export const width = writable(window.innerWidth);
-export const height = writable(window.innerHeight);
-export const pixelRatio = writable(window.devicePixelRatio);
+export const width = typeof window !== 'undefined' ? writable(window.innerWidth) : writable();
+export const height = typeof window !== 'undefined' ? writable(window.innerHeight) : writable();
+export const pixelRatio = typeof window !== 'undefined' ? writable(window.devicePixelRatio) : writable();
 export const context = writable();
 export const canvas = writable();
 export const time = writable(0);

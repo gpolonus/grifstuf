@@ -4,9 +4,11 @@
 
 <style>
   nav {
+    position: relative;
     border-bottom: 1px solid black;
     font-weight: 300;
     padding: 0 1em;
+    background-color: white;
   }
 
   ul {
