@@ -31,6 +31,12 @@
     border-radius: 4rem;
   }
 
+  @media only screen and (max-width: 550px) {
+    .content {
+      padding: 2rem 1rem;
+    }
+  }
+
   h1 {
     text-align: center;
   }
