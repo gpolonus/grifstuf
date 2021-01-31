@@ -3,8 +3,12 @@
 	import Canvas from '../components/Canvas/Canvas.svelte'
 	import Background from '../components/Canvas/Background.svelte'
 	import Circles from '../components/Canvas/Circles.svelte'
+	import { stores } from '@sapper/app';
+	const { page } = stores();
 
 	export let segment;
+
+	$: showBackgroundCanvas = segment ? !$page.path.includes('stuf/') : true
 </script>
 
 <style>
@@ -28,8 +32,9 @@
 	}
 
   footer {
-		position: relative;
-		text-align: center;
+    position: fixed!important;
+    bottom: 0;
+    left: 0;
 		color: white;
     font-size: 0.75em;
   }
@@ -43,10 +48,12 @@
   <Nav {segment}/>
 {/if}
 <main class={segment === undefined ? 'home' : ''}>
+	{#if showBackgroundCanvas}
 	<Canvas>
 		<Background color='hsl(0, 0%, 10%)' />
 		<Circles />
 	</Canvas>
+	{/if}
 	<slot></slot>
   <footer>
     © Griffin Polonus 2020. All Rights Reserved.
