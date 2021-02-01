@@ -21,7 +21,6 @@
 	let frame;
 
 	onMount(() => {
-		console.log('happening!')
 		// prepare canvas stores
 		context = canvas.getContext('2d', attributes);
 		canvasStore.set(canvas);
@@ -74,7 +73,6 @@
 	}
 
 	function handleResize () {
-		console.log(typeof window)
 		if (typeof window !== 'undefined') {
 			width.set(window.innerWidth);
 			height.set(window.innerHeight);
