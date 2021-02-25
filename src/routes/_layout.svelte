@@ -9,7 +9,8 @@
 	export let segment;
 
 	let stopBackground = false
-	$: hideBackgroundCanvas = $page.path.includes('stuf/') || stopBackground
+	$: stufPage = $page.path.includes('stuf/')
+	$: hideBackgroundCanvas = stufPage || stopBackground
 </script>
 
 <style>
@@ -62,7 +63,7 @@
 	<slot></slot>
   <footer class={hideBackgroundCanvas ? 'no-background' : ''}>
 		© Griffin Polonus 2021. All Rights Reserved.
-		{#if segment}
+		{#if !stufPage }
 			Stop the background: <input type='checkbox' bind:checked={stopBackground} />
 		{/if}
   </footer>
