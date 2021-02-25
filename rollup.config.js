@@ -107,19 +107,19 @@ export default {
 		onwarn
 	},
 
-	serviceworker: process.env.NODE_ENV !== "development" && {
-		input: config.serviceworker.input(),
-		output: config.serviceworker.output(),
-		plugins: [
-			resolve(),
-			replace({
-				"process.browser": true,
-				"process.env.NODE_ENV": JSON.stringify(mode)
-			}),
-			commonjs(),
-			!dev && terser()
-        ],
-        preserveEntrySignatures: false,
-		onwarn
-	}
+	// serviceworker: process.env.NODE_ENV !== "development" && {
+	// 	input: config.serviceworker.input(),
+	// 	output: config.serviceworker.output(),
+	// 	plugins: [
+	// 		resolve(),
+	// 		replace({
+	// 			"process.browser": true,
+	// 			"process.env.NODE_ENV": JSON.stringify(mode)
+	// 		}),
+	// 		commonjs(),
+	// 		!dev && terser()
+  //       ],
+  //       preserveEntrySignatures: false,
+	// 	onwarn
+	// }
 };
