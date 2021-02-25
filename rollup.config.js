@@ -18,6 +18,12 @@ const onwarn = (warning, onwarn) =>
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
 	onwarn(warning);
 
+const configuredMdsvex = mdsvex({
+	layout: {
+		blog: './src/layouts/blog.svelte'
+	}
+})
+
 const extensions = [".svelte", ".svx"];
 export default {
 	client: {
@@ -34,7 +40,7 @@ export default {
 				dev,
 				hydratable: true,
 				emitCss: true,
-				preprocess: mdsvex()
+				preprocess: configuredMdsvex
 			}),
 			resolve({
 				browser: true,
@@ -87,7 +93,7 @@ export default {
 			svelte({
                 extensions,
                 hydratable: true,
-				preprocess: mdsvex(),
+				preprocess: configuredMdsvex,
 				generate: "ssr",
 				dev
 			}),

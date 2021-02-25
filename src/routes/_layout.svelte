@@ -8,7 +8,8 @@
 
 	export let segment;
 
-	$: showBackgroundCanvas = segment ? !$page.path.includes('stuf/') : true
+	let stopBackground = false
+	$: hideBackgroundCanvas = $page.path.includes('stuf/') || stopBackground
 </script>
 
 <style>
@@ -38,6 +39,10 @@
 		color: white;
     font-size: 0.75em;
   }
+
+	footer.no-background {
+		color: black;
+	}
 </style>
 
 <svelte:head>
@@ -48,15 +53,18 @@
   <Nav {segment}/>
 {/if}
 <main class={segment === undefined ? 'home' : ''}>
-	{#if showBackgroundCanvas}
+	{#if !hideBackgroundCanvas}
 	<Canvas>
-		<Background color='hsl(0, 0%, 10%)' />
+		<Background color='black' />
 		<Circles />
 	</Canvas>
 	{/if}
 	<slot></slot>
-  <footer>
-    © Griffin Polonus 2020. All Rights Reserved.
+  <footer class={hideBackgroundCanvas ? 'no-background' : ''}>
+		© Griffin Polonus 2021. All Rights Reserved.
+		{#if segment}
+			Stop the background: <input type='checkbox' bind:checked={stopBackground} />
+		{/if}
   </footer>
 </main>
 

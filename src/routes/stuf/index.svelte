@@ -2,7 +2,8 @@
 <script>
   let stufs = [
     { name: 'Triangles', path: 'triangles' },
-    { name: 'Compound Interest Calculator', path: 'compound' }
+    { name: 'Compound Interest Calculator', path: 'compound' },
+    // { name: 'Face with Eyes', path: 'face' }
   ]
 </script>
 
