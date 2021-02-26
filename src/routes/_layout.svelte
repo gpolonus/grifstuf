@@ -8,7 +8,7 @@
 
 	export let segment;
 
-	let stopBackground = false
+	let stopBackground = true
 	$: stufPage = $page.path.includes('stuf/')
 	$: hideBackgroundCanvas = stufPage || stopBackground
 </script>
