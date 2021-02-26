@@ -3,6 +3,8 @@
   let stufs = [
     { name: 'Triangles', path: 'triangles' },
     { name: 'Compound Interest Calculator', path: 'compound' },
+    { name: 'Conway\'s Game of Life', path: 'https://conway.grifstuf.com', external: true },
+    { name: 'Binaural Sound Maker', path: 'https://binaural.grifstuf.com/', external: true },
     // { name: 'Face with Eyes', path: 'face' }
   ]
 </script>
@@ -28,8 +30,12 @@
 
     <p>Things that I made</p>
 
-    {#each stufs as { name, path }}
-      <p><a href='stuf/{path}'>{name}</a></p>
+    {#each stufs as { name, path, external }}
+      {#if external}
+        <p><a href='{path}'>{name}</a></p>
+      {:else}
+        <p><a href='stuf/{path}'>{name}</a></p>
+      {/if}
     {/each}
   </div>
 </div>
