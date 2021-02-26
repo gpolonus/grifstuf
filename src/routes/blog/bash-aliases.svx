@@ -9,7 +9,7 @@ layout: blog
 Simply put, the ability to make more aliases. Let me show you what I mean:
 ```
 _A() {
-  echo "alias $1=\"$2\"" >> ~/.bash_aliases
+  echo "alias $1=\\"$2\\"" >> ~/.bash_aliases
   source ~/.bash_aliases
 }
 ```
