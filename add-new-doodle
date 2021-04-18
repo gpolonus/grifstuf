@@ -4,6 +4,11 @@ DOODLE_TITLE="$1"
 ALT_TEXT="$2"
 COMMAND="$3"
 
+if [ -z "$DOODLE_TITLE" ]; then
+  echo "DOODLE_TITLE then ALT_TEXT"
+  exit 0;
+fi
+
 DOODLE_FILENAME="${DOODLE_TITLE// /_}.jpg"
 NEW_DOODLE="$(ls ./new-doodles | grep '\.jpg$')"
 mv "./new-doodles/$NEW_DOODLE" "./static/original-doodles/$DOODLE_FILENAME"
