@@ -5,6 +5,7 @@
     { name: 'Compound Interest Calculator', path: 'compound' },
     { name: 'Conway\'s Game of Life', path: 'https://conway.grifstuf.com', external: true },
     { name: 'Binaural Sound Maker', path: 'https://binaural.grifstuf.com/', external: true },
+    // { name: 'mirrormouse3', path: 'iframe/mirrormouse3' },
     // { name: 'Face with Eyes', path: 'face' }
   ]
 </script>
