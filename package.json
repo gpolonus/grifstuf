@@ -1,6 +1,6 @@
 {
-	"name": "TODO",
-	"description": "TODO",
+	"name": "grifstuf",
+	"description": "grifstuf site",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "sapper dev --ext '.svelte .svx'",
