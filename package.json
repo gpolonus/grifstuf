@@ -8,8 +8,7 @@
 		"build": "sapper build --ext '.svelte .svx'",
 		"export": "sapper export --ext '.svelte .svx'",
 		"export-leg": "sapper export --legacy --ext '.svelte .svx'",
-		"start": "node __sapper__/build",
-		"dev:export": "npm run export && http-server __sapper__/export"
+		"start": "node __sapper__/build"
 	},
 	"dependencies": {
 		"compression": "^1.7.1",
