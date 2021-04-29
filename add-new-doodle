@@ -24,9 +24,9 @@ mkdir -p "../converts/output-$NEW_SIZE/"
 }
 
 cd ./static/original-doodles
-convert 300 "$DOODLE_FILENAME"
-convert 600 "$DOODLE_FILENAME"
-convert 1000 "$DOODLE_FILENAME"
+./convert 300 "$DOODLE_FILENAME"
+./convert 600 "$DOODLE_FILENAME"
+./convert 1000 "$DOODLE_FILENAME"
 cd ../../
 
 if [ "$COMMAND" = "nothing" ]; then
