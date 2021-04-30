@@ -7,10 +7,6 @@
 	const { page } = stores();
 
 	export let segment;
-
-	let stopBackground = true
-	$: stufPage = $page.path.includes('stuf/')
-	$: hideBackgroundCanvas = stufPage || stopBackground
 </script>
 
 <style>
@@ -36,14 +32,10 @@
   footer {
     position: fixed!important;
     bottom: 0;
-    left: 0;
-		color: white;
+    left: 1rem;
+		color: black;
     font-size: 0.75em;
   }
-
-	footer.no-background {
-		color: black;
-	}
 </style>
 
 <svelte:head>
@@ -54,18 +46,9 @@
   <Nav {segment}/>
 {/if}
 <main class={segment === undefined ? 'home' : ''}>
-	{#if !hideBackgroundCanvas}
-	<Canvas>
-		<Background color='black' />
-		<Circles />
-	</Canvas>
-	{/if}
 	<slot></slot>
-  <footer class={hideBackgroundCanvas ? 'no-background' : ''}>
+  <footer>
 		© Griffin Polonus 2021. All Rights Reserved.
-		{#if !stufPage }
-			Stop the background: <input type='checkbox' bind:checked={stopBackground} />
-		{/if}
   </footer>
 </main>
 
