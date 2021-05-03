@@ -10,7 +10,7 @@
     [56, 65],
     [66, 70],
     [71, 80]
-  ].map(([min, max], i) => ({ min, max, points: i/2 }))
+  ].map(([min, max], i) => ({ min, max, points: (i + 1)/2 }))
 
   let items = []
 
