@@ -6,3 +6,6 @@ yarn-error.log
 /__sapper__/
 
 .vercel
+
+/dynamo-functions/*/node_modules/
+/dynamo-functions/*/build.zip

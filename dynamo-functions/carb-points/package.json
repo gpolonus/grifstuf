@@ -1,0 +1,16 @@
+{
+  "name": "carb-points-function",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf ./node_modules build.zip && npm install --prod && zip -r build.zip . && rm -rf ./node_modules && npm i",
+    "build-quick": "rm -rf ./build.zip && zip -r build.zip .",
+    "dev": "node -e 'console.log(require(\"./index.js\").handler())'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
