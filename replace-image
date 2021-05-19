@@ -1,0 +1,18 @@
+
+DOODLE_TITLE="$1"
+DOODLE_FILENAME="${DOODLE_TITLE// /_}.jpg"
+NEW_DOODLE="$(ls ./new-doodles | grep '\.jpg$')"
+mv "./new-doodles/$NEW_DOODLE" "./static/original-doodles/$DOODLE_FILENAME"
+convert() {
+	NEW_SIZE=$1
+	SRC_FILE=$2
+
+	mkdir -p "../converts/output-$NEW_SIZE/"
+	~/magick mogrify -path "../converts/output-$NEW_SIZE/" -resize "$NEW_SIZE" "$SRC_FILE"
+}
+
+cd ./static/original-doodles
+./convert 300 "$DOODLE_FILENAME"
+./convert 600 "$DOODLE_FILENAME"
+./convert 1000 "$DOODLE_FILENAME"
+
