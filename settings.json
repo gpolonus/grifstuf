@@ -1,0 +1,67 @@
+{
+    "files.associations": {
+        "**/modules/**/*.install": "php",
+        "**/modules/**/*.inc": "php",
+        "**/modules/**/*.module": "php"
+    },
+    "editor.renderWhitespace": "all",
+    "workbench.editor.enablePreview": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "extensions.ignoreRecommendations": false,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.activityBar.visible": true,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 0,
+    "editor.tabSize": 2,
+    "[rust]": {
+        "editor.tabSize":  4
+    },
+    "git.enableSmartCommit": true,
+    "workbench.colorTheme": "Community Material Theme Palenight",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.find.seedSearchStringFromSelection": true,
+    "editor.fontSize": 12,
+    "editor.scrollBeyondLastLine": true,
+    "files.trimTrailingWhitespace": true,
+    "breadcrumbs.enabled": true,
+    "terminal.integrated.rendererType": "dom",
+    "gitlens.hovers.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": false,
+    // Controls the font family.
+    // "editor.fontFamily": "Monaco, Menlo, 'Courier New', monospace"
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Listen for PHP XDebug",
+                "type": "php",
+                "request": "launch",
+                "port": 9000,
+                "pathMappings": {
+                    // "/app/docroot/": "${workspaceRoot}/"
+                    "/app/docroot/": "~/Sites/hni/docroot/"
+                },
+                "xdebugSettings": {
+                    "show_hidden": 1
+                }
+            }
+        ]
+    },
+    // "files.autoSave": "onFocusChange",
+    "workbench.editor.showTabs": true,
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "workbench.colorCustomizations": {},
+    "materialTheme.accent": "Remove accents",
+    "sync.gist": "a9cdf9a4bfbfc3f9ff339cbb7e384359",
+    "[nginx]": {
+
+    },
+    "php.memoryLimit": "-1",
+    "editor.minimap.enabled": true,
+    "latex-workshop.view.pdf.viewer": "browser",
+    "explorer.autoReveal": false,
+    "workbench.editor.untitled.hint": "hidden"
+}
