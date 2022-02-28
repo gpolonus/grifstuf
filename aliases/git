@@ -5,6 +5,9 @@ grchb() {
 
 alias gpod="git fetch && git pull origin develop"
 
+gchb() {
+	git checkout $(git branch | grep -o $1)
+}
 
 alias gits="git status"
 alias gl="git log --decorate"

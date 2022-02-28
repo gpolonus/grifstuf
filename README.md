@@ -26,6 +26,7 @@
 - upon initialization installs desired environment tooling
     - fzf
     - neovim
+- source extra hidden aliases from a .extra_alias file if the file exists
 
 
 ## Future Future Features:

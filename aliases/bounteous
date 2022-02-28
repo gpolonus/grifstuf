@@ -1,0 +1,7 @@
+dlone() {
+	git clone "git@git.drupal.org:project/$1.git"
+}
+alias bcom="cd /Users/griffenpolonus/Sites/bounteous.com"
+alias repos="cd /Users/griffenpolonus/Repos"
+alias sites="cd /Users/griffenpolonus/Sites"
+alias proj="cd ~/Projects"
