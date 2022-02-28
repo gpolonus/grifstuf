@@ -1,0 +1,70 @@
+
+alias bs="blt sync"
+
+alias uli="drush uli"
+
+alias dcex="drush cex"
+alias dcexy="drush cex -y"
+
+alias dx="dcex"
+
+dsql-select() {
+        drush sqlq "SELECT * FROM $1"
+}
+
+dsql-describe() {
+        drush sqlq "DESCRIBE $1"
+}
+
+alias dsf="blt dsf"
+
+ax() {
+        acli xdebug
+        if ["$(sax)" == "0"];
+        then eax 1
+        else eax 0;
+        fi
+}
+
+alias rax="ax && ax"
+
+alias dcexy="dcex -y"
+
+alias sheild="drush @fm.dev ssh 'cat /mnt/gfs/freddiemacexp.01dev/secrets.settings.php'"
+
+alias tuli="drush @fm.test uli"
+
+alias hbs="blt drupal:update && blt source:build:frontend && uli"
+fbs() {
+        blt fm:setup:validate
+        blt source:build:composer
+        blt blt:init:settings
+        blt drupal:update
+        blt source:build:frontend
+}
+
+alias dcim="drush cim -y"
+alias bfb="blt frontend:build"
+
+shield() {
+echo 'fmwebusr'
+echo 'fhlmc@21DEV'
+}
+
+alias bbbs="bs || dcexy && bs"
+
+alias cr="drush cr"
+
+alias gadmin="drush ucrt gpolonus && drush urol administrator gpolonus && drush upwd gpolonus admin"
+alias dcr="drush cc render"
+alias ccr="dcr"
+
+alias puli="drush @fm.prod uli"
+
+compr() {
+        composer require "drupal/$1"
+}
+
+alias move-down="drush sql-drop -y && drush sql-sync @fm.dev @self -y"
+
+alias duli="drush @fm.dev uli"
