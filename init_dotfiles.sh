@@ -4,5 +4,9 @@ ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 
 # TODO tmux.conf
 # TODO neovim config and packages
-# TODO vscode configs and keybindings
-# - and maybe neovim packages?
+# TODO vscode configs and keybindings and maybe vscode packages?
+# - https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management
+
+# TODO install favorite tools
+
+source ~/.bash_aliases

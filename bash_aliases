@@ -1,6 +1,7 @@
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+## TODO add date check
 cd ~/dotfiles
 git fetch && git pull 
 for f in $(cat .env); do source ~/dotfiles/aliases/$f; done

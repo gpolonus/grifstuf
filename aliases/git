@@ -1,34 +1,4 @@
 
-gcrb() {
-        git fetch
-        git checkout origin/develop
-        git checkout -b "feature/FRED-${1}"
-        git push --no-verify --set-upstream origin feature/FRED-${1}
-}
-
-gb() {
-        echo "$(git branch | grep '^\*' | grep -o 'feature/FRED-[0-9]*')"
-}
-
-gbid() {
-        echo "$(git branch | grep '^\*' | grep -o 'FRED-[0-9]*')"
-}
-
-gacm() {
-        echo "$(gbid): ${1}."
-        git add . && git commit -m "$(gbid): ${1}."
-}
-
-gcm() {
-        echo "$(gbid): ${1}."
-        git commit -m "$(gbid): ${1}."
-}
-
-gchb() {
-        git fetch
-        git checkout "feature/FRED-${1}"
-}
-
 grchb() {
         git checkout "${git branch | grep $1}"
 }
