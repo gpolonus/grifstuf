@@ -3,7 +3,7 @@ export EDITOR="$VISUAL"
 
 ## TODO add date check
 cd ~/dotfiles
-git fetch && git pull 
+git fetch && git pull
 for f in $(cat .env); do source ~/dotfiles/aliases/$f; done
 cd -
 
@@ -42,11 +42,11 @@ lert() {
     echo
 }
 
-colors() {
-        for((i=16; i<256; i++)); do
-        printf "\e[48;5;${i}m%03d" $i;
-        printf '\e[0m';
-        [ ! $((($i - 15) % 6)) -eq 0 ] && printf ' ' || printf '\n'
-        done;
-}
+# colors() {
+#         for((i=16; i<256; i++)); do
+#         printf "\e[48;5;${i}m%03d" $i;
+#         printf '\e[0m';
+#         [ ! $((($i - 15) % 6)) -eq 0 ] && printf ' ' || printf '\n'
+#         done;
+# }
 

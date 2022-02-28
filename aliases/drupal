@@ -8,11 +8,11 @@ alias dcexy="drush cex -y"
 
 alias dx="dcex"
 
-dsql-select() {
+dsql_select() {
         drush sqlq "SELECT * FROM $1"
 }
 
-dsql-describe() {
+dsql_describe() {
         drush sqlq "DESCRIBE $1"
 }
 
