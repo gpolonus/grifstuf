@@ -3,22 +3,21 @@ export EDITOR="$VISUAL"
 
 cd ~/dotfiles
 git fetch && git pull 
-source $(cat .env)
+for f in $(cat .env); do source ~/dotfiles/aliases/$f; done
 cd -
 
 _A() {
-  echo "alias $1=\"$2\"" >> ~/.bash_aliases
-  _push_up_alias_changes
+  echo "alias $2=\"$3\"" >> ~/dotfiles/aliases/$1 && _push_up_alias_changes
   source ~/.bash_aliases
 }
 
 _D() {
-  _A $1 "cd $(pwd)"
+  _A $1 $2 "cd $(pwd)"
 }
 
 _push_up_alias_changes() {
         cd ~/dotfiles
-        git commit -m "Automated Alias Changes"
+        git commit -a -m "Automated Alias Changes"
         git push
         cd -
 }
