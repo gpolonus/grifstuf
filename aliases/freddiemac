@@ -1,0 +1,45 @@
+
+alias shared="cd /home/ide/project/docroot/sites/default/modules/shared-components"
+
+alias project="cd /home/ide/project"
+
+alias proj="cd /home/ide/project"
+
+alias theme="cd /home/ide/project/docroot/sites/default/themes/shared-themes"
+
+alias ide="cd /home/ide/project"
+
+alias sheild="drush @fm.dev ssh 'cat /mnt/gfs/freddiemacexp.01dev/secrets.settings.php'"
+
+alias tuli="drush @fm.test uli"
+
+shield() {
+    echo 'fmwebusr'
+    echo 'fhlmc@21DEV'
+}
+
+alias puli="drush @fm.prod uli"
+alias duli="drush @fm.dev uli"
+
+
+gchbs() {
+    latest
+    theme
+    gchb "$1" && git pull
+    shared
+    gchb "$1" && git pull
+    ide
+    gchb "$1" && git pull
+}
+
+latest() {
+    theme
+    git checkout develop
+    gpod
+    shared
+    git checkout develop
+    gpod
+    proj
+    git checkout develop
+    gpod
+}

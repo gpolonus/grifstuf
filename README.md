@@ -2,11 +2,6 @@
 
 ## Current Features:
 - bash aliases
-- vim config
-- tmux config
-- vscode settings
-
-## Features:
 - `_A` will commit new aliases to the proper bucket
 - every sourcing will check for new updates and pull them in
 - each environment only gets the config and aliases it needs
@@ -15,6 +10,9 @@
 
 
 ## Future Features:
+- vim config
+- tmux config
+- vscode settings
 - only do an automated pull down from repo once a day
     - check on date stored in a hidden file with the current day before pulling down
 - upon initialization installs desired environment tooling
@@ -23,7 +21,7 @@
 
 
 ## Future Future Features:
-- getting zsh to work and figuring what it is
+- getting `zsh` to work and figuring what it is
 - upon initialization installs desired environment tooling
     - a better terminal filesystem?
     - docker?
