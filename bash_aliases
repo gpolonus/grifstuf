@@ -22,7 +22,8 @@ _D() {
 
 _push_up_alias_changes() {
         cd ~/dotfiles
-        git commit -a -m "Automated Alias Changes"
+        git add .
+        git commit -m "Automated Alias Changes"
         git push
         cd -
 }
