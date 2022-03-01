@@ -15,11 +15,11 @@
 - each environment only gets the config and aliases it needs
     - based on the value in a hidden file created on repo init
 - symlinks between files in repo and where the OS needs them to be
+- only do an automated pull down from repo once a day
+    - check on date stored in a hidden file with the current day before pulling down
 
 
 ## Future Features:
-- only do an automated pull down from repo once a day
-    - check on date stored in a hidden file with the current day before pulling down
 - vim config
 - tmux config
 - vscode settings

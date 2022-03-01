@@ -1,9 +1,13 @@
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-## TODO add date check
+alias day-date="date +%m-%d-%Y"
+
 cd ~/dotfiles
-git fetch && git pull
+if [ -f ".date" -a "$(day-date)" != "$(cat .date)" ]; then
+        git fetch && git pull
+fi;
+day-date > .date
 for f in $(cat .env); do source ~/dotfiles/aliases/$f; done
 cd -
 

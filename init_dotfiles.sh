@@ -8,5 +8,7 @@ ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 # - https://code.visualstudio.com/docs/editor/extension-marketplace#_command-line-extension-management
 
 # TODO install favorite tools
+# - fzf
+# - neovim
 
 source ~/.bash_aliases
