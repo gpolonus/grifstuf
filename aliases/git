@@ -29,6 +29,11 @@ gclean() {
         fi
 }
 
+gacm() {
+    git add . && git commit -m "${1}"
+}
+
+
 alias gnuke="git reset --hard && git clean -f"
 
 alias grlast="git reset $(git log -2 | grep ^commit | grep -o ' .*' | tail -1)"
