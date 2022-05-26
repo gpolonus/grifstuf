@@ -24,6 +24,10 @@ _D() {
   _A $1 $2 "cd $(pwd)"
 }
 
+alias ea="vim ~/.bash_aliases"
+alias sa="source ~/.bash_aliases"
+alias va="cat ~/.bash_aliases"
+
 _push_up_alias_changes() {
         cd ~/dotfiles
         git add .
@@ -32,10 +36,6 @@ _push_up_alias_changes() {
         cd -
         sa
 }
-
-alias ea="vim ~/.bash_aliases"
-alias sa="source ~/.bash_aliases"
-alias va="cat ~/.bash_aliases"
 
 alias npr="npm run "
 
