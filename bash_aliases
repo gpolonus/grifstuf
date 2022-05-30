@@ -37,6 +37,11 @@ _push_up_alias_changes() {
         sa
 }
 
+mkcd() {
+	mkdir $1
+	cd $1
+}
+
 alias npr="npm run "
 
 alias frep="find ./ -type f | grep"
