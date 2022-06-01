@@ -1,0 +1,254 @@
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+_A() {
+  echo "alias $1=\"$2\"" >> ~/.bash_aliases
+  source ~/.bash_aliases
+}
+
+_D() {
+  _A $1 "cd $(pwd)"
+}
+
+alias ea="vim ~/.bash_aliases"
+alias sa="source ~/.bash_aliases"
+
+gcrb() {
+        git fetch
+        git checkout origin/develop
+        git checkout -b "feature/FRED-${1}"
+        git push --no-verify --set-upstream origin feature/FRED-${1}
+}
+
+gcrbh() {
+        gchb $1 || gcrb $1
+}
+
+gb() {
+        echo "$(git branch | grep '^\*' | grep -o 'feature/FRED-[0-9]*')"
+}
+
+gbid() {
+        echo "$(git branch | grep '^\*' | grep -o 'FRED-[0-9]*')"
+}
+
+gacm() {
+        echo "$(gbid): ${1}."
+        git add . && git commit -m "$(gbid): ${1}."
+}
+
+gcm() {
+        echo "$(gbid): ${1}."
+        git commit -m "$(gbid): ${1}."
+}
+
+gchb() {
+        git fetch
+        git checkout "feature/FRED-${1}"
+}
+
+grchb() {
+        git checkout "${git branch | grep $1}"
+}
+
+alias gpod="git fetch && git pull origin develop"
+
+
+alias va="cat ~/.bash_aliases"
+alias npr="npm run "
+alias bs="blt sync"
+alias uli="drush uli"
+alias dcex="drush cex"
+alias dcexy="drush cex -y"
+alias gits="git status"
+alias gl="git log --decorate"
+alias gc="git checkout "
+alias gpnv="git push --no-verify"
+alias shared="cd /home/ide/project/docroot/sites/default/modules/shared-components"
+alias project="cd /home/ide/project"
+alias proj="cd /home/ide/project"
+alias theme="cd /home/ide/project/docroot/sites/default/themes/shared-themes"
+move_down() {
+        drush sql-drop -y && drush sql-sync "@$1" @self -y
+}
+alias frep="find ./ -type f | grep"
+zcd() {
+        cd $(find ./ -type d | fzf)
+}
+
+mainest() {
+        theme
+        gchm
+        shared
+        gchm
+        ide
+        gchm
+}
+
+latest() {
+        theme
+        git checkout develop
+        gpod
+        shared
+        git checkout develop
+        gpod
+        proj
+        git checkout develop
+        gpod
+}
+
+alias gpom="git fetch --all --tags && git pull origin main"
+latest_main() {
+        theme
+        git checkout main
+        gpom
+        shared
+        git checkout main
+        gpom
+        proj
+        git checkout main
+        gpom
+}
+
+
+
+alias ide="cd /home/ide/project"
+alias fcd="cd ~/project**"
+alias dx="dcex"
+alias fzd="find ./ -type d | fzf"
+
+dsql-select() {
+        drush sqlq "SELECT * FROM $1"
+}
+
+dsql-describe() {
+        drush sqlq "DESCRIBE $1"
+}
+
+loop() {
+        $1 | xargs -L1 $2
+}
+alias asdf="cat ~/project/docroot/asdf.txt"
+alias casdf="rm ~/project/docroot/asdf.txt"
+alias zgco='git co $(git branch | fzf)'
+alias gcnvm="git commit --no-verify -m "
+alias gacnvm="git add . && git commit --no-verify -m "
+alias gitnp="git --no-pager"
+alias gd="gitnp diff"
+alias dsf="blt dsf"
+alias duli="drush @fm.dev uli"
+alias sax="cat ~/.ax-status"
+
+eax() {
+        echo $1 > ~/.ax-status
+}
+
+ax() {
+        acli xdebug
+        if ["$(sax)" == "0"];
+        then eax 1
+        else eax 0;
+        fi
+}
+
+alias rax="ax && ax"
+alias grh="git reset --hard && git clean -f"
+alias puli="drush @fm.prod uli"
+alias dcexy="dcex -y"
+alias sheild="drush @fm.dev ssh 'cat /mnt/gfs/freddiemacexp.01dev/secrets.settings.php'"
+alias gcnv="git commit --no-verify -m"
+alias tuli="drush @fm.test uli"
+
+compr() {
+        composer require "drupal/$1"
+}
+alias gds="gd --staged"
+
+gclean() {
+        git clean -n
+        read -p "Are you sure? " -n 1 -r
+        echo    # (optional) move to a new line
+        if [[ $REPLY =~ ^[Yy]$ ]]
+        then
+                git clean -f
+        fi
+}
+
+
+lert() {
+    printf "\e[48;5;196m%03d $1"
+    printf '\e[0m'
+    echo
+}
+
+colors() {
+for((i=16; i<256; i++)); do
+    printf "\e[48;5;${i}m%03d" $i;
+    printf '\e[0m';
+    [ ! $((($i - 15) % 6)) -eq 0 ] && printf ' ' || printf '\n'
+done;
+}
+
+
+alias gnuke="git reset --hard && git clean -f"
+
+alias hbs="blt drupal:update && blt source:build:frontend && uli"
+fbs() {
+        blt fm:setup:validate
+        blt source:build:composer
+        blt blt:init:settings
+        blt drupal:update
+        blt source:build:frontend
+}
+alias dcim="drush cim -y"
+alias bfb="blt frontend:build"
+
+shield() {
+echo 'fmwebusr'
+echo 'fhlmc@21DEV'
+}
+
+gchbs() {
+latest
+theme
+gchb "$1" && gpod
+shared
+gchb "$1" && gpod
+ide
+gchb "$1" && gpod
+}
+
+
+
+alias bbbs="bs || dcexy && bs"
+alias cr="drush cr"
+alias gadmin="drush ucrt gpolonus && drush urol administrator gpolonus && drush upwd gpolonus admin"
+alias dcr="drush cc render"
+alias ccr="dcr"
+alias bss="blt fm:site:select"
+alias mfdevsftp="sftp freddiemacstd.01dev@freddiemacstd01dev.ssh.enterprise-g1.acquia-sites.com"
+alias mfprodsftp="sftp freddiemacstd.01live@web-6103.enterprise-g1.hosting.acquia.com"
+alias gp="git push"
+
+prodconfig() {
+        drush -Dssh.tty=0 "@$1.prod" cget "$2" > "config/$1/$2.yml"
+}
+
+alias files="cd /home/ide/project/docroot/sites/default/files"
+alias gcpm="git cherry-pick -m1 "
+alias gcpa="git cherry-pick --abort"
+alias gchd="git checkout develop && gpod"
+alias gchm="git checkout main && gpom"
+alias gs="git status"
+
+gct() {
+        git checkout "tags/$1" -b "$1"
+}
+alias mftestsftp="sftp freddiemacstd.01testup@freddiemacstd01testup.ssh.enterprise-g1.acquia-sites.com"
+
+bsp() {
+        blt sync -Ddrush.aliases.remote="$1.prod"
+}
+
+alias dsfp="blt drupal:sync:private-files"
+alias gstash="git stash clear && git add . && git stash"
