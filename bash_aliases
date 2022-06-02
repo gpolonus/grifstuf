@@ -16,12 +16,14 @@ cd -
 # $2 name
 # $3 command
 _A() {
-        echo "$1 $2 $3"
+        if [ -z "$3" ]; then
+                echo "Forgot to include some params"
+                return 0;
+        fi
         echo "alias $2=\"$3\"" >> ~/dotfiles/aliases/$1 && _push_up_alias_changes
 }
 
 _D() {
-        echo "$1 $2 $3"
         _A $1 $2 "cd $(pwd)"
 }
 
