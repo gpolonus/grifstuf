@@ -16,12 +16,13 @@ cd -
 # $2 name
 # $3 command
 _A() {
-  echo "alias $2=\"$3\"" >> ~/dotfiles/aliases/$1 && _push_up_alias_changes
-  source ~/.bash_aliases
+        echo "$1 $2 $3"
+        echo "alias $2=\"$3\"" >> ~/dotfiles/aliases/$1 && _push_up_alias_changes
 }
 
 _D() {
-  _A $1 $2 "cd $(pwd)"
+        echo "$1 $2 $3"
+        _A $1 $2 "cd $(pwd)"
 }
 
 alias ea="vim ~/.bash_aliases"
@@ -30,9 +31,9 @@ alias va="cat ~/.bash_aliases"
 
 _push_up_alias_changes() {
         cd ~/dotfiles
-        git add .
-        git commit -m "Automated Alias Changes"
-        git push
+        # git add .
+        # git commit -m "Automated Alias Changes"
+        # git push
         cd -
         sa
 }
