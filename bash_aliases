@@ -18,7 +18,7 @@ cd -
 _A() {
         if [ -z "$3" ]; then
                 echo "Forgot to include some params"
-                return 0;
+                return 1;
         fi
         echo "alias $2=\"$3\"" >> ~/dotfiles/aliases/$1 && _push_up_alias_changes
 }
@@ -33,9 +33,9 @@ alias va="cat ~/.bash_aliases"
 
 _push_up_alias_changes() {
         cd ~/dotfiles
-        # git add .
-        # git commit -m "Automated Alias Changes"
-        # git push
+        git add .
+        git commit -m "Automated Alias Changes"
+        git push
         cd -
         sa
 }
