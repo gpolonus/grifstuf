@@ -54,3 +54,18 @@ move_down() {
         drush sql-drop -y && drush sql-sync "@$1" @self -y
 }
 
+# Requires $DRUSH_SITE_FOLDER_MAP be defined
+ldrush() {
+        while getopts ":l:" option; do
+                case $option in
+                        l)
+                                lando drush -l $OPTARG $@
+                                return 0;;
+                esac
+        done
+
+        [ -z "$DRUSH_SITE_FOLDER_MAP" ] && echo 'Need $DRUSH_SITE_FOLDER_MAP to be defined' && return 0
+
+        SITE=$(map_folder_to_value $DRUSH_SITE_FOLDER_MAP)
+        lando drush -l $SITE $@
+}

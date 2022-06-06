@@ -62,8 +62,10 @@ lert() {
 
 alias dotfiles="cd ~/dotfiles"
 
+# $1 is the folder-value map in YAML
+# $2 is the working directory from where this command was called
 map_folder_to_value() {
-  zx ~/dotfiles/map_folder.mjs $1 $2
+  zx ~/dotfiles/map_folder.mjs $1 $(pwd)
 }
 
 empty() {
@@ -72,6 +74,7 @@ empty() {
 
 
 # things that dont work
+
 # getoption() {
 #   while getopts ":$1:" option; do
 #     case $option in
