@@ -69,3 +69,4 @@ ldrush() {
         SITE=$(map_folder_to_value $DRUSH_SITE_FOLDER_MAP)
         lando drush -l $SITE $@
 }
+alias dcex="ldrush cex"
