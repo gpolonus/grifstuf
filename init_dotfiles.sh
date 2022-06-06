@@ -11,10 +11,10 @@ ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 # - fzf
 # - neovim
 # - node/npm
-    # - zx
 
 # sudo npm i -g n
 # sudo n latest
 # sudo npm i -g zx
+# npm i
 
 source ~/.bash_aliases
