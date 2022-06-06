@@ -10,5 +10,11 @@ ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 # TODO install favorite tools
 # - fzf
 # - neovim
+# - node/npm
+    # - zx
+
+# sudo npm i -g n
+# sudo n latest
+# sudo npm i -g zx
 
 source ~/.bash_aliases

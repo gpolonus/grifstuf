@@ -49,18 +49,38 @@ alias npr="npm run "
 
 alias frep="find ./ -type f | grep"
 zcd() {
-        cd $(find ./ -type d | fzf)
+  cd $(find ./ -type d | fzf)
 }
 alias fcd="cd ~/project**"
 alias fzd="find ./ -type d | fzf"
 
 lert() {
-    printf "\e[48;5;196m%03d $1"
-    printf '\e[0m'
-    echo
+  printf "\e[48;5;196m%03d $1"
+  printf '\e[0m'
+  echo
 }
 
 alias dotfiles="cd ~/dotfiles"
+
+map_folder_to_value() {
+  zx ~/dotfiles/map_folder.mjs $1 $2
+}
+
+empty() {
+  [ -z "$1" ]
+}
+
+
+# things that dont work
+# getoption() {
+#   while getopts ":$1:" option; do
+#     case $option in
+#       l)
+#         echo "$option"
+#         exit;;
+#     esac
+#   done
+# }
 
 # colors() {
 #         for((i=16; i<256; i++)); do

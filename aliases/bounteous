@@ -1,8 +1,29 @@
+
 dlone() {
 	git clone "git@git.drupal.org:project/$1.git"
 }
+
 alias bcom="cd /Users/griffenpolonus/Sites/bounteous.com"
 alias repos="cd /Users/griffenpolonus/Repos"
 alias sites="cd /Users/griffenpolonus/Sites"
 alias proj="cd ~/Projects"
 alias sandbox-site-studio="cd /Users/griffenpolonus/Sites/acsf-sandbox-7"
+
+read -r -d '' DRUSH_SITE_FOLDER_MAP << EOM
+{
+	"Sites/acsf-sandbox-7": "template.lndo.site"
+}
+EOM
+
+ldrush() {
+	while getopts ":l:" option; do
+		case $option in
+			l)
+				lando drush -l $OPTARG $@
+				return 0;;
+		esac
+	done
+
+	SITE=$(map_folder_to_value $DRUSH_SITE_FOLDER_MAP $(pwd))
+	lando drush -l $SITE $@
+}
