@@ -12,3 +12,4 @@ alias sandbox-site-studio="cd /Users/griffenpolonus/Sites/acsf-sandbox-7"
 read -r -d '' DRUSH_SITE_FOLDER_MAP << EOM
 Sites/acsf-sandbox-7: template.lndo.site
 EOM
+alias rubi="cd /Users/griffenpolonus/Sites/rubi-health"
