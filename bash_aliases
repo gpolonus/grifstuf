@@ -33,7 +33,7 @@ _D() {
         _A $1 $2 "cd $(pwd)"
 }
 
-alias ea="vim ~/.bash_aliases"
+alias ea="code ~/dotfiles"
 alias sa="source ~/.bash_aliases"
 alias va="cat ~/.bash_aliases"
 
