@@ -70,3 +70,6 @@ ldrush() {
         lando drush -l $SITE $@
 }
 alias dcex="ldrush cex"
+alias uli="ldrush uli"
+
+alias composer="lando composer"

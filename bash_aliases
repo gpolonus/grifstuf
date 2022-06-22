@@ -35,7 +35,9 @@ _D() {
 
 alias ea="code ~/dotfiles"
 alias sa="source ~/.bash_aliases"
-alias va="cat ~/.bash_aliases"
+va() {
+        cat ~/aliases/$1
+}
 
 _push_up_alias_changes() {
         cd ~/dotfiles
