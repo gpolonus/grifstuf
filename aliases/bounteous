@@ -14,3 +14,4 @@ Sites/acsf-sandbox-7: template.lndo.site
 Sites/peoni-health: peoni-health.lndo.site
 EOM
 alias peoni="cd /Users/griffenpolonus/Sites/peoni-health"
+alias myabetes="cd /Users/griffenpolonus/Sites/myabetes"
