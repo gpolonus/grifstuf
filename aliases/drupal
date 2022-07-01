@@ -73,6 +73,5 @@ ldrush() {
 alias dcex="ldrush cex"
 alias uli="ldrush uli"
 
-alias composer="lando composer"
 alias lcomposer="lando composer"
 alias lbs="lando blt sync"

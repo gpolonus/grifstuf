@@ -1,6 +1,15 @@
 
-rm -f ~/.bash_aliases
-ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
+
+# TODO: Add an option in here to chose between normal and oh-my-zsh
+# TODO: or just have this script install oh-my-zsh
+# TODO: Make a script installer for this repo that includes installing git and cloning this repo down etc
+
+# Normal
+# rm -f ~/.bash_aliases
+# ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
+
+# For oh my zsh
+# ln -s ~/dotfiles/bash_aliases ~/.oh-my-zsh/custom/bash_aliases
 
 # TODO tmux.conf
 # TODO neovim config and packages
