@@ -1,12 +1,14 @@
 
-grchb() {
-        git checkout "${git branch | grep $1}"
-}
-
 alias gpod="git fetch && git pull origin develop"
 
+# NEEDS $GIT_BRANCH_PREFIX_MAP TO BE DEFINED
 gchb() {
-	git checkout $(git branch | grep -o $1)
+        GIT_BRANCH_PREFIX=$(map_folder_to_value $GIT_BRANCH_PREFIX_MAP)
+	git checkout "$GIT_BRANCH_PREFIX$1"
+}
+
+grchb() {
+        git checkout $(git branch | grep $1)
 }
 
 alias gits="git status"
