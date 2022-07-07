@@ -19,3 +19,4 @@ alias myabetes="cd /Users/griffenpolonus/Sites/myabetes"
 
 GIT_BRANCH_PREFIX_MAP[Sites/peoni-health]="feature/SEA-"
 GIT_BRANCH_PREFIX_MAP[/Users/griffenpolonus/Sites/peoni-health]="feature/SEA-"
+alias timekeeper="cd /Users/griffenpolonus/Repos/timekeeper"
