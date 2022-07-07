@@ -9,14 +9,13 @@ alias sites="cd /Users/griffenpolonus/Sites"
 alias proj="cd ~/Projects"
 alias sandbox-site-studio="cd /Users/griffenpolonus/Sites/acsf-sandbox-7"
 
-read -r -d '' DRUSH_SITE_FOLDER_MAP << EOM
-Sites/acsf-sandbox-7: template.lndo.site
-Sites/peoni-health: peoni-health.lndo.site
-EOM
+# read -r -d '' DRUSH_SITE_FOLDER_MAP << EOM
+# Sites/acsf-sandbox-7: template.lndo.site
+# Sites/peoni-health: peoni-health.lndo.site
+# EOM
 
 alias peoni="cd /Users/griffenpolonus/Sites/peoni-health"
 alias myabetes="cd /Users/griffenpolonus/Sites/myabetes"
 
-read -r -d '' GIT_BRANCH_PREFIX_MAP << EOM
-Sites/peoni-health: feature/SEA-
-EOM
+GIT_BRANCH_PREFIX_MAP[Sites/peoni-health]="feature/SEA-"
+GIT_BRANCH_PREFIX_MAP[/Users/griffenpolonus/Sites/peoni-health]="feature/SEA-"

@@ -70,11 +70,19 @@ lert() {
 
 alias dotfiles="cd ~/dotfiles"
 
-# $1 is the folder-value map in YAML
+# $1 is the folder-value map as a zsh associative array
 # $2 is the working directory from where this command was called
-map_folder_to_value() {
-  zx ~/dotfiles/map_folder.mjs $1 $(pwd)
-}
+# TODO: Figure out how to pass associative array into this function
+# map_folder_to_value() {
+#         echo $1
+#         declare -A arr
+#         arr=${(P)$(echo $1)}
+#         # echo $arr
+#         echo ${(k)arr}
+#         echo ${(k)GIT_BRANCH_PREFIX_MAP}
+#         echo ${(v)arr}
+#         echo $arr["$(pwd)"]
+# }
 
 empty() {
   [ -z "$1" ]
