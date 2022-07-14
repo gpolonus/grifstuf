@@ -73,5 +73,4 @@ move_down() {
 
 alias dcex="drush cex"
 alias uli="drush uli"
-
-alias bs="blt sync"
+alias bs="blt sync && uli"

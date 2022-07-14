@@ -10,6 +10,7 @@
 
 # For oh my zsh
 # ln -s ~/dotfiles/bash_aliases ~/.oh-my-zsh/custom/bash_aliases
+# ZSH IS TRASH: it started lagging when I tried to tab a path in a `git diff` command, so dump it
 
 # TODO tmux.conf
 # TODO neovim config and packages

@@ -110,3 +110,8 @@ empty() {
 # }
 
 alias lrep="ls | grep "
+
+# Idea for making creating folder maps easier
+# _create_map() {
+#   declare -A TICKET_PREFIX_MAP
+# }
