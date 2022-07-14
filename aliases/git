@@ -1,21 +1,16 @@
 
 alias gpod="git fetch && git pull origin develop"
 
-# NEEDS $GIT_BRANCH_PREFIX_MAP TO BE DEFINED
-declare -A GIT_BRANCH_PREFIX_MAP
-git_branch_name() {
-        echo $GIT_BRANCH_PREFIX_MAP[$(pwd)]$1
-}
-
 gchb() {
         git fetch
-	git checkout "$(git_branch_name $1)"
+	git checkout $GIT_BRANCH_PREFIX$1
 }
 
 gcrb() {
+        load_vars
         git fetch
         git checkout origin/$GIT_DEV_BRANCH
-        GIT_BRANCH_NAME=$(git_branch_name $1)
+        GIT_BRANCH_NAME=$GIT_BRANCH_PREFIX$1
         git checkout -b $GIT_BRANCH_NAME
         git push --no-verify --set-upstream origin $GIT_BRANCH_NAME
 }
@@ -45,13 +40,17 @@ gclean() {
         fi
 }
 
-declare -A TICKET_PREFIX_MAP
 gacm() {
-    $TICKET_PREFIX=$TICKET_PREFIX_MAP[$(pwd)]
-    $TICKET_ID=$(git branch | grep "^\*" | grep -o "$TICKET_PREFIX\d*")
-    git add . && git commit -m "$TICKET_ID: ${1}."
-}
+        load_vars
 
+        if [ -z $JIRA_TICKET_PREFIX ] then;
+                git add . && git commit -m "${1}"
+                return;
+        fi;
+
+        TICKET_ID=$(git branch | grep "^\*" | grep -o "$JIRA_TICKET_PREFIX\d*")
+        git add . && git commit -m "$TICKET_ID: ${1}."
+}
 
 alias gnuke="git reset --hard && git clean -f"
 
@@ -62,6 +61,6 @@ alias gcnvm="git commit --no-verify -m "
 alias gacnvm="git add . && git commit --no-verify -m "
 alias gitnp="git --no-pager"
 alias gd="gitnp diff"
-MAIN_BRANCH="main"
-alias gpom="git fetch && git pull origin $MAIN_BRANCH"
+alias gpom="git fetch && git pull origin $GIT_MAIN_BRANCH"
 alias gb="git branch | grep '^*'"
+alias gp="git push"

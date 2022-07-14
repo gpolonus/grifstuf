@@ -17,7 +17,12 @@ alias sandbox-site-studio="cd /Users/griffenpolonus/Sites/acsf-sandbox-7"
 alias peoni="cd /Users/griffenpolonus/Sites/peoni-health"
 alias myabetes="cd /Users/griffenpolonus/Sites/myabetes"
 
+load_vars() {
+	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
+		GIT_BRANCH_PREFIX="feature/SEA-"
+		JIRA_TICKET_PREFIX="SEA-"
+		GIT_MAIN_BRANCH="main"
+		GIT_DEV_BRANCH="main"
+	fi;
+}
 
-GIT_DEV_BRANCH="main"
-GIT_BRANCH_PREFIX_MAP[/Users/griffenpolonus/Sites/peoni-health]="feature/SEA-"
-TICKET_PREFIX_MAP[/Users/griffenpolonus/Sites/peoni-health]="SEA-"

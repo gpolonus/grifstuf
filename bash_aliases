@@ -115,3 +115,10 @@ alias lrep="ls | grep "
 # _create_map() {
 #   declare -A TICKET_PREFIX_MAP
 # }
+
+load_vars() {
+        GIT_BRANCH_PREFIX=""
+        JIRA_TICKET_PREFIX=""
+        GIT_MAIN_BRANCH="main"
+        GIT_DEV_BRANCH="develop"
+}
