@@ -62,6 +62,22 @@ alias gcnvm="git commit --no-verify -m "
 alias gacnvm="git add . && git commit --no-verify -m "
 alias gitnp="git --no-pager"
 alias gd="gitnp diff"
-alias gpom="git fetch && git pull origin $GIT_MAIN_BRANCH"
+
+gpom() {
+        _load_vars
+        git fetch && git pull origin $GIT_MAIN_BRANCH
+}
+
 alias gb="git branch | grep '^*'"
 alias gp="git push"
+
+gchd(){
+        _load_vars && git checkout origin/$GIT_DEV_BRANCH
+}
+
+gdb() {
+        _load_vars
+        git branch -D $GIT_BRANCH_PREFIX$1
+}
+
+alias gbs="git branch"

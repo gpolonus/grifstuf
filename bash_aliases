@@ -1,6 +1,17 @@
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+### DEFAULTS
+
+_load_vars() {
+        GIT_BRANCH_PREFIX=""
+        JIRA_TICKET_PREFIX=""
+        GIT_MAIN_BRANCH="main"
+        GIT_DEV_BRANCH="develop"
+}
+
+### END DEFAULTS
+
 alias day-date="date +%m-%d-%Y"
 
 cd ~/dotfiles
@@ -74,6 +85,7 @@ empty() {
   [ -z "$1" ]
 }
 
+alias lrep="ls | grep "
 
 # things that dont work
 
@@ -95,16 +107,3 @@ empty() {
 #         done;
 # }
 
-alias lrep="ls | grep "
-
-# Idea for making creating folder maps easier
-# _create_map() {
-#   declare -A TICKET_PREFIX_MAP
-# }
-
-_load_vars() {
-        GIT_BRANCH_PREFIX=""
-        JIRA_TICKET_PREFIX=""
-        GIT_MAIN_BRANCH="main"
-        GIT_DEV_BRANCH="develop"
-}
