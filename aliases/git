@@ -43,10 +43,10 @@ gclean() {
 gacm() {
         load_vars
 
-        if [ -z $JIRA_TICKET_PREFIX ] then;
+        if [ -z $JIRA_TICKET_PREFIX ]; then
                 git add . && git commit -m "${1}"
-                return;
-        fi;
+                return 0
+        fi
 
         TICKET_ID=$(git branch | grep "^\*" | grep -o "$JIRA_TICKET_PREFIX\d*")
         git add . && git commit -m "$TICKET_ID: ${1}."
