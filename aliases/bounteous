@@ -17,7 +17,7 @@ alias sandbox-site-studio="cd /Users/griffenpolonus/Sites/acsf-sandbox-7"
 alias peoni="cd /Users/griffenpolonus/Sites/peoni-health"
 alias myabetes="cd /Users/griffenpolonus/Sites/myabetes"
 
-load_vars() {
+_load_vars() {
 	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
 		GIT_BRANCH_PREFIX="feature/SEA-"
 		JIRA_TICKET_PREFIX="SEA-"

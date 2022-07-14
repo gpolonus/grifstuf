@@ -2,12 +2,13 @@
 alias gpod="git fetch && git pull origin develop"
 
 gchb() {
+        _load_vars
         git fetch
 	git checkout $GIT_BRANCH_PREFIX$1
 }
 
 gcrb() {
-        load_vars
+        _load_vars
         git fetch
         git checkout origin/$GIT_DEV_BRANCH
         GIT_BRANCH_NAME=$GIT_BRANCH_PREFIX$1
@@ -41,7 +42,7 @@ gclean() {
 }
 
 gacm() {
-        load_vars
+        _load_vars
 
         if [ -z $JIRA_TICKET_PREFIX ]; then
                 git add . && git commit -m "${1}"
