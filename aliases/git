@@ -81,3 +81,4 @@ gdb() {
 }
 
 alias gbs="git branch"
+alias gstash="git stash clear && git add . && git stash"alias gapply="git stash apply"

@@ -5,8 +5,8 @@
 # TODO: Make a script installer for this repo that includes installing git and cloning this repo down etc
 
 # Normal
-# rm -f ~/.bash_aliases
-# ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
+rm -f ~/.bash_aliases
+ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 
 # For oh my zsh
 # ln -s ~/dotfiles/bash_aliases ~/.oh-my-zsh/custom/bash_aliases

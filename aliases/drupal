@@ -73,4 +73,16 @@ move_down() {
 
 alias dcex="drush cex"
 alias uli="drush uli"
-alias bs="blt sync && uli"
+alias bs="time blt sync && uli"
+
+bs_no_db() {
+    blt source:build:composer
+    blt blt:init:settings
+#     blt drupal:sync:db
+    blt drupal:update
+    blt source:build:frontend
+    blt cohesion:update
+    uli
+}
+
+alias dsfp="blt drupal:sync:private-files"
