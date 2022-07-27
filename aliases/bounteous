@@ -26,3 +26,4 @@ _load_vars() {
 	fi;
 }
 
+alias peoni-theme="cd /Users/griffenpolonus/Sites/peoni-health/docroot/themes/custom/peoni"
