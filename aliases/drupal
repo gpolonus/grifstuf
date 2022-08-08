@@ -88,3 +88,5 @@ bs_no_db() {
 alias dsfp="blt drupal:sync:private-files"
 
 alias lxdon="lando xdebug-on"
+
+alias lxdoff="lando xdebug-off"
