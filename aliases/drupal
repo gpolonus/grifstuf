@@ -90,3 +90,5 @@ alias dsfp="blt drupal:sync:private-files"
 alias lxdon="lando xdebug-on"
 
 alias lxdoff="lando xdebug-off"
+
+alias search-reindex="drush sapi-c && drush sapi-r && drush sapi-i"
