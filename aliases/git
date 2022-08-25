@@ -72,8 +72,13 @@ alias gb="git branch | grep '^*'"
 alias gp="git push"
 
 gchd(){
-        _load_vars && git checkout origin/$GIT_DEV_BRANCH
+        _load_vars
+        git branch -D $GIT_DEV_BRANCH
+        git checkout origin/$GIT_DEV_BRANCH
+        git checkout -b $GIT_DEV_BRANCH
 }
+
+alias gcm="gchd"
 
 gdb() {
         _load_vars
