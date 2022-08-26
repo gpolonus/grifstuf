@@ -19,7 +19,12 @@ if [ -f ".date" -a "$(day-date)" != "$(cat .date)" ]; then
         git fetch && git pull
 fi;
 day-date > .date
-for f in $(cat .env); do source ~/dotfiles/aliases/$f; done
+
+LOCAL_ENV_NAME=''
+for f in $(cat .env); do
+        source ~/dotfiles/aliases/$f
+        LOCAL_ENV_NAME="$f"
+done
 cd -
 
 # Create alias from terminal
@@ -28,8 +33,9 @@ cd -
 # $3 command
 _A() {
         if [ -z "$3" ]; then
-                echo "Forgot to include some params"
-                return 1;
+                ENV="$LOCAL_ENV_NAME"
+        else
+                ENV="$1"
         fi
 
         if [ "$1" = "aliases" ]; then
@@ -37,11 +43,11 @@ _A() {
                 return 1;
         fi
 
-        echo "\nalias $2=\"$3\"" >> ~/dotfiles/aliases/$1 && _push_up_alias_changes
+        echo "\nalias $2=\"$3\"" >> ~/dotfiles/aliases/$ENV && _push_up_alias_changes
 }
 
 _D() {
-        _A $1 $2 "cd $(pwd)"
+        _A $1 "cd $(pwd)"
 }
 
 alias ea="code ~/dotfiles"
