@@ -39,11 +39,11 @@ _A() {
         fi
 
         if [ "$1" = "aliases" ]; then
-                echo "\nalias $2=\"$3\"" >> ~/dotfiles/bash_aliases && _push_up_alias_changes
-                return 1;
+                printf "\nalias $2=\"$3\"\n" >> ~/dotfiles/bash_aliases && _push_up_alias_changes
+                return 0;
         fi
 
-        echo "\nalias $2=\"$3\"" >> ~/dotfiles/aliases/$ENV && _push_up_alias_changes
+        printf "\nalias $2=\"$3\"\n" >> ~/dotfiles/aliases/$ENV && _push_up_alias_changes
 }
 
 _D() {
