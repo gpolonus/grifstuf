@@ -29,5 +29,3 @@ _load_vars() {
 alias peoni-theme="cd /Users/griffenpolonus/Sites/peoni-health/docroot/themes/custom/peoni"
 
 alias scripts="cd /Users/griffenpolonus/Sites/scripts"
-
-alias drush @peoni.dev uli=""
