@@ -117,3 +117,5 @@ alias lrep="ls | grep "
 #         done;
 # }
 
+
+alias node="./node.js || node"
