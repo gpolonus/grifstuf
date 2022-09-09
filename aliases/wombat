@@ -1,4 +1,4 @@
 
 alias otto="cd /home/grif/Projects/otto-trading"
 
-alias cd /home/grif/Projects/collatz=""
+alias collatz="cd /home/grif/Projects/collatz"

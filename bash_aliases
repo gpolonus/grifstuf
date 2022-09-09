@@ -34,8 +34,12 @@ cd -
 _A() {
         if [ -z "$3" ]; then
                 ENV="$LOCAL_ENV_NAME"
+                ALIAS_NAME="$1"
+                ALIAS_CONTENTS="$2"
         else
                 ENV="$1"
+                ALIAS_NAME="$2"
+                ALIAS_CONTENTS="$3"
         fi
 
         if [ "$1" = "aliases" ]; then
@@ -43,7 +47,7 @@ _A() {
                 return 0;
         fi
 
-        printf "\nalias $2=\"$3\"\n" >> ~/dotfiles/aliases/$ENV && _push_up_alias_changes
+        printf "\nalias $ALIAS_NAME=\"$ALIAS_CONTENTS\"\n" >> ~/dotfiles/aliases/$ENV && _push_up_alias_changes
 }
 
 _D() {
