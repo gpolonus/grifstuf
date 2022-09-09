@@ -12,6 +12,8 @@ _load_vars() {
 
 ### END DEFAULTS
 
+
+### PULL DOWN UPDATES ONCE A DAY
 alias day-date="date +%m-%d-%Y"
 
 cd ~/dotfiles
