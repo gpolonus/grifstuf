@@ -30,7 +30,15 @@ alias rax="ax && ax"
 
 alias dcexy="dcex -y"
 
-alias hbs="blt drupal:update && blt source:build:frontend && uli"
+hbs() {
+        blt source:build:composer
+        blt blt:init:settings
+        blt drupal:update
+        blt source:build:frontend
+        blt cohesion:update
+        uli
+}
+
 fbs() {
         blt fm:setup:validate
         blt source:build:composer
