@@ -16,6 +16,10 @@ dsql_describe() {
         drush sqlq "DESCRIBE $1"
 }
 
+dsql_table_grep() {
+        drush sqlq "SHOW TABLES" | grep $1
+}
+
 alias dsf="blt dsf"
 
 ax() {
@@ -36,6 +40,7 @@ hbs() {
         blt drupal:update
         blt source:build:frontend
         blt cohesion:update
+        dsf
         uli
 }
 
