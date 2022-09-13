@@ -1,4 +1,11 @@
 
+_load_drupal_vars() {
+	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
+		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/peoni-health/docroot/themes/custom/peoni"
+                THEME_BUILD_COMMAND="lando npm run webpack"
+	fi;
+}
+
 alias bs="blt sync"
 
 alias uli="drush uli"
@@ -105,3 +112,9 @@ alias lxdon="lando xdebug-on"
 alias lxdoff="lando xdebug-off"
 
 alias search-reindex="drush sapi-c && drush sapi-r && drush sapi-i"
+
+theme_watch() {
+        _load_drupal_vars
+        cd $DRUPAL_THEME_PATH
+        $THEME_BUILD_COMMAND
+}

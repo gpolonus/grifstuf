@@ -16,8 +16,10 @@ gcrb() {
         git push --no-verify --set-upstream origin $GIT_BRANCH_NAME
 }
 
+alias gfzf="git branch | grep "
+
 grchb() {
-        git checkout $(git branch | grep $1)
+        git checkout $(gfzf $1)
 }
 
 alias gits="git status"
