@@ -118,3 +118,5 @@ theme_watch() {
         cd $DRUPAL_THEME_PATH
         $THEME_BUILD_COMMAND
 }
+
+alias cr-theme="drush cc css-js && drush cc render"
