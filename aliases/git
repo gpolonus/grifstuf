@@ -80,7 +80,7 @@ gchd(){
         git checkout -b $GIT_DEV_BRANCH
 }
 
-alias gcm="gchd"
+alias gchm="gchd"
 
 gdb() {
         _load_vars

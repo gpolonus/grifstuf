@@ -120,3 +120,5 @@ theme_watch() {
 }
 
 alias cr-theme="drush cc css-js && drush cc render"
+
+alias sb="bs"
