@@ -123,3 +123,5 @@ alias lrep="ls | grep "
 # alias node="./node.js || node"
 
 alias node_inits='node -i -e "$(< ./inits.js)"'
+
+alias shrug="echo "¯\_(ツ)_/¯""
