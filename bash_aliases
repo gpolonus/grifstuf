@@ -22,6 +22,7 @@ if [ -f ".date" -a "$(day-date)" != "$(cat .date)" ]; then
 fi;
 day-date > .date
 
+source ~/dotfiles/aliases/.hidden
 LOCAL_ENV_NAME=''
 for f in $(cat .env); do
         source ~/dotfiles/aliases/$f
@@ -124,4 +125,4 @@ alias lrep="ls | grep "
 
 alias node_inits='node -i -e "$(< ./inits.js)"'
 
-alias shrug="echo "¯\_(ツ)_/¯""
+alias shrug="echo '¯\_(ツ)_/¯'"
