@@ -22,7 +22,9 @@ if [ -f ".date" -a "$(day-date)" != "$(cat .date)" ]; then
 fi;
 day-date > .date
 
-source ~/dotfiles/aliases/.hidden
+if [ -f ".hidden" ]; then
+        source ~/dotfiles/aliases/.hidden
+fi;
 LOCAL_ENV_NAME=''
 for f in $(cat .env); do
         source ~/dotfiles/aliases/$f

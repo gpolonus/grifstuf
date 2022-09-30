@@ -42,6 +42,7 @@ alias rax="ax && ax"
 alias dcexy="dcex -y"
 
 hbs() {
+        drush cr
         blt source:build:composer
         blt blt:init:settings
         blt drupal:update
@@ -124,3 +125,7 @@ alias cr-theme="drush cc css-js && drush cc render"
 alias sb="bs"
 
 alias ddrush="drush @peoni.dev  "
+
+delete_of_type() {
+        drush entity:delete node --bundle=$1
+}
