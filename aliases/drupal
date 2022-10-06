@@ -129,3 +129,5 @@ alias ddrush="drush @peoni.dev  "
 delete_of_type() {
         drush entity:delete node --bundle=$1
 }
+
+alias dssx="drush sitestudio:package:export"
