@@ -61,7 +61,7 @@ fbs() {
 }
 
 alias dcim="drush cim -y"
-alias bfb="blt frontend:build"
+alias bfb="blt source:build:frontend"
 
 alias bbbs="bs || dcexy && bs"
 

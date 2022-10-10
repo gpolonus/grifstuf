@@ -31,3 +31,5 @@ alias peoni-theme="cd /Users/griffenpolonus/Sites/peoni-health/docroot/themes/cu
 alias scripts="cd /Users/griffenpolonus/Sites/scripts"
 
 alias peoni-theme-watch="peoni-theme && lando npm run webpack"
+
+alias bounteous="cd /Users/griffenpolonus/Sites/peoni-health/docroot/modules/custom/peoni_search/react"
