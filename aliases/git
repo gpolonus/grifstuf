@@ -94,3 +94,5 @@ alias gapply="git stash apply"
 alias gpl="git pull"
 
 alias gf="git fetch"
+
+alias tagm="git tag -n9"
