@@ -32,6 +32,7 @@ for f in $(cat .env); do
 done
 cd -
 
+
 # Create alias from terminal
 # $1 location
 # $2 name

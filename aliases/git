@@ -75,6 +75,7 @@ alias gp="git push"
 
 gchd(){
         _load_vars
+        git fetch
         git branch -D $GIT_DEV_BRANCH
         git checkout origin/$GIT_DEV_BRANCH
         git checkout -b $GIT_DEV_BRANCH

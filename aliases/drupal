@@ -47,7 +47,6 @@ hbs() {
         blt blt:init:settings
         blt drupal:update
         blt source:build:frontend
-        blt cohesion:update
         dsf
         uli
 }
@@ -61,6 +60,7 @@ fbs() {
 }
 
 alias dcim="drush cim -y"
+alias bcim="blt drupal:config:import"
 alias bfb="blt source:build:frontend"
 
 alias bbbs="bs || dcexy && bs"
@@ -130,4 +130,6 @@ delete_of_type() {
         drush entity:delete node --bundle=$1
 }
 
-alias dssx="drush sitestudio:package:export"
+alias dssx="dcexy && drush sitestudio:package:export -y"
+
+alias move-backup="gunzip ~/Downloads/*.sql.gz && mv ~/Downloads/*.sql ~/Sites/peoni-health/backups/import.sql"
