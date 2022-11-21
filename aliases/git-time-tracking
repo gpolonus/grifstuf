@@ -14,7 +14,7 @@ gttwrite() {
 
     BRANCH=$($ORIGINAL_GIT branch | grep '^\*' | grep -o '[^\* ]*')
 
-    if [ -z "$BRANCH" ] || [ -z "$@" ]; then
+    if [ -z "$BRANCH" ]; then
         return;
     fi;
 
