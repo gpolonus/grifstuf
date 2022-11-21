@@ -6,3 +6,5 @@ alias collatz="cd /home/grif/Projects/collatz"
 alias proj="cd /home/grif/Projects"
 
 alias projects="cd /home/grif/Projects"
+
+alias pocket="proj && cd ./pocketbase-test"

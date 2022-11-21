@@ -1,0 +1,32 @@
+
+ORIGINAL_GIT=$(which git)
+GIT_TIME_LOG_FILE="$HOME/.git-time-tracking-log"
+
+git() {
+    $ORIGINAL_GIT $@
+    gttwrite $@
+}
+
+gttwrite() {
+    if [ ! -f "${GIT_TIME_LOG_FILE}" ]; then
+        touch "${GIT_TIME_LOG_FILE}"
+    fi;
+
+    BRANCH=$($ORIGINAL_GIT branch | grep '^\*' | grep -o '[^\* ]*')
+
+    if [ -z "$BRANCH" ] || [ -z "$@" ]; then
+        return;
+    fi;
+
+    echo "$BRANCH|$(date +%s)|$@" >> "${GIT_TIME_LOG_FILE}"
+}
+
+gttstart() {
+    gttwrite "__start__"
+}
+
+gttend() {
+    gttwrite "__end__"
+}
+
+alias vgtt="cat $GIT_TIME_LOG_FILE"
