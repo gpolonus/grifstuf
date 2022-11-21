@@ -21,8 +21,8 @@ _load_vars() {
 	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
 		GIT_BRANCH_PREFIX="feature/SEA-"
 		JIRA_TICKET_PREFIX="SEA-"
-		GIT_MAIN_BRANCH="main"
-		GIT_DEV_BRANCH="main"
+		GIT_MAIN_BRANCH="release/1.0.x"
+		GIT_DEV_BRANCH="release/1.0.x"
 	fi;
 }
 
