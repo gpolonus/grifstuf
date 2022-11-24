@@ -27,8 +27,10 @@ if [ -f ".hidden" ]; then
 fi;
 LOCAL_ENV_NAME=''
 for f in $(cat .env); do
-        source ~/dotfiles/aliases/$f
-        LOCAL_ENV_NAME="$f"
+        if [ -f ~/dotfiles/aliases/$f ]; then
+                source ~/dotfiles/aliases/$f
+                LOCAL_ENV_NAME="$f"
+        fi;
 done
 cd -
 
