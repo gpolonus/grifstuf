@@ -39,3 +39,5 @@ alias peoni-react-watch="peoni-react && lando npm run watch"
 alias bounteous="cd /Users/griffenpolonus/Sites/peoni-health/docroot/modules/custom/peoni_search/react"
 
 alias dpp="drush @peoni.prod"
+
+alias dpt="drush @peoni.test"
