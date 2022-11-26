@@ -72,7 +72,7 @@ gpom() {
         git fetch && git pull origin $GIT_MAIN_BRANCH
 }
 
-alias gb="git branch | grep '^*'"
+alias gb="git branch --show-current"
 alias gp="git push"
 
 gchd(){

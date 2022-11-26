@@ -133,3 +133,7 @@ delete_of_type() {
 alias dssx="dcexy && drush sitestudio:package:export -y"
 
 alias move-backup="gunzip ~/Downloads/*.sql.gz && mv ~/Downloads/*.sql ~/Sites/peoni-health/backups/import.sql"
+
+alias dshell="~/dotfiles/drush_shell.mjs"
+
+alias dursh="drush"
