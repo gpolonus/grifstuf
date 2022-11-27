@@ -58,7 +58,7 @@ gacm() {
 alias gnuke="git reset --hard && git clean -f"
 
 grlast() {
-        git reset "$(git log --format="%H" -n 1)"
+        git reset "$(git log --format="%H" -n 2 | tail -1)"
 }
 
 alias zgco='git co $(git branch | fzf)'
