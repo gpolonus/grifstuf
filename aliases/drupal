@@ -26,6 +26,7 @@ dsql_describe() {
 dsql_table_grep() {
         drush sqlq "SHOW TABLES" | grep $1
 }
+alias table_grep="dsql_table_grep"
 
 alias dsf="blt dsf"
 
