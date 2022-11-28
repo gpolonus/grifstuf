@@ -41,3 +41,5 @@ alias bounteous="cd /Users/griffenpolonus/Sites/peoni-health/docroot/modules/cus
 alias dpp="drush @peoni.prod"
 
 alias dpt="drush @peoni.test"
+
+alias cfzf="code $(fzf)"
