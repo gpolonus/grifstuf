@@ -131,3 +131,5 @@ alias lrep="ls | grep "
 alias node_inits='node -i -e "$(< ./inits.js)"'
 
 alias shrug="echo '¯\_(ツ)_/¯'"
+
+setopt no_bare_glob_qual

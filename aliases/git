@@ -110,3 +110,5 @@ gt() {
 }
 
 alias gpt="git push --tags"
+
+alias gfzf="git checkout $(git branch | fzf)"
