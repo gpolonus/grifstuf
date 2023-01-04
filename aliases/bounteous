@@ -18,6 +18,7 @@ alias peoni="cd /Users/griffenpolonus/Sites/peoni-health"
 alias myabetes="cd /Users/griffenpolonus/Sites/myabetes"
 
 _load_vars() {
+	_default_vars
 	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
 		GIT_BRANCH_PREFIX="feature/SEA-"
 		JIRA_TICKET_PREFIX="SEA-"
@@ -43,3 +44,12 @@ alias dpp="drush @peoni.prod"
 alias dpt="drush @peoni.test"
 
 alias cfzf='code $(fzf)'
+
+diffpeoni() {
+	peoni
+	cd ./files-private/default/migrations/provider_data/
+	sort "$1_20221205.csv" > "$1_20221205_sorted.csv"
+	sort "$1_20221212.csv" > "$1_20221212_sorted.csv"
+	diff "$1_20221205.csv" "$1_20221212.csv" > "../../../../$1.diff"
+	peoni
+}

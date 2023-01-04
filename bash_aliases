@@ -3,11 +3,15 @@ export EDITOR="$VISUAL"
 
 ### DEFAULTS
 
-_load_vars() {
+_default_vars() {
         GIT_BRANCH_PREFIX=""
         JIRA_TICKET_PREFIX=""
         GIT_MAIN_BRANCH="main"
         GIT_DEV_BRANCH="develop"
+}
+
+_load_vars() {
+        _default_vars
 }
 
 ### END DEFAULTS
