@@ -1,4 +1,16 @@
 
+_load_vars() {
+	_default_vars
+	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
+		GIT_BRANCH_PREFIX="feature/SEA-"
+		JIRA_TICKET_PREFIX="SEA-"
+		GIT_MAIN_BRANCH="main"
+		GIT_DEV_BRANCH="main"
+	fi;
+
+	TIDDLY_DIR="/Users/griffenpolonus/Projects"
+}
+
 dlone() {
 	git clone "git@git.drupal.org:project/$1.git"
 }
@@ -14,36 +26,41 @@ alias sandbox-site-studio="cd /Users/griffenpolonus/Sites/acsf-sandbox-7"
 # Sites/peoni-health: peoni-health.lndo.site
 # EOM
 
-alias peoni="cd /Users/griffenpolonus/Sites/peoni-health"
 alias myabetes="cd /Users/griffenpolonus/Sites/myabetes"
 
-_load_vars() {
-	_default_vars
-	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
-		GIT_BRANCH_PREFIX="feature/SEA-"
-		JIRA_TICKET_PREFIX="SEA-"
-		GIT_MAIN_BRANCH="release/1.0.x"
-		GIT_DEV_BRANCH="release/1.0.x"
-	fi;
-}
+alias scripts="cd /Users/griffenpolonus/Sites/scripts"
+
+alias bounteous="cd /Users/griffenpolonus/Sites/peoni-health/docroot/modules/custom/peoni_search/react"
+
+alias cfzf='code $(fzf)'
+
+# *
+# **
+# ***
+# ****
+# Peoni!
+# ****
+# ***
+# **
+# *
+
+alias peoni="cd /Users/griffenpolonus/Sites/peoni-health"
 
 alias peoni-theme="cd /Users/griffenpolonus/Sites/peoni-health/docroot/themes/custom/peoni"
 
 alias peoni-react="cd /Users/griffenpolonus/Sites/peoni-health/docroot/modules/custom/peoni_search/react"
 
-alias scripts="cd /Users/griffenpolonus/Sites/scripts"
-
 alias peoni-theme-watch="peoni-theme && lando npm run webpack"
 
 alias peoni-react-watch="peoni-react && lando npm run watch"
-
-alias bounteous="cd /Users/griffenpolonus/Sites/peoni-health/docroot/modules/custom/peoni_search/react"
 
 alias dpp="drush @peoni.prod"
 
 alias dpt="drush @peoni.test"
 
-alias cfzf='code $(fzf)'
+dap() {
+	drush "@peoni.$1" $@
+}
 
 diffpeoni() {
 	peoni

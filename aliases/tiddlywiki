@@ -1,0 +1,26 @@
+
+# Requires:
+# - the `TIDDLY_DIR` variable
+# - npm
+
+TIDDLYWIKI_WIKI_NAME="wiki"
+
+twcd () {
+  _load_vars
+
+  cd "$TIDDLY_DIR"
+}
+
+twstart() {
+  twcd
+
+  npx tiddlywiki $TIDDLYWIKI_WIKI_NAME --listen
+}
+
+twinit () {
+  twcd
+
+  npm i -S tiddlywiki
+  npx tiddlywiki $1 --init server
+  npx tiddlywiki $1 --listen
+}
