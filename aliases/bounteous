@@ -8,7 +8,7 @@ _load_vars() {
 		GIT_DEV_BRANCH="main"
 	fi;
 	if [[ "$(pwd)" == *"Sites/entegra"* ]] then;
-		GIT_BRANCH_PREFIX="feature/ENT-"
+		GIT_BRANCH_PREFIX="ENT-"
 		JIRA_TICKET_PREFIX="ENT-"
 		GIT_MAIN_BRANCH="dev"
 		GIT_DEV_BRANCH="dev"
