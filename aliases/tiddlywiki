@@ -2,8 +2,13 @@
 # Requires:
 # - the `TIDDLY_DIR` variable
 # - npm
+# - the gtd-wiki repo
 
 TIDDLYWIKI_WIKI_NAME="wiki"
+
+source /Users/griffenpolonus/Projects/gtd-wiki/tiddlybash.sh
+
+alias tbnt="tb_new_tiddler"
 
 twcd () {
   _load_vars
@@ -24,3 +29,5 @@ twinit () {
   npx tiddlywiki $1 --init server
   npx tiddlywiki $1 --listen
 }
+
+alias bounteous="cd /Users/griffenpolonus/Sites/entegra"

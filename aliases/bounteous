@@ -7,8 +7,14 @@ _load_vars() {
 		GIT_MAIN_BRANCH="main"
 		GIT_DEV_BRANCH="main"
 	fi;
+	if [[ "$(pwd)" == *"Sites/entegra"* ]] then;
+		GIT_BRANCH_PREFIX="feature/ENT-"
+		JIRA_TICKET_PREFIX="ENT-"
+		GIT_MAIN_BRANCH="dev"
+		GIT_DEV_BRANCH="dev"
+	fi;
 
-	TIDDLY_DIR="/Users/griffenpolonus/Projects"
+	TIDDLY_DIR="/Users/griffenpolonus/Projects/gtd-wiki"
 }
 
 dlone() {
