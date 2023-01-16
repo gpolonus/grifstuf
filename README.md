@@ -4,7 +4,7 @@
 ## How To Use
 1. Put repo in `~/dotfiles` or else none of this works
 1. Create a `.env` file in the repo
-1. Fill it with names of alias files in the `./aliases` folder, one on each line
+1. Fill it with names of desired alias files in the `./aliases` folder, one on each line
 1. Run the `./init_dotfiles.sh` script
 
 
