@@ -63,7 +63,7 @@ _A() {
 }
 
 _D() {
-        _A $1 "cd $(pwd)"
+        _A $1 $2 "cd $(pwd)"
 }
 
 alias ea="code ~/dotfiles"
