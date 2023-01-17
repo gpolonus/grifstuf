@@ -26,7 +26,7 @@ if [ -f ".date" -a "$(day-date)" != "$(cat .date)" ]; then
 fi;
 day-date > .date
 
-if [ -f ".hidden" ]; then
+if [ -f ~/dotfiles/aliases/.hidden ]; then
         source ~/dotfiles/aliases/.hidden
 fi;
 LOCAL_ENV_NAME=''
@@ -136,4 +136,4 @@ alias node_inits='node -i -e "$(< ./inits.js)"'
 
 alias shrug="echo '¯\_(ツ)_/¯'"
 
-setopt no_bare_glob_qual
+# setopt no_bare_glob_qual

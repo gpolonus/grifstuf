@@ -8,3 +8,5 @@ alias proj="cd /home/grif/Projects"
 alias projects="cd /home/grif/Projects"
 
 alias pocket="proj && cd ./pocketbase-test"
+
+unalias composer;

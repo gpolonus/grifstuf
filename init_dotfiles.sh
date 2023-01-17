@@ -8,6 +8,11 @@
 rm -f ~/.bash_aliases
 ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 
+# TODO: test this and make the thing fail if no param is available
+touch ./aliases/$1
+echo "git
+$1" > ./.env
+
 # For oh my zsh
 # ln -s ~/dotfiles/bash_aliases ~/.oh-my-zsh/custom/bash_aliases
 # ZSH IS TRASH: it started lagging when I tried to tab a path in a `git diff` command, so dump it
@@ -27,4 +32,4 @@ ln -s ~/dotfiles/bash_aliases ~/.bash_aliases
 # sudo npm i -g zx
 # npm i
 
-source ~/.bash_aliases
+
