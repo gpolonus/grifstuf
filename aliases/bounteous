@@ -76,3 +76,5 @@ diffpeoni() {
 	diff "$1_20221205.csv" "$1_20221212.csv" > "../../../../$1.diff"
 	peoni
 }
+
+alias entegra="cd /Users/griffenpolonus/Sites/entegra"
