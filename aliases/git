@@ -69,7 +69,7 @@ alias gd="gitnp diff"
 
 gpom() {
         _load_vars
-        git fetch && git pull origin $GIT_MAIN_BRANCH
+        git fetch && git pull origin $GIT_DEV_BRANCH
 }
 
 alias gb="git branch --show-current"

@@ -6,6 +6,7 @@
 1. Run the `./init_dotfiles.sh {machine name}` script
 1. Fill the newly generated `.env` file with names of desired alias files in the `./aliases` folder, one on each line
     - note that the alias files are loaded in order
+    - put your local machine aliases last so that the bash aliases `_A` has a proper default
 
 ## Current Features:
 - bash aliases

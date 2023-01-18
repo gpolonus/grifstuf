@@ -29,11 +29,3 @@ twinit () {
   npx tiddlywiki $1 --init server
   npx tiddlywiki $1 --listen
 }
-
-alias bounteous="cd /Users/griffenpolonus/Sites/entegra"
-
-alias bounteous="cd /Users/griffenpolonus/Sites/entegra"
-
-alias bounteous="cd /Users/griffenpolonus/Sites/entegra"
-
-alias bounteous="cd /Users/griffenpolonus/Sites/entegra"
