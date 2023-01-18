@@ -78,3 +78,5 @@ diffpeoni() {
 }
 
 alias entegra="cd /Users/griffenpolonus/Sites/entegra"
+
+alias portal="cd /Users/griffenpolonus/Sites/peoni-portal"
