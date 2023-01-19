@@ -85,3 +85,5 @@ diffpeoni() {
 alias entegra="cd /Users/griffenpolonus/Sites/entegra"
 
 alias portal="cd /Users/griffenpolonus/Sites/peoni-portal"
+
+alias copy-backup="cp /Users/griffenpolonus/Sites/peoni-health/backups/import.sql /Users/griffenpolonus/Sites/peoni-portal/backups"
