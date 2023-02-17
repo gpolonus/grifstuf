@@ -47,12 +47,12 @@ gacm() {
         _load_vars
 
         if [ -z $JIRA_TICKET_PREFIX ]; then
-                git add . && git commit -m "${1}"
+                gcm "${1}"
                 return 0
         fi
 
         TICKET_ID=$(git branch | grep "^\*" | grep -o "$JIRA_TICKET_PREFIX\d*")
-        git add . && git commit -m "$TICKET_ID: ${1}."
+        gcm "$TICKET_ID: ${1}."
 }
 
 alias gnuke="git reset --hard && git clean -f"
@@ -112,3 +112,10 @@ gt() {
 alias gpt="git push --tags"
 
 alias gfzf='git checkout $(git branch | fzf)'
+
+gcm() {
+        git add .
+        git commit -m "$1"
+}
+
+alias commit-of-tag="git rev-list -n 1 "
