@@ -1,8 +1,0 @@
-<script>
-  import PostList from '../../components/PostList.svelte';
-</script>
-
-This blog is chronicalizing my journey to being able to actually finish projects that I start and focusing on things better in general. Thanks for stopping by and I hope you can find some help in these posts. Hopefully, I can do the same.
-
-<PostList />
-
