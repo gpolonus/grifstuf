@@ -119,3 +119,5 @@ gcm() {
 }
 
 alias commit-of-tag="git rev-list -n 1 "
+
+alias gpf="gp --force"

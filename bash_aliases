@@ -136,3 +136,6 @@ alias node_inits='node -i -e "$(< ./inits.js)"'
 alias shrug="echo '¯\_(ツ)_/¯'"
 
 # setopt no_bare_glob_qual
+
+# Ensures that BLT can validate all the YAMLs during a git pre-push hook
+ulimit -n 200000
