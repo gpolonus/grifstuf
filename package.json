@@ -11,8 +11,10 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
+		"@modyfi/vite-plugin-yaml": "^1.0.4",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
+		"@types/marked": "^4.0.8",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"eslint": "^8.28.0",
@@ -23,5 +25,9 @@
 		"typescript": "^4.9.3",
 		"vite": "^4.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"front-matter": "^4.0.2",
+		"marked": "^4.2.12"
+	}
 }
