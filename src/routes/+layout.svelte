@@ -38,14 +38,20 @@
   }
 
   footer {
-    position: relative !important;
-    width: 100%;
+    position: fixed;
+    left: 1rem;
     bottom: 0;
     padding-top: 1rem;
-    left: 1rem;
     color: black;
     font-size: 0.75em;
     background-color: white;
+  }
+
+  main.blog footer {
+    position: relative;
+    left: 0;
+    bottom: unset;
+    padding-left: 1rem;
   }
 
 </style>
@@ -53,7 +59,7 @@
 {#if segment}
   <Nav {segment}/>
 {/if}
-<main class={!segment ? 'home' : ''}>
+<main class:home={!segment} class={segment}>
   <slot></slot>
   <footer>
     © Griffin Polonus 2021. All Rights Reserved.
