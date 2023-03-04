@@ -6,6 +6,7 @@
   nav {
     position: fixed;
     width: 100%;
+    z-index: 1;
     top: 0;
     left: 0;
     padding: 0 1rem;
@@ -17,6 +18,7 @@
   ul {
     margin: 0;
     padding: 0;
+    padding-top: 0.25rem;
   }
 
   li {

@@ -4,6 +4,7 @@
   import { page } from '$app/stores';
 
   $:segment = $page.route.id?.split('/')[1];
+  $:blogPost = $page.route.id === '/blog/[slug]'
 
 </script>
 
@@ -19,7 +20,7 @@
   }
 
   main {
-    /* padding: 2em; */
+    padding-top: 2.5rem;
     margin: 0 auto;
     box-sizing: border-box;
   }
@@ -47,7 +48,8 @@
     background-color: white;
   }
 
-  main.blog footer {
+  main.blog-post footer,
+  main.doodles footer {
     position: relative;
     left: 0;
     bottom: unset;
@@ -59,7 +61,7 @@
 {#if segment}
   <Nav {segment}/>
 {/if}
-<main class:home={!segment} class={segment}>
+<main class:home={!segment} class={segment} class:blog-post={blogPost}>
   <slot></slot>
   <footer>
     © Griffin Polonus 2021. All Rights Reserved.

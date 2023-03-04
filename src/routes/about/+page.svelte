@@ -6,8 +6,17 @@
     border-radius: 4rem;
   }
 
-  i p {
+  i {
+    display: block;
+    position: relative;
+    width: 80vw;
     margin: 0;
+  }
+
+  @media (min-width: 1024px) {
+    i {
+      width: 50vw;
+    }
   }
 
 </style>
@@ -23,9 +32,7 @@
   <p>Hi, I'm Grif. This site is for my stuf. I like building things and annoying my friends.</p>
 
   <i>
-    <p>"If by chance some day you're not feeling well and you should remember some</p>
-    <p>silly thing I've said or done and it brings back a smile to your face or a</p>
-    <p>chuckle to your heart, then my purpose as your clown has been fulfilled."</p>
+    "If by chance some day you're not feeling well and you should remember some silly thing I've said or done and it brings back a smile to your face or a chuckle to your heart, then my purpose as your clown has been fulfilled."
   </i>
   <p>- Red Skelton</p>
 

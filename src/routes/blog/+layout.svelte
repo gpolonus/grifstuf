@@ -25,11 +25,6 @@
     }
   }
 
-  @media only screen and (max-height: 800px) {
-    .wrapper {
-      height: 80vh;
-    }
-  }
 </style>
 
 <svelte:head>
