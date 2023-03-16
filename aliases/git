@@ -4,7 +4,7 @@ alias gpod="git fetch && git pull origin develop"
 gchb() {
         _load_vars
         git fetch
-	git checkout $GIT_BRANCH_PREFIX$1
+        git checkout $GIT_BRANCH_PREFIX$1
 }
 
 gcrb() {
@@ -53,6 +53,20 @@ gacm() {
 
         TICKET_ID=$(git branch | grep "^\*" | grep -o "$JIRA_TICKET_PREFIX\d*")
         gcm "$TICKET_ID: ${1}."
+}
+
+gacmnv() {
+        _load_vars
+
+        git add .
+
+        if [ -z $JIRA_TICKET_PREFIX ]; then
+                gcmnv "${1}"
+                return 0
+        fi
+
+        TICKET_ID=$(git branch | grep "^\*" | grep -o "$JIRA_TICKET_PREFIX\d*")
+        gcmnv "$TICKET_ID: ${1}."
 }
 
 alias gnuke="git reset --hard && git clean -f"
@@ -114,8 +128,11 @@ alias gpt="git push --tags"
 alias gfzf='git checkout $(git branch | fzf)'
 
 gcm() {
-        git add .
         git commit -m "$1"
+}
+
+gcmnv() {
+        git commit --no-verify -m "$1"
 }
 
 alias commit-of-tag="git rev-list -n 1 "

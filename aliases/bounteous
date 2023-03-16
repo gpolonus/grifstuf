@@ -1,6 +1,7 @@
 
 _load_vars() {
 	_default_vars
+	# TODO: Switch this to a switch
 	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
 		GIT_BRANCH_PREFIX="feature/SEA-"
 		JIRA_TICKET_PREFIX="SEA-"
