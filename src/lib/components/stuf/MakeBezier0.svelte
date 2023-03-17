@@ -1,6 +1,6 @@
 
 <script>
-  import { renderable } from '../Canvas/game.js';
+  import { renderable } from '../Canvas/game.ts';
   import Thinger from './Thinger.svelte'
 
   const steps = [

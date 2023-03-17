@@ -1,7 +1,7 @@
 <script>
 	import Text from './Text.svelte';
-	import { time, renderable } from './game.js';
-	
+	import { time, renderable } from './game.ts';
+
 	let text = '';
 
 	let elapsed = 0;

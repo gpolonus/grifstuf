@@ -1,5 +1,5 @@
 <script>
-  import { renderable } from '../Canvas/game.js';
+  import { renderable } from '../Canvas/game.ts';
 
   export let steps
   export let finishDrawing

@@ -1,10 +1,12 @@
 <script lang="ts">
-  import { height, renderable, width } from '../Canvas/game.js';
+  import { height, renderable, width } from '../Canvas/game.ts';
+
+  type Point = [number, number]
 
   let hideControls = false
   let numberOfRefPoints = 3
   let midPointFraction = 2
-  let currentPoint: Number[];
+  let currentPoint: number[];
   let willClear = false;
 
   $: halfHeight = $height / 2;
@@ -16,15 +18,15 @@
     return [ Math.cos(angle) * radius, Math.sin(angle) * radius ]
   })
 
-  const handleMouseUp = ({ clientX, clientY }: Event) => {
+  const handleMouseUp = ({ clientX, clientY }: MouseEvent) => {
     if (!currentPoint) {
       currentPoint = [ clientX - halfWidth, clientY - halfHeight ]
     }
   }
 
-  const c = ([ x, y ]) => [ x + halfWidth, y + halfHeight ]
+  const c = ([ x, y ]: Point) => [ x + halfWidth, y + halfHeight ]
 
-  const drawPoint = (context, [x, y], color = 'white', size = 2) => {
+  const drawPoint = (context, [x, y]: Point, color = 'white', size = 2) => {
     context.save();
     context.fillStyle = color;
     context.beginPath()
@@ -33,13 +35,14 @@
     context.restore();
   }
 
-  const nextPoint = ([x, y], [xx, yy]) => {
+  const nextPoint = ([x, y]: Point, [xx, yy]: Point) => {
     const newX = (x + xx) / midPointFraction
     const newY = (y + yy) / midPointFraction
     return [ newX, newY ]
   }
 
-  renderable(props => {
+  type Props = { context, width: number, height: number }
+  renderable((props: Props) => {
     if (!currentPoint) return
 
     const { context, width, height } = props;

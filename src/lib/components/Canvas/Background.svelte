@@ -1,5 +1,5 @@
 <script>
-	import { renderable } from './game.js';
+	import { renderable } from './game.ts';
 	export let color = null;
 
 	renderable(props => {
