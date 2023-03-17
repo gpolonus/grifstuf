@@ -105,7 +105,7 @@ gdb() {
 }
 
 alias gbs="git branch"
-alias gstash="git stash clear && git add . && git stash"
+alias gstash="git diff && git stash clear && git add . && git stash"
 alias gapply="git stash apply"
 
 alias gpl="git pull"
