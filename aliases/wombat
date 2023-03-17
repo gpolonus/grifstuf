@@ -10,3 +10,5 @@ alias projects="cd /home/grif/Projects"
 alias pocket="proj && cd ./pocketbase-test"
 
 unalias composer;
+
+alias grifstuf="cd /home/grif/Projects/grifstuf-sveltekit"
