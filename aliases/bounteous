@@ -95,3 +95,5 @@ egpd() {
 	git push --no-verify --set-upstream origin $1
 	gb
 }
+
+alias entegra-theme="cd /Users/griffenpolonus/Sites/entegra/docroot/themes/custom/entegra_mygpo"
