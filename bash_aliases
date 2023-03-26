@@ -1,6 +1,13 @@
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+alias ea="code ~/dotfiles"
+alias sa="source ~/.bash_aliases"
+va() {
+        cat ~/aliases/$1
+}
+
+
 ### DEFAULTS
 
 _default_vars() {
@@ -63,12 +70,6 @@ _A() {
 
 _D() {
         _A $1 $2 "cd $(pwd)"
-}
-
-alias ea="code ~/dotfiles"
-alias sa="source ~/.bash_aliases"
-va() {
-        cat ~/aliases/$1
 }
 
 _push_up_alias_changes() {
