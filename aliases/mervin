@@ -1,3 +1,5 @@
 
 
 alias proj="cd /mnt/c/Users/gpolo/Projects"
+
+alias _code="cmd.exe /C 'code .'"
