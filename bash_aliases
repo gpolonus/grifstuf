@@ -27,14 +27,19 @@ _load_vars() {
 alias day-date="date +%m-%d-%Y"
 
 cd ~/dotfiles
+
+echo "Pulling dotfiles changes"
 if [ -f ".date" -a "$(day-date)" != "$(cat .date)" ]; then
         git fetch && git pull
 fi;
+
 day-date > .date
+echo "Day date: $(cat .date)"
 
 if [ -f ~/dotfiles/aliases/.hidden ]; then
         source ~/dotfiles/aliases/.hidden
 fi;
+
 LOCAL_ENV_NAME=''
 for f in $(cat .env); do
         if [ -f ~/dotfiles/aliases/$f ]; then

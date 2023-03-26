@@ -1,1 +1,2 @@
-/home/super/dotfiles/bash_aliases
+
+alias proj="cd /mnt/c/WINDOWS/system32"
