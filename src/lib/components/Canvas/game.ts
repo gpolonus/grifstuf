@@ -1,5 +1,5 @@
 import { getContext, onMount, onDestroy } from 'svelte';
-import { writable, derived } from 'svelte/store';
+import { writable, derived, type Writable } from 'svelte/store';
 
 // Some props for the app
 export const width = typeof window !== 'undefined' ? writable(window.innerWidth) : writable();
@@ -47,13 +47,15 @@ export const renderable = (render) => {
 	});
 }
 
-function deriveObject (obj) {
+function deriveObject (obj: { [key: string]: Writable<any> }) {
 	const keys = Object.keys(obj);
-	const list = keys.map(key => {
+
+  const list = keys.map(key => {
 		return obj[key];
 	});
+
 	return derived(list, (array) => {
-		return array.reduce((dict, value, i) => {
+		return array.reduce((dict: any, value, i) => {
 			dict[keys[i]] = value;
 			return dict;
 		}, {});

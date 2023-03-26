@@ -1,5 +1,5 @@
 <script>
-	import { width, height } from './game.js';
+	import { width, height } from './game.ts';
 
 	import Canvas from './Canvas.svelte';
 	import Background from './Background.svelte';

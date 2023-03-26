@@ -1,6 +1,6 @@
 <script>
-	import { renderable } from './game.js';
-	
+	import { renderable } from './game.ts';
+
 	export let color = 'black';
 	export let divisions = 20;
 	export let pointSize = 1;
@@ -8,7 +8,7 @@
 	renderable(props => {
 		const { context, width, height } = props;
 		const aspect = width / height;
-		
+
 		context.save();
 		for (let y = 0; y < divisions; y++) {
 			context.beginPath();

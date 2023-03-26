@@ -1,5 +1,5 @@
 <script>
-  import { height, renderable, width } from './game.js';
+  import { height, renderable, width } from './game.ts';
 
   const color = 'hsl(0, 0%, 90%)';
   const pointSize = 30;
