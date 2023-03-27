@@ -1,0 +1,31 @@
+
+alias portal="cd /Users/griffenpolonus/Sites/peoni-portal"
+
+alias copy-backup="cp /Users/griffenpolonus/Sites/peoni-health/backups/import.sql /Users/griffenpolonus/Sites/peoni-portal/backups"
+
+alias peoni="cd /Users/griffenpolonus/Sites/peoni-health"
+
+alias peoni-theme="cd /Users/griffenpolonus/Sites/peoni-health/docroot/themes/custom/peoni"
+
+alias peoni-react="cd /Users/griffenpolonus/Sites/peoni-health/docroot/modules/custom/peoni_search/react"
+
+alias peoni-theme-watch="peoni-theme && lando npm run webpack"
+
+alias peoni-react-watch="peoni-react && lando npm run watch"
+
+alias dpp="drush @peoni.prod"
+
+alias dpt="drush @peoni.test"
+
+dap() {
+	drush "@peoni.$1" $@
+}
+
+diffpeoni() {
+	peoni
+	cd ./files-private/default/migrations/provider_data/
+	sort "$1_20221205.csv" > "$1_20221205_sorted.csv"
+	sort "$1_20221212.csv" > "$1_20221212_sorted.csv"
+	diff "$1_20221205.csv" "$1_20221212.csv" > "../../../../$1.diff"
+	peoni
+}

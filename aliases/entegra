@@ -1,2 +1,11 @@
 
+alias entegra="cd /Users/griffenpolonus/Sites/entegra"
+
 alias entegra-theme="cd /Users/griffenpolonus/Sites/entegra/docroot/themes/custom/entegra_mygpo"
+
+egpd() {
+	git checkout upstream/dev
+	git checkout -b $1
+	git push --no-verify --set-upstream origin $1
+	gb
+}

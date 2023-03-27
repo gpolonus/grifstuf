@@ -77,6 +77,13 @@ _D() {
         _A $1 $2 "cd $(pwd)"
 }
 
+_H() {
+        ENV=".hidden"
+        ALIAS_NAME="$1"
+        ALIAS_CONTENTS="$2"
+        printf "\nalias $ALIAS_NAME=\"$ALIAS_CONTENTS\"\n" >> ~/dotfiles/aliases/$ENV
+}
+
 _push_up_alias_changes() {
         cd ~/dotfiles
         git add .
