@@ -55,6 +55,6 @@
   <slot></slot>
 </main>
 <footer>
-  © Griffin Polonus 2021. All Rights Reserved.
+  © Griffin Polonus 2023. All Rights Reserved.
 </footer>
 
