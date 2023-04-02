@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { siteTitle } from '$lib/stores';
   import doodles from './doodles.yaml'
 
   export let num = doodles.length - 1
@@ -17,6 +18,8 @@
     title = doodle.title
     alt = doodle.alt
   }
+
+  siteTitle.set("grif's doodles")
 </script>
 
 <style>
@@ -63,10 +66,6 @@
     text-decoration: underline;
   }
 </style>
-
-<svelte:head>
-  <title>Grif's Doodles</title>
-</svelte:head>
 
 <div class='doodle'>
   <div class='content'>

@@ -86,8 +86,11 @@
 
 <style>
   canvas {
-    max-width: 100vw;
-    max-height: 100vh;
+    display: block;
+    margin: auto;
+    padding: 1rem;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100vh - 7rem);
   }
 </style>
 

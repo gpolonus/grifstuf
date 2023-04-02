@@ -1,4 +1,10 @@
 
+<script>
+  import { siteTitle } from "$lib/stores";
+
+  siteTitle.set("grif's blog")
+</script>
+
 <style>
   .wrapper {
     text-align: center;
@@ -26,10 +32,6 @@
   }
 
 </style>
-
-<svelte:head>
-  <title>GrifBlog</title>
-</svelte:head>
 
 <div class='wrapper'>
   <div class='content'>

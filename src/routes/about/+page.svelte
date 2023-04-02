@@ -1,4 +1,10 @@
 
+<script>
+  import { siteTitle } from "$lib/stores";
+
+  siteTitle.set('about grif')
+</script>
+
 <style>
   .content {
     background-color: white;
@@ -20,10 +26,6 @@
   }
 
 </style>
-
-<svelte:head>
-  <title>About Grif</title>
-</svelte:head>
 
 <div class='content'>
 

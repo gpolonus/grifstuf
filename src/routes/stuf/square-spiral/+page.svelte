@@ -1,14 +1,7 @@
 <script lang="ts">
   // @ts-nocheck
   import Canvas from "$lib/components/Canvas.svelte";
-
-  const memo = (fn) => (n) => {
-    const cache = {}
-    if(cache[n]) return cache[n]
-
-    cache[n] = fn(n)
-    return cache[n]
-  }
+  import { siteTitle } from "$lib/stores";
 
   const render = (c, x, S, C, T, R) => {
     let d = 1;
@@ -72,12 +65,8 @@
       x.fillRect(xx + 960, yy + 540, 50, 50)
     }
   }
-</script>
 
-<svelte:head>
-  <title>
-    Stuf: Spiral
-  </title>
-</svelte:head>
+  siteTitle.set('stuf: Spiral')
+</script>
 
 <Canvas {render} />

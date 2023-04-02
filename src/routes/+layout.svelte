@@ -2,11 +2,16 @@
   import Nav from '$lib/components/Nav.svelte';
 
   import { page } from '$app/stores';
+  import { siteTitle } from '$lib/stores';
 
   $:segment = $page.route.id?.split('/')[1];
   $:blogPost = $page.route.id === '/blog/[slug]'
 
 </script>
+
+<svelte:head>
+  <title>{$siteTitle}</title>
+</svelte:head>
 
 <style>
 
@@ -20,7 +25,7 @@
   }
 
   main {
-    padding-top: 2.5rem;
+    padding-top: 2.25rem;
     min-height: calc(100vh - 2.5rem);
     margin: 0 auto;
     box-sizing: border-box;

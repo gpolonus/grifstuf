@@ -1,14 +1,15 @@
-<svelte:head>
-<title>grifstuf</title>
-</svelte:head>
+
 
 <script lang="ts">
-import { goto } from '$app/navigation';
+  import { goto } from '$app/navigation';
+  import { siteTitle } from '$lib/stores';
 
-const clickGoTo = (route: string) => (e: Event) => {
-  e.preventDefault()
-  goto(route)
-}
+  const clickGoTo = (route: string) => (e: Event) => {
+    e.preventDefault()
+    goto(route)
+  }
+
+  siteTitle.set('grifstuf')
 </script>
 
 <style>
@@ -157,7 +158,7 @@ const clickGoTo = (route: string) => (e: Event) => {
 
   <g id="bowl-front" class="bowl" transform="matrix(4.030972480773926, 0, 0, 4.030972480773926, -179.2478790283203, -19.447071075439453)">
     <path class="st0" d="M 59.505144119262695 165.9719352722168 C 93.97909545898438 177.95211791992188 181.00523376464844 178.0166778564453 212.51190185546875 167.79932022094727 L 195.90948486328125 207.6365203857422 L 77.85351943969727 207.50027465820312 L 59.505144119262695 165.9719352722168 Z" style="fill-opacity: 1; stroke: rgb(20, 20, 20); stroke-width: 1; paint-order: stroke;"/>
-    <text x='92' y='200'>grifstuf</text>
+    <text x='87' y='197'>grifstuf</text>
   </g>
 
 </svg>
