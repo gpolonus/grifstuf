@@ -19,7 +19,12 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter(),
     prerender: {
-      entries: doodles.map((_, i) => `/doodles/${i}`)
+      entries: [
+        ...doodles.map((_, i) => `/doodles/${i}`),
+        '/stuf/triangle-boxes',
+        '/stuf/square-spiral',
+        '/stuf/spiral',
+      ]
     }
 	}
 };
