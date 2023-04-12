@@ -45,3 +45,5 @@ alias scripts="cd /Users/griffenpolonus/Sites/scripts"
 alias bounteous="cd /Users/griffenpolonus/Sites/peoni-health/docroot/modules/custom/peoni_search/react"
 
 alias cfzf='code $(fzf)'
+
+alias wikis="cd /Users/griffenpolonus/Projects/wikis"
