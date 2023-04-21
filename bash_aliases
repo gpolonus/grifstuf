@@ -152,3 +152,5 @@ alias shrug="echo '¯\_(ツ)_/¯'"
 
 # Ensures that BLT can validate all the YAMLs during a git pre-push hook
 ulimit -n 200000
+
+alias numbers="seq "

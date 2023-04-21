@@ -1,31 +1,7 @@
 
-# Requires:
-# - the `TIDDLY_DIR` variable
-# - npm
-# - the gtd-wiki repo
-
-TIDDLYWIKI_WIKI_NAME="wiki"
-
-source /Users/griffenpolonus/Projects/wikis/gtd-wiki/tiddlybash.sh
-
-alias tbnt="tb_new_tiddler"
-
-twcd () {
-  _load_vars
-
-  cd "$TIDDLY_DIR"
-}
-
-twstart() {
-  twcd
-
-  npx tiddlywiki $TIDDLYWIKI_WIKI_NAME --listen
-}
+alias twstart="npx tiddlywiki --listen"
 
 twinit () {
-  twcd
-
-  npm i -S tiddlywiki
   npx tiddlywiki $1 --init server
   npx tiddlywiki $1 --listen
 }
