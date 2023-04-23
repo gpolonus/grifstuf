@@ -7,7 +7,7 @@ import Users from './collections/Users';
 import Media from './collections/Media';
 
 export default buildConfig({
-  serverURL: 'http://localhost:3000',
+  serverURL: process.env.NODE_ENV === 'production' ? 'https://box.grifstuf.com' : 'http://localhost:3000',
   admin: {
     user: Users.slug,
   },
