@@ -1,0 +1,7 @@
+created: 20230410150924892
+modified: 20230410150924892
+tags: $:/tags/StartupAction/Browser
+title: $:/plugins/hoelzro/full-text-search/auto-index
+type: text/vnd.tiddlywiki
+
+<$fts-action-generate-index />

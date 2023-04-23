@@ -11,3 +11,5 @@ vite.config.ts.timestamp-*
 
 *.zip
 payload_secret.txt
+
+/backend/media
