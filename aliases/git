@@ -46,6 +46,8 @@ gclean() {
 gacm() {
         _load_vars
 
+        git add -A
+
         if [ -z $JIRA_TICKET_PREFIX ]; then
                 gcm "${1}"
                 return 0
@@ -58,7 +60,7 @@ gacm() {
 gacmnv() {
         _load_vars
 
-        git add .
+        git add -A
 
         if [ -z $JIRA_TICKET_PREFIX ]; then
                 gcmnv "${1}"

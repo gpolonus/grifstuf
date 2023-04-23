@@ -2,6 +2,10 @@
 alias twstart="npx tiddlywiki --listen"
 
 twinit () {
-  npx tiddlywiki $1 --init server
-  npx tiddlywiki $1 --listen
+  if [ -z "$1" ]
+  then
+    npx degit gpolonus/template_wiki wiki
+  else
+    npx degit gpolonus/template_wiki $1
+  fi
 }
