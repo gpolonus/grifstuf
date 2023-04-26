@@ -155,3 +155,5 @@ alias shrug="echo '¯\_(ツ)_/¯'"
 ulimit -n 200000
 
 alias numbers="seq "
+
+alias ts="npx ts-node "
