@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 build
-/.svelte-kit
+.svelte-kit
 /package
 .env
 .env.*
@@ -12,4 +12,6 @@ vite.config.ts.timestamp-*
 *.zip
 payload_secret.txt
 
-/backend/media
+/backend/doodles
+
+/entries.json

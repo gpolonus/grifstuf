@@ -1,4 +1,5 @@
 <script>
+  // doodles/[slug]
   import Doodle from '$lib/components/Doodle.svelte'
   /** @type {import('$lib/doodles-data').Doodle} */
   export let data = {

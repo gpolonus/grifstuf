@@ -4,7 +4,7 @@ This project was created using create-payload-app using the blog template.
 
 ## How to Use
 
-`yarn dev` will start up your application and reload on any changes.
+`npm run dev` will start up your application and reload on any changes.
 
 ### Docker
 

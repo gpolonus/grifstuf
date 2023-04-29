@@ -4,7 +4,7 @@ import Categories from './collections/Categories';
 import Posts from './collections/Posts';
 import Tags from './collections/Tags';
 import Users from './collections/Users';
-import Media from './collections/Media';
+import Doodles from './collections/Doodles';
 
 export default buildConfig({
   serverURL: process.env.NODE_ENV === 'production' ? 'https://box.grifstuf.com' : 'http://localhost:3000',
@@ -16,12 +16,12 @@ export default buildConfig({
     Posts,
     Tags,
     Users,
-    Media,
+    Doodles,
   ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts')
   },
   graphQL: {
-    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
-  },
+    disable: true
+  }
 });

@@ -2,6 +2,7 @@
   // @ts-nocheck
 
   import Canvas from "$lib/components/Canvas.svelte";
+  import { siteTitle } from "$lib/stores";
 
   const layerMax = 10
 
@@ -110,8 +111,10 @@
   // const render = renderSplitCanvas
   const render = renderBigTriangle
   // const render = renderReduced
+
+  siteTitle.set('stuf: Recursive Triangles')
 </script>
 
 <!-- <Canvas {render} steppable={0.01} /> -->
-<Canvas {render} stoppable={true} />
-<!-- <Canvas {render} /> -->
+<!-- <Canvas {render} stoppable={true} /> -->
+<Canvas {render} />
