@@ -157,3 +157,5 @@ ulimit -n 200000
 alias numbers="seq "
 
 alias ts="npx ts-node "
+
+alias mantra="cat ~/dotfiles/mantra"
