@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev-mongo": "sudo docker-compose -f docker-compose.dev.yml up -d",
-    "dev": "cross-env nodemon",
+    "dev": "NODE_ENV=development  cross-env nodemon",
     "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload build",
     "build:server": "tsc",
     "build": "npm run copyfiles && npm run build:payload && npm run build:server",

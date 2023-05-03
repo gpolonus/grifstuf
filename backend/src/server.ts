@@ -5,15 +5,7 @@ import payload from 'payload';
 require('dotenv').config();
 const app = express();
 
-// Allow requests through from certain domains
-const frontendUrl = process.env.NODE_ENv === 'production'
-  ? 'http://localhost:3000'
-  : 'https://grifstuf.com'
-const corsOptions = {
-  origin: frontendUrl
-}
-
-// app.use(cors(corsOptions));
+app.use(cors());
 
 // Redirect root to Admin panel
 app.get('/', (_, res) => {

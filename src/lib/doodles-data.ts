@@ -35,7 +35,7 @@ export async function fetchDoodles() {
         publishedDate: new Date(publishedDate),
         url,
         index: num,
-        last: num === rows.length - 1
+        last: num === rows.docs.length - 1
       }))
     })
 

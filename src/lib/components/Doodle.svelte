@@ -4,21 +4,13 @@
 
   export let doodle: Doodle;
   let rotate = 0;
-  let date: string
-  // let fullUrl: string
-  let url: string
-  let title: string
-  let alt: string
-  let num: number
-  $: {
-    date = doodle.publishedDate && new Date(doodle.publishedDate).toLocaleString()
-    url = doodle.url
-    title = doodle.title
-    alt = doodle.alt
-    num = doodle.index
-  }
+  let date = doodle.publishedDate && new Date(doodle.publishedDate).toLocaleString()
+  let url = doodle.url
+  let title = doodle.title
+  let alt = doodle.alt
+  let num = doodle.index
+  siteTitle.set(`grif's doodles: ${title}`)
 
-  siteTitle.set("grif's doodles")
 </script>
 
 <style>
