@@ -9,6 +9,12 @@
   let title = doodle.title
   let alt = doodle.alt
   let num = doodle.index
+  $: {
+    url = doodle.url
+    title = doodle.title
+    alt = doodle.alt
+    num = doodle.index
+  }
   siteTitle.set(`grif's doodles: ${title}`)
 
 </script>
