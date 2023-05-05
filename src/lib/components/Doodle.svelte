@@ -4,19 +4,12 @@
 
   export let doodle: Doodle;
   let rotate = 0;
-  let date = doodle.publishedDate && new Date(doodle.publishedDate).toLocaleString()
-  let url = doodle.url
-  let title = doodle.title
-  let alt = doodle.alt
-  let num = doodle.index
-  $: {
-    url = doodle.url
-    title = doodle.title
-    alt = doodle.alt
-    num = doodle.index
-    date = doodle.publishedDate && new Date(doodle.publishedDate).toLocaleString()
-    siteTitle.set(`grif's doodles: ${title}`)
-  }
+  $: date = doodle.publishedDate && new Date(doodle.publishedDate).toLocaleString()
+  $: url = doodle.url
+  $: title = doodle.title
+  $: alt = doodle.alt
+  $: num = doodle.index
+  $: siteTitle.set(`grif's doodles: ${title}`)
 
 </script>
 
