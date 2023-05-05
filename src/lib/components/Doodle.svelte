@@ -14,8 +14,9 @@
     title = doodle.title
     alt = doodle.alt
     num = doodle.index
+    date = doodle.publishedDate && new Date(doodle.publishedDate).toLocaleString()
+    siteTitle.set(`grif's doodles: ${title}`)
   }
-  siteTitle.set(`grif's doodles: ${title}`)
 
 </script>
 
