@@ -139,3 +139,12 @@ alias move-backup-portal="move-backup && cp ~/Sites/peoni-health/backups/import.
 alias dshell="~/dotfiles/drush_shell.mjs"
 
 alias dursh="drush"
+
+drusha() {
+        _load_vars
+        drush "@$DRUSH_ALIAS_PREFIX.$1" ${@:2}
+}
+
+alias drd="drusha dev "
+alias drt="drusha test "
+alias drp="drusha prod "

@@ -159,3 +159,4 @@ alias numbers="seq "
 alias ts="npx ts-node "
 
 alias mantra="cat ~/dotfiles/mantra"
+alias affirmations="cat ~/dotfiles/affirmations"
