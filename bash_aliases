@@ -151,12 +151,9 @@ alias shrug="echo '¯\_(ツ)_/¯'"
 
 # setopt no_bare_glob_qual
 
-# Ensures that BLT can validate all the YAMLs during a git pre-push hook
-ulimit -n 200000
-
 alias numbers="seq "
 
 alias ts="npx ts-node "
 
-alias mantra="cat ~/dotfiles/mantra"
-alias affirmations="cat ~/dotfiles/affirmations"
+alias mantra="clear && cat ~/dotfiles/mantra"
+alias affirmations="clear && cat ~/dotfiles/affirmations"

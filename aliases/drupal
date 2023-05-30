@@ -8,6 +8,9 @@ _load_drupal_vars() {
 
 alias bs="blt sync"
 
+# Ensures that BLT can validate all the YAMLs during a git pre-push hook
+ulimit -n 200000
+
 alias uli="drush uli"
 
 alias dcex="drush cex"
