@@ -144,3 +144,5 @@ alias gpf="gp --force"
 function gitzip() {
   git archive -o $@.zip HEAD
 }
+
+alias gs="git status"
