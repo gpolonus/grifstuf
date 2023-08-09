@@ -1,8 +1,12 @@
 
 _load_drupal_vars() {
+        THEME_BUILD_COMMAND="lando npm run webpack"
 	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
 		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/peoni-health/docroot/themes/custom/peoni"
-                THEME_BUILD_COMMAND="lando npm run webpack"
+	fi;
+	if [[ "$(pwd)" == *"Sites/entegra"* ]] then;
+		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/entegra/docroot/themes/custom/entegra_mygpo"
+                DRUPAL_ACCOUNT_UID="21"
 	fi;
 }
 
@@ -11,7 +15,6 @@ alias bs="blt sync"
 # Ensures that BLT can validate all the YAMLs during a git pre-push hook
 ulimit -n 200000
 
-alias uli="drush uli"
 
 alias dcex="drush cex"
 alias dcexy="drush cex -y"
@@ -97,7 +100,12 @@ move_down() {
 # }
 
 alias dcex="drush cex"
-alias uli="drush uli"
+uli() {
+        _load_drupal_vars
+        # add check for the account id
+        drush uli --uid="$DRUPAL_ACCOUNT_UID"
+}
+
 alias bs="time blt sync && uli"
 
 bs_no_db() {

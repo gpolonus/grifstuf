@@ -8,7 +8,7 @@ entegra_twstart() {
 	twstart
 }
 
-egpd() {
+entegra_new_branch() {
 	git checkout upstream/dev
 	git checkout -b $1
 	git push --no-verify --set-upstream origin $1
