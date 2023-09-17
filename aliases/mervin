@@ -5,3 +5,5 @@ alias proj="cd /mnt/c/Users/gpolo/Projects"
 alias _code="cmd.exe /C 'code .'"
 
 alias griftest="cd /mnt/c/Users/gpolo/Projects/griftext"
+
+alias griftext="cd /mnt/c/Users/gpolo/Projects/griftext"
