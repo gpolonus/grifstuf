@@ -24,11 +24,8 @@ grchb() {
 
 alias gits="git status"
 alias gl="git log --decorate"
-alias gc="git checkout "
 
 alias gpnv="git push --no-verify"
-
-alias gcnv="git commit --no-verify -m"
 
 alias gds="gd --staged"
 
@@ -43,10 +40,16 @@ gclean() {
         fi
 }
 
-gacm() {
-        _load_vars
+gcm() {
+        git commit -m "$1"
+}
 
-        git add -A
+gcmnv() {
+        git commit --no-verify -m "$1"
+}
+
+gcid() {
+        _load_vars
 
         if [ -z $JIRA_TICKET_PREFIX ]; then
                 gcm "${1}"
@@ -57,10 +60,13 @@ gacm() {
         gcm "$TICKET_ID: ${1}."
 }
 
-gacmnv() {
-        _load_vars
-
+gacid() {
         git add -A
+        gcid $1
+}
+
+gcidnv() {
+        _load_vars
 
         if [ -z $JIRA_TICKET_PREFIX ]; then
                 gcmnv "${1}"
@@ -71,6 +77,11 @@ gacmnv() {
         gcmnv "$TICKET_ID: ${1}."
 }
 
+gacidnv() {
+        git add -A
+        gcmnv $1
+}
+
 alias gnuke="git reset --hard && git clean -f"
 
 grlast() {
@@ -78,7 +89,6 @@ grlast() {
 }
 
 alias zgco='git co $(git branch | fzf)'
-alias gcnvm="git commit --no-verify -m "
 alias gacnvm="git add . && git commit --no-verify -m "
 alias gitnp="git --no-pager"
 alias gd="gitnp diff"
@@ -127,15 +137,7 @@ gt() {
 
 alias gpt="git push --tags"
 
-alias gfzf='git checkout $(git branch | fzf)'
-
-gcm() {
-        git commit -m "$1"
-}
-
-gcmnv() {
-        git commit --no-verify -m "$1"
-}
+alias gcfzf='git checkout $(git branch | fzf)'
 
 alias commit-of-tag="git rev-list -n 1 "
 
