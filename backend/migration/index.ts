@@ -1,7 +1,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const filePath = path.join(__dirname, 'doodles.yaml')
+const filePath = path.join(__dirname, 'doodles2.yaml')
 const yaml = require('yaml')
 
 const payload = require('payload')
@@ -28,7 +28,7 @@ function transfer(rows) {
     title,
     alt,
     filename: url,
-    publishedDate: (new Date(date)).toISOString()
+    publishedDate: (new Date(`${date}, ${Math.round(Math.random()*24)}:${Math.round(Math.random()*60)}:${Math.round(Math.random()*60)}`)).toISOString()
   }))
 }
 
@@ -42,8 +42,9 @@ async function load(rows) {
         alt,
         publishedDate
       },
-      filePath: path.resolve(__dirname, '../../static/original-doodles', filename),
+      filePath: path.resolve(__dirname, 'jpg-doodles', filename),
     });
+    console.log(`Imported "${title}" successfully!`)
   }
 }
 
@@ -51,7 +52,9 @@ async function migrate() {
   await sourceInit()
   const sourceRows = extract()
   const destinationRows = transfer(sourceRows)
-  load(destinationRows)
+  await load(destinationRows)
+  console.log('Finished!')
+  process.exit()
 }
 
 migrate()

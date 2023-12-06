@@ -19,8 +19,9 @@ const Doodles: CollectionConfig = {
         name: 'view',
         width: 300,
         height: 400,
-        fit: 'cover',
-        position: 'center'
+        fit: 'contain',
+        position: 'center',
+        background: 'white'
       },
       {
         name: 'wide',
