@@ -28,7 +28,7 @@ function transfer(rows) {
     title,
     alt,
     filename: url,
-    publishedDate: (new Date(`${date}, ${Math.round(Math.random()*24)}:${Math.round(Math.random()*60)}:${Math.round(Math.random()*60)}`)).toISOString()
+    publishedDate: (new Date(`${date}, ${Math.round(Math.random()*23)}:${Math.round(Math.random()*59)}:${Math.round(Math.random()*59)}`)).toISOString()
   }))
 }
 
