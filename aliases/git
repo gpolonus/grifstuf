@@ -57,7 +57,9 @@ gcid() {
         fi
 
         TICKET_ID=$(git branch | grep "^\*" | grep -o "$JIRA_TICKET_PREFIX\d*")
-        gcm "$TICKET_ID: ${1}."
+        GIT_MESSAGE="$TICKET_ID: ${1}."
+        echo "$GIT_MESSAGE"
+        gcm "$GIT_MESSAGE"
 }
 
 gacid() {

@@ -50,3 +50,5 @@ alias bounteous="cd /Users/griffenpolonus/Sites/peoni-health/docroot/modules/cus
 alias cfzf='code $(fzf)'
 
 alias wikis="cd /Users/griffenpolonus/Projects/wikis && ls"
+
+alias edb="cd /Users/griffenpolonus/Sites/edb"
