@@ -7,3 +7,7 @@ alias dpsa="dps"
 alias drush="lando drush"
 alias blt="lando blt"
 alias composer="lando composer"
+
+dssh() {
+  docker exec -i -t "$1" bash
+}
