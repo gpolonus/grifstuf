@@ -1,5 +1,5 @@
-import adapter from '@sveltejs/adapter-static';
-// import adapter from '@sveltejs/adapter-auto';
+// import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import 'isomorphic-fetch'
 
@@ -23,16 +23,18 @@ const config = {
   preprocess: vitePreprocess(),
 
   kit: {
-    adapter: adapter({
-      pages: 'build',
-			assets: 'build',
-			fallback: undefined,
-			precompress: false,
-			strict: true
-    }),
+    adapter: adapter(
+    //   {
+    //   pages: 'build',
+		// 	assets: 'build',
+		// 	fallback: undefined,
+		// 	precompress: false,
+		// 	strict: true
+    // }
+    ),
     prerender: {
       entries: [
-        ...(Array(numberOfDoodles).fill().map((_, i) => `/doodles/${i}`)),
+        // ...(Array(numberOfDoodles).fill().map((_, i) => `/doodles/${i}`)),
         '/stuf/triangle-boxes',
         '/stuf/square-spiral',
         '/stuf/spiral',
