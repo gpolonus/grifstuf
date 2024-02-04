@@ -1,5 +1,22 @@
 import path from 'path';
-import type { CollectionConfig } from 'payload/types';
+import type { CollectionConfig, CollectionAfterChangeHook } from 'payload/types';
+import 'isomorphic-fetch'
+
+const deployTrigger: CollectionAfterChangeHook = async ({
+  doc, // full document data
+  req, // full express request
+  previousDoc, // document data before updating the collection
+  operation, // name of the operation ie. 'create', 'update'
+}) => {
+  if (process.env.NODE_ENV === 'production') {
+    fetch(process.env.VERCEL_DEPLOY_HOOK_URL).then(() => {
+      console.log('Deployment Triggered')
+    })
+  } else {
+    console.log('local faux deployment triggered')
+  }
+  return doc
+}
 
 const Doodles: CollectionConfig = {
   slug: 'doodles',
@@ -48,6 +65,11 @@ const Doodles: CollectionConfig = {
   ],
   access: {
     read: () => true
+  },
+  hooks: {
+    afterChange: [
+      deployTrigger
+    ]
   }
 };
 
