@@ -30,9 +30,6 @@ const config = {
 			precompress: false,
 			strict: true
     }),
-    paths: {
-      relative: false
-    },
     prerender: {
       entries: [
         ...(Array(numberOfDoodles).fill().map((_, i) => `/doodles/${i}`)),

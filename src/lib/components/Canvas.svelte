@@ -26,7 +26,6 @@
   let start = () => {}
 
   const stop = () => {
-    console.log('stopped')
     running = false
   }
 
