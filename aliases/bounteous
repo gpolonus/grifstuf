@@ -23,6 +23,13 @@ _load_vars() {
 		DRUSH_ALIAS_PREFIX="rubi"
 	fi;
 
+	if [[ "$(pwd)" == *"Sites/edb"* ]] then;
+		JIRA_TICKET_PREFIX="EDB-"
+		GIT_BRANCH_PREFIX="feature/$JIRA_TICKET_PREFIX"
+		GIT_DEV_BRANCH="develop"
+		DRUSH_ALIAS_PREFIX="edb"
+	fi;
+
 	TIDDLY_DIR="/Users/griffenpolonus/Projects/gtd-wiki"
 }
 

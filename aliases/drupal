@@ -4,9 +4,15 @@ _load_drupal_vars() {
 	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
 		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/peoni-health/docroot/themes/custom/peoni"
 	fi;
-	if [[ "$(pwd)" == *"Sites/entegra"* ]] then;
+
+        if [[ "$(pwd)" == *"Sites/entegra"* ]] then;
 		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/entegra/docroot/themes/custom/entegra_mygpo"
                 DRUPAL_ACCOUNT_UID="21"
+	fi;
+
+	if [[ "$(pwd)" == *"Sites/edb"* ]] then;
+		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/edb/docroot/themes/custom/edb_theme"
+                DRUPAL_ACCOUNT_UID="361"
 	fi;
 }
 
@@ -103,7 +109,11 @@ alias dcex="drush cex"
 uli() {
         _load_drupal_vars
         # add check for the account id
-        drush uli --uid="$DRUPAL_ACCOUNT_UID"
+        if [ -z "$1" ]; then
+                drush uli --uid="$DRUPAL_ACCOUNT_UID"
+        else
+                drush uli --uid="$1";
+        fi
 }
 
 alias bs="time blt sync && uli"
@@ -135,8 +145,6 @@ theme_watch() {
 alias cr-theme="drush cc css-js && drush cc render"
 
 alias sb="bs"
-
-alias ddrush="drush @peoni.dev  "
 
 delete_of_type() {
         drush entity:delete node --bundle=$1
