@@ -167,3 +167,5 @@ drusha() {
 alias drd="drusha dev "
 alias drt="drusha test "
 alias drp="drusha prod "
+
+alias composer-install="COMPOSER_PROCESS_TIMEOUT=6000 /usr/local/bin/composer install"
