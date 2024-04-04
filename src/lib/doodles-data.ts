@@ -12,7 +12,7 @@ export type Doodle = {
 
 let allDoodles: Doodle[];
 
-const url = process.env.NODE_ENV === 'production'
+const serverUrl = process.env.NODE_ENV === 'production'
   ? 'https://box.grifstuf.com'
   : 'http://localhost:3000'
 
@@ -21,7 +21,7 @@ export async function fetchDoodles() {
     return allDoodles;
   }
 
-  allDoodles = await fetch(`${url}/api/doodles?limit=500&sort=publishedDate`)
+  allDoodles = await fetch(`${serverUrl}/api/doodles?limit=500&sort=publishedDate`)
     .then((response: Response) => {
       if (response.status >= 400) {
         throw new Error("Bad response from server");
@@ -33,7 +33,7 @@ export async function fetchDoodles() {
         title,
         alt,
         publishedDate: new Date(publishedDate),
-        url,
+        url: `${serverUrl}${url}`,
         index: num,
         last: num === rows.docs.length - 1
       }))
