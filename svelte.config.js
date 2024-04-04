@@ -38,7 +38,8 @@ const config = {
         '/stuf/triangle-boxes',
         '/stuf/square-spiral',
         '/stuf/spiral',
-      ]
+      ],
+      handleHttpError: () => {}
     }
   }
 };
