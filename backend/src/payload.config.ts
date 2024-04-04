@@ -6,11 +6,16 @@ import Tags from './collections/Tags';
 import Users from './collections/Users';
 import Doodles from './collections/Doodles';
 
+import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { webpackBundler } from '@payloadcms/bundler-webpack'
+import { slateEditor } from '@payloadcms/richtext-slate'
+
 export default buildConfig({
-  serverURL: process.env.NODE_ENV === 'production' ? 'https://box.grifstuf.com' : 'http://localhost:3000',
   admin: {
     user: Users.slug,
+    bundler: webpackBundler(), // bundler-config
   },
+  editor: slateEditor({}), // editor-config
   collections: [
     Categories,
     Posts,
@@ -19,14 +24,14 @@ export default buildConfig({
     Doodles,
   ],
   typescript: {
-    outputFile: path.resolve(__dirname, 'payload-types.ts')
+    outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
   graphQL: {
     disable: true
   },
-  upload: {
-    limits: {
-      fileSize: 10000000, // 10MB, written in bytes
-    },
-  }
-});
+  // database-adapter-config-start
+  db: mongooseAdapter({
+    url: process.env.MONGODB_URI,
+  }),
+  // database-adapter-config-end
+})
