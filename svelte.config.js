@@ -39,7 +39,7 @@ const config = {
         '/stuf/square-spiral',
         '/stuf/spiral',
       ],
-      handleHttpError: () => {}
+      // handleHttpError: () => {}
     }
   }
 };
