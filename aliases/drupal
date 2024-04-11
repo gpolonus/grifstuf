@@ -12,7 +12,7 @@ _load_drupal_vars() {
 
 	if [[ "$(pwd)" == *"Sites/edb"* ]] then;
 		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/edb/docroot/themes/custom/edb_theme"
-                DRUPAL_ACCOUNT_UID="361"
+                DRUPAL_ACCOUNT_UID="356"
 	fi;
 }
 
