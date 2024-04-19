@@ -56,6 +56,22 @@ cd -
 # $2 name
 # $3 command
 _A() {
+        if [ -z "$1" ]; then
+                echo "
+Create permanent alias from terminal
+\$1 location
+\$2 name
+\$3 command
+
+or
+
+\$1 name
+\$2 command
+and location will be assumed to be your machine's env file
+"
+                return 0;
+        fi
+
         if [ -z "$3" ]; then
                 ENV="$LOCAL_ENV_NAME"
                 ALIAS_NAME="$1"
