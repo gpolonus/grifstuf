@@ -170,3 +170,5 @@ alias drs="drusha stage "
 alias drp="drusha prod "
 
 alias composer-install="COMPOSER_PROCESS_TIMEOUT=6000 /usr/local/bin/composer install"
+
+alias local-composer="COMPOSER_PROCESS_TIMEOUT=6000 /usr/local/bin/composer "
