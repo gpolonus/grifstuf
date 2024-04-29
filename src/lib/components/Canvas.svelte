@@ -15,7 +15,7 @@
   // T: Math.tan
   // R: Generates rgba-strings, ex.: R(255, 255, 255, 0.5)
   const S = v => Math.sin(v)
-  const C = v =>Math.cos(v)
+  const C = v => Math.cos(v)
   const T = v => Math.tan(v)
   const R = (r,g,b,a) => {
     a = a === undefined ? 1 : a;
@@ -34,7 +34,7 @@
     c.width = 1920
     c.height = 1080
     const x = c.getContext('2d')
-    const u = render(c, x, S, C, T, R)
+    const u = render(c, x, S, C, T, R) || (() => {})
 
     if (steppable) {
       let t = 0
