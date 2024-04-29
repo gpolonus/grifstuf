@@ -1,12 +1,24 @@
 <script lang="ts">
   // @ts-nocheck
-  import Canvas from "$lib/components/Canvas.svelte";
   import { onMount } from "svelte";
   import { siteTitle } from "$lib/stores";
 
   let metrics = {}
 
-  onMount(() => {
+  function handlePermission(f) {
+    navigator.permissions.query({ name: "accelerameter" }).then((result) => {
+      console(`State: ${result.state}`);
+
+      if (result.state === "granted") {
+        f()
+      } else if (result.state === "prompt") {
+        f()
+      } else if (result.state === "denied") {
+      }
+    });
+  }
+
+  const aclInit = () => {
     const acl = new Accelerometer({ frequency: 60 });
     acl.addEventListener("reading", () => {
       metrics = {
@@ -17,6 +29,10 @@
     });
 
     acl.start();
+  }
+
+  onMount(() => {
+    handlePermission(aclInit)
   })
 
   siteTitle.set('stuf: Spiral')
