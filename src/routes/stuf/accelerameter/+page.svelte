@@ -5,37 +5,44 @@
 
   let metrics = {}
 
-  function handlePermission(f) {
-    navigator.permissions.query({ name: "accelerameter" }).then((result) => {
-      console(`State: ${result.state}`);
-
-      if (result.state === "granted") {
-        f()
-      } else if (result.state === "prompt") {
-        f()
-      } else if (result.state === "denied") {
-      }
-    });
-  }
-
   const aclInit = () => {
-    const acl = new Accelerometer({ frequency: 60 });
-    acl.addEventListener("reading", () => {
-      metrics = {
-        x: acl.x,
-        y: acl.y,
-        z: acl.z
+    let accelerometer = null;
+    try {
+      accelerometer = new Accelerometer({ referenceFrame: "device" });
+      accelerometer.addEventListener("error", (event) => {
+        // Handle runtime errors.
+        if (event.error.name === "NotAllowedError") {
+          // Branch to code for requesting permission.
+        } else if (event.error.name === "NotReadableError") {
+          console.log("Cannot connect to the sensor.");
+        }
+      });
+      accelerometer.addEventListener("reading", () => {
+        metrics = {
+          x: acl.x,
+          y: acl.y,
+          z: acl.z
+        }
+      });
+      accelerometer.start();
+    } catch (error) {
+      // Handle construction errors.
+      if (error.name === "SecurityError") {
+        // See the note above about permissions policy.
+        console.log("Sensor construction was blocked by a permissions policy.");
+      } else if (error.name === "ReferenceError") {
+        console.log("Sensor is not supported by the User Agent.");
+      } else {
+        throw error;
       }
-    });
-
-    acl.start();
+    }
   }
 
   onMount(() => {
-    handlePermission(aclInit)
+    aclInit()
   })
 
-  siteTitle.set('stuf: Spiral')
+  siteTitle.set('stuf: Accelerameter Metrics')
 </script>
 
 <h1> Accelerameter Metrics </h1>
