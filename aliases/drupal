@@ -164,6 +164,11 @@ drusha() {
         drush "@$DRUSH_ALIAS_PREFIX.$1" ${@:2}
 }
 
+ddbdrop() {
+        _load_vars
+        drush sql-sync "@$DRUSH_ALIAS_PREFIX.$1" @self
+}
+
 alias drd="drusha dev "
 alias drt="drusha test "
 alias drs="drusha stage "
