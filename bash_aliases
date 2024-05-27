@@ -173,3 +173,14 @@ alias ts="npx ts-node "
 
 alias mantra="clear && cat ~/dotfiles/mantra"
 alias affirmations="clear && cat ~/dotfiles/affirmations"
+
+
+# the ls -d */ -1 is doing some matching with the -d and is outputting everything in a line with the -1
+# while read D: loops over each line of the output and puts the output into $D
+# while read D; do echo "$D"; done
+# the contents of the 'do' command need to be runnable command, not some string
+# \"$(git rev-parse --is-inside-work-tree)\": nicely checks if the directory contains a git repo without blowing up the command. The $() is running a sub-shell
+# The [[  ]] && command || command is effectively a ternary
+alias check_for_git_repos="ls -d */ -1 | while read D; do cd \"$D\" && p
+wd && ([[ \"$(git rev-parse --is-inside-work-tree)\" = 'true' ]] && git remote -v || ec
+ho 'not a repo') && cd ..; done"
