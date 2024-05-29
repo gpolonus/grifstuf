@@ -45,6 +45,7 @@ LOCAL_ENV_NAME=''
 for f in $(cat .env); do
         if [ -f ~/dotfiles/aliases/$f ]; then
                 source ~/dotfiles/aliases/$f
+                echo "Sourced $f"
                 LOCAL_ENV_NAME="$f"
         fi;
 done
