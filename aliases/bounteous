@@ -6,28 +6,24 @@ _load_vars() {
 		GIT_BRANCH_PREFIX="feature/SEA-"
 		JIRA_TICKET_PREFIX="SEA-"
 		GIT_DEV_BRANCH="main"
-		DRUSH_ALIAS_PREFIX="rubi"
 	fi;
 
 	if [[ "$(pwd)" == *"Sites/entegra"* ]] then;
 		GIT_BRANCH_PREFIX="ENT-"
 		JIRA_TICKET_PREFIX="ENT-"
 		GIT_DEV_BRANCH="dev"
-		DRUSH_ALIAS_PREFIX="entegramygpoportal"
 	fi;
 
 	if [[ "$(pwd)" == *"Sites/peoni-portal"* ]] then;
 		GIT_BRANCH_PREFIX="feature/SEA-"
 		JIRA_TICKET_PREFIX="SEA-"
 		GIT_DEV_BRANCH="portal"
-		DRUSH_ALIAS_PREFIX="rubi"
 	fi;
 
 	if [[ "$(pwd)" == *"Sites/edb"* ]] then;
 		JIRA_TICKET_PREFIX="EDB-"
 		GIT_BRANCH_PREFIX="feature/$JIRA_TICKET_PREFIX"
 		GIT_DEV_BRANCH="develop"
-		DRUSH_ALIAS_PREFIX="edb"
 	fi;
 
 	TIDDLY_DIR="/Users/griffenpolonus/Projects/gtd-wiki"

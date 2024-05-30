@@ -3,16 +3,20 @@ _load_drupal_vars() {
         THEME_BUILD_COMMAND="lando npm run webpack"
 	if [[ "$(pwd)" == *"Sites/peoni-health"* ]] then;
 		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/peoni-health/docroot/themes/custom/peoni"
+		DRUSH_ALIAS_PREFIX="rubi"
 	fi;
 
         if [[ "$(pwd)" == *"Sites/entegra"* ]] then;
 		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/entegra/docroot/themes/custom/entegra_mygpo"
-                DRUPAL_ACCOUNT_UID="21"
+                DRUPAL_ACCOUNT_EMAIL="griffin.polonus@entegra.com" # ??
+		DRUSH_ALIAS_PREFIX="entegramygpoportal"
 	fi;
 
 	if [[ "$(pwd)" == *"Sites/edb"* ]] then;
 		DRUPAL_THEME_PATH="/Users/griffenpolonus/Sites/edb/docroot/themes/custom/edb_theme"
-                DRUPAL_ACCOUNT_UID="356"
+                DRUPAL_ACCOUNT_EMAIL="griffin.polonus@enterprisedb.com"
+                THEME_BUILD_COMMAND="lando npm run watch"
+		DRUSH_ALIAS_PREFIX="edb"
 	fi;
 }
 
@@ -85,7 +89,8 @@ alias dcr="drush cc render"
 alias ccr="dcr"
 
 move_down() {
-        drush sql-drop -y && drush sql-sync "@$1" @self -y
+        _load_drupal_vars
+        drush sql-drop -y && drush sql-sync "@$DRUSH_ALIAS_PREFIX.$1" @self -y
 }
 
 # Requires $DRUSH_SITE_FOLDER_MAP be defined
@@ -106,13 +111,13 @@ move_down() {
 # }
 
 alias dcex="drush cex"
+
 uli() {
         _load_drupal_vars
-        # add check for the account id
         if [ -z "$1" ]; then
-                drush uli --uid="$DRUPAL_ACCOUNT_UID"
+                drush uli --mail="$DRUPAL_ACCOUNT_EMAIL"
         else
-                drush uli --uid="$1";
+                drusha "$1" uli --mail="$DRUPAL_ACCOUNT_EMAIL";
         fi
 }
 
@@ -160,13 +165,8 @@ alias dshell="~/dotfiles/drush_shell.mjs"
 alias dursh="drush"
 
 drusha() {
-        _load_vars
+        _load_drupal_vars
         drush "@$DRUSH_ALIAS_PREFIX.$1" ${@:2}
-}
-
-ddbdrop() {
-        _load_vars
-        drush sql-sync "@$DRUSH_ALIAS_PREFIX.$1" @self
 }
 
 alias drd="drusha dev "
