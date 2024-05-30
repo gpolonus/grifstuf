@@ -182,6 +182,4 @@ alias affirmations="clear && cat ~/dotfiles/affirmations"
 # the contents of the 'do' command need to be runnable command, not some string
 # \"$(git rev-parse --is-inside-work-tree)\": nicely checks if the directory contains a git repo without blowing up the command. The $() is running a sub-shell
 # The [[  ]] && command || command is effectively a ternary
-alias check_for_git_repos="ls -d */ -1 | while read D; do cd \"$D\" && p
-wd && ([[ \"$(git rev-parse --is-inside-work-tree)\" = 'true' ]] && git remote -v || ec
-ho 'not a repo') && cd ..; done"
+alias check_for_git_repos="ls -d */ -1 | while read D; do cd \"$D\" && pwd && ([[ \"$(git rev-parse --is-inside-work-tree)\" = 'true' ]] && git remote -v || echo 'not a repo') && cd ..; done"
