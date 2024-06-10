@@ -115,7 +115,7 @@ alias dcex="drush cex"
 uli() {
         _load_drupal_vars
         if [ -z "$1" ]; then
-                drush uli --mail="$DRUPAL_ACCOUNT_EMAIL"
+                drush uli $([ -z "$DRUPAL_ACCOUNT_EMAIL" ] && echo '' || echo '--mail="$DRUPAL_ACCOUNT_EMAIL"')
         else
                 drusha "$1" uli --mail="$DRUPAL_ACCOUNT_EMAIL";
         fi
