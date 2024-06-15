@@ -16,3 +16,5 @@ alias grifstuf="cd /home/grif/Projects/grifstuf-sveltekit"
 alias bujjet="cd /home/grif/Projects/svelte-bujjet"
 
 alias heic-to-jpg="mogrify -format jpg *.HEIC"
+
+alias ssh_retro="ssh pi@10.0.0.50"
