@@ -55,3 +55,5 @@ alias cfzf='code $(fzf)'
 alias wikis="cd /Users/griffenpolonus/Projects/wikis && ls"
 
 alias cats="cd /Users/griffenpolonus/Repos/cat-files"
+
+alias next="cd /Users/griffenpolonus/Projects/next-drupal"
