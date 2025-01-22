@@ -1,0 +1,62 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"HTML Tag": {
+		"scope": "javascript",
+		"prefix": "<>",
+		"body": [
+			"<$1>$0</$1>"
+		],
+		"description": "HTML tag snippet"
+	},
+	// "React Component": {
+	// 	"scope": "javascript",
+	// 	"prefix": "component",
+	// 	"body" : [
+	// 	]
+	// }
+	"Console Log With Object": {
+		"scope": "javascript",
+		"prefix": "lob",
+		"body": [
+			"console.log({ $0 });"
+		],
+		"description": "Console Log With Object"
+	},
+	"Console Log String": {
+		"scope": "javascript",
+		"prefix": "los",
+		"body": [
+			"console.log('$0');"
+		],
+		"description": "Console Log String"
+	},
+	"Console Log String Then Object": {
+		"scope": "javascript",
+		"prefix": "losb",
+		"body": [
+			"console.log('$1', { $0 });"
+		],
+	},
+	"ASDF LOG": {
+		"scope": "php",
+		"prefix": "log-asdf",
+		"body": [
+			"function asdf(\\$var = 'HIT', \\$prefix = '') { \\$backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2); list('file' => \\$file, 'line' => \\$line) = \\$backtrace[0]; \\$function = \\$backtrace[1]['function']; \\$stamp = date('h:i:s', time()); file_put_contents('asdf.txt', \"(\\$stamp) \\$file:\\$line > \\$function\\n\" . (\\$prefix ? \\$prefix . ': ' : '') . var_export(\\$var, true) . \"\\n\\n\", FILE_APPEND); }"
+		]
+	}
+}

@@ -1,25 +1,25 @@
 {
+    "security.workspace.trust.untrustedFiles": "open",
     "files.associations": {
-        "**/modules/**/*.install": "php",
+        "*.install": "php",
         "**/modules/**/*.inc": "php",
-        "**/modules/**/*.module": "php"
+        "**/core/**/*.inc": "php",
+        "**/vendor/**/*.inc": "php",
+        "*.module": "php",
+        "*.engine": "php",
+        "/**/*.theme": "php"
     },
     "editor.renderWhitespace": "all",
-    "workbench.editor.enablePreview": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.snippetSuggestions": "top",
-    "extensions.ignoreRecommendations": false,
+    "extensions.ignoreRecommendations": true,
     "explorer.confirmDragAndDrop": false,
-    "workbench.activityBar.visible": true,
     "explorer.confirmDelete": false,
-    "window.zoomLevel": 0,
     "editor.tabSize": 2,
     "[rust]": {
         "editor.tabSize":  4
     },
     "git.enableSmartCommit": true,
-    "workbench.colorTheme": "Community Material Theme Palenight",
-    "diffEditor.ignoreTrimWhitespace": false,
     "editor.find.seedSearchStringFromSelection": true,
     "editor.fontSize": 12,
     "editor.scrollBeyondLastLine": true,
@@ -42,7 +42,8 @@
                 "port": 9000,
                 "pathMappings": {
                     // "/app/docroot/": "${workspaceRoot}/"
-                    "/app/docroot/": "~/Sites/hni/docroot/"
+                    // "/app/docroot/": "~/Sites/hni/docroot/"
+                    "/app/docroot/": "${workspaceRoot}/web/"
                 },
                 "xdebugSettings": {
                     "show_hidden": 1
@@ -51,7 +52,7 @@
         ]
     },
     // "files.autoSave": "onFocusChange",
-    "workbench.editor.showTabs": true,
+    "workbench.editor.showTabs": "multiple",
     "javascript.updateImportsOnFileMove.enabled": "never",
     "workbench.colorCustomizations": {},
     "materialTheme.accent": "Remove accents",
@@ -63,5 +64,20 @@
     "editor.minimap.enabled": true,
     "latex-workshop.view.pdf.viewer": "browser",
     "explorer.autoReveal": false,
-    "workbench.editor.untitled.hint": "hidden"
+    "redhat.telemetry.enabled": false,
+    "git.confirmSync": false,
+    "foldingEnabled": true,
+    "html.autoClosingTags": false,
+    "javascript.autoClosingTags": false,
+    "typescript.autoClosingTags": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.startupEditor": "none",
+    "workbench.layoutControl.enabled": false,
+    "window.commandCenter": false,
+    "workbench.editor.empty.hint": "hidden",
+    "window.zoomLevel": 1,
+    "workbench.editor.focusRecentEditorAfterClose": false,
+    "git.openRepositoryInParentFolders": "always",
+    "editor.lightbulb.enabled": "off",
+
 }

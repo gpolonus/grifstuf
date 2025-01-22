@@ -14,3 +14,5 @@ entegra_new_branch() {
 	git push --no-verify --set-upstream origin $1
 	gb
 }
+
+alias jmi="cd /Users/Griffin.Polonus/Sites/jminsure-poc"
