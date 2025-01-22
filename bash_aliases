@@ -172,10 +172,6 @@ alias numbers="seq "
 
 alias ts="npx ts-node "
 
-alias mantra="clear && cat ~/dotfiles/mantra"
-alias affirmations="clear && cat ~/dotfiles/affirmations"
-
-
 # the ls -d */ -1 is doing some matching with the -d and is outputting everything in a line with the -1
 # while read D: loops over each line of the output and puts the output into $D
 # while read D; do echo "$D"; done
