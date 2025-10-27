@@ -7,7 +7,8 @@
     { name: 'Binaural Sound Maker', path: 'https://binaural.grifstuf.com/', external: true },
     { name: 'GrifText', path: 'https://text.grifstuf.com/', external: true },
     { name: 'Recursive Triangles', path: 'triangle-boxes' },
-    { name: 'Accelerameter', path: 'accelerameter' },
+    { name: 'Contrast Patterns', path: 'contrast-patterns' },
+    // { name: 'Accelerameter', path: 'accelerameter' },
 
     // { name: 'Diabetes Carb Point Calculator', path: 'carb-points' },
     // { name: 'mirrormouse3', path: 'iframe/mirrormouse3' },
