@@ -1,5 +1,5 @@
 <script>
-	import { width, height } from './game.ts';
+	import { width, height } from './game.js';
 
 	import Canvas from './Canvas.svelte';
 	import Background from './Background.svelte';
@@ -17,8 +17,8 @@
 		fontSize={12}
 		align='right'
 		baseline='bottom'
-		x={$width - 20}
-		y={$height - 20} />
+		x={width - 20}
+		y={height - 20} />
 	<FPS />
 </Canvas>
 

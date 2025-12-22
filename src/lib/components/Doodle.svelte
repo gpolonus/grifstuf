@@ -1,15 +1,15 @@
-<script lang="ts">
+<script>
   import { siteTitle } from '$lib/stores';
-  import type { Doodle } from '$lib/doodles-data'
 
-  export let doodle: Doodle;
-  let rotate = 0;
-  $: date = doodle.publishedDate && new Date(doodle.publishedDate).toLocaleString()
-  $: url = doodle.url
-  $: title = doodle.title
-  $: alt = doodle.alt
-  $: num = doodle.index
-  $: siteTitle.set(`grif's doodles: ${title}`)
+  let { doodle } = $props();
+  let rotate = $state(0);
+  let date = $derived(doodle.publishedDate && new Date(doodle.publishedDate).toLocaleString())
+  let url = $derived(doodle.url)
+  let title = $derived(doodle.title)
+  let alt = $derived(doodle.alt)
+  let num = $derived(doodle.index)
+
+  siteTitle.set(`grif's doodles: ${title}`)
 
 </script>
 
@@ -84,7 +84,7 @@
           Next
         </h2>
       {/if}
-      <button class="h2" on:click={() => rotate -= 90}>
+      <button class="h2" onclick={() => rotate -= 90}>
         Rotate
       </button>
       <!-- <a href={fullUrl} target='_blank'>

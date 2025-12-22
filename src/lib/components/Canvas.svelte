@@ -1,10 +1,7 @@
-<script lang="ts">
-  // @ts-nocheck
+<script>
   import { onDestroy, onMount } from "svelte";
 
-  export let render;
-  export let stoppable = false
-  export let steppable = false
+  let { render, stoppable = false, steppable = false } = $props();
 
   // u(t) is called 60 times per second.
   // t: elapsed time in seconds.
@@ -30,7 +27,7 @@
   }
 
   onMount(() => {
-    const c = (document.getElementById('canvas') as HTMLCanvasElement)
+    const c = (document.getElementById('canvas'))
     c.width = 1920
     c.height = 1080
     const x = c.getContext('2d')
@@ -93,4 +90,4 @@
   }
 </style>
 
-<canvas id="canvas" />
+<canvas id="canvas"></canvas>

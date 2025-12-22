@@ -1,6 +1,6 @@
 
 <script>
-  import { renderable } from '../Canvas/game.ts';
+  import { renderable } from '../Canvas/game.js';
   import Thinger from './Thinger.svelte'
 
   const steps = [
@@ -38,7 +38,7 @@
 
   const addLine = (start, end, cp1, cp2) => lines.push({ cp1, cp2, start, end })
 
-  let setting = true;
+  let setting = $state(true);
 
   const startLine = () => {
     setting = true

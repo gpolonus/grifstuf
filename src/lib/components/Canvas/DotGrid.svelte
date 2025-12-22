@@ -1,9 +1,12 @@
 <script>
-	import { renderable } from './game.ts';
+	import { renderable } from './game.js';
 
-	export let color = 'black';
-	export let divisions = 20;
-	export let pointSize = 1;
+	let {
+		color = 'black',
+		divisions = 20,
+		pointSize = 1,
+		children
+	} = $props();
 
 	renderable(props => {
 		const { context, width, height } = props;
@@ -34,4 +37,4 @@
 </script>
 
 <!-- The following allows this component to nest children -->
-<slot></slot>
+{@render children?.()}

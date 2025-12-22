@@ -1,6 +1,7 @@
 <script>
-	import { renderable } from './game.ts';
-	export let color = null;
+	import { renderable } from './game.js';
+
+	let { color = null, children } = $props();
 
 	renderable(props => {
 		const { context, width, height } = props;
@@ -13,4 +14,4 @@
 </script>
 
 <!-- The following allows this component to nest children -->
-<slot></slot>
+{@render children?.()}

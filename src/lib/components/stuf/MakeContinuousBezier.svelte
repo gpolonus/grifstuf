@@ -1,5 +1,5 @@
 <script>
-  import { renderable } from '../Canvas/game.ts';
+  import { renderable } from '../Canvas/game.js';
   import Thinger from './Thinger.svelte'
 
   const drawBaseLines = ({ context }, mouse, ...points) => {
@@ -14,7 +14,64 @@
 
   const flipPoint = ([fx, fy], [cx, cy]) => [ cx - (fx - cx), cy - (fy - cy) ]
 
-  $: steps = [
+
+  let numberOfLines = $state(1)
+
+  const finishDrawing = (points) => {
+    console.log(points)
+    addLine(...points)
+    setting = true
+  }
+
+  const lines = []
+
+  const addLine = (start, end, cp0, cp1) => lines.push({ cp0, cp1, start, end })
+
+  let setting = $state(true);
+
+  const startLine = () => {
+    setting = true
+  }
+
+  const drawDotMaker = (rad, color) => (ctx, [x, y]) => {
+    ctx.beginPath()
+    ctx.fillStyle = color
+    ctx.arc(x, y, rad, 0, Math.PI * 2)
+    ctx.fill()
+  }
+
+  const drawRed = drawDotMaker(5, 'red')
+  const drawBlue = drawDotMaker(5, 'blue')
+
+  renderable(props => {
+    const { context, width, height } = props;
+
+    context.clearRect(0, 0, width, height)
+
+    context.beginPath()
+    context.lineWidth = 2
+
+    lines.forEach((line) => {
+      const {
+        start, end, cp0, cp1
+      } = line
+
+      context.moveTo(...start)
+      context.bezierCurveTo(...cp0, ...cp1, ...end)
+    })
+
+    context.stroke()
+
+    lines.forEach(line => {
+      const { start, end, cp0, cp1 } = line
+      drawRed(context, start)
+      drawRed(context, end)
+      drawBlue(context, cp0)
+      drawBlue(context, cp1)
+    })
+  });
+
+  let steps = $derived([
     // start
     () => {},
     // ends
@@ -74,66 +131,9 @@
       })
       context.stroke()
     }
-  ]
-
-  let numberOfLines = 1
-
-  const finishDrawing = (points) => {
-    console.log(points)
-    addLine(...points)
-    setting = true
-  }
-
-  const lines = []
-
-  const addLine = (start, end, cp0, cp1) => lines.push({ cp0, cp1, start, end })
-
-  let setting = true;
-
-  const startLine = () => {
-    setting = true
-  }
-
-  const drawDotMaker = (rad, color) => (ctx, [x, y]) => {
-    ctx.beginPath()
-    ctx.fillStyle = color
-    ctx.arc(x, y, rad, 0, Math.PI * 2)
-    ctx.fill()
-  }
-
-  const drawRed = drawDotMaker(5, 'red')
-  const drawBlue = drawDotMaker(5, 'blue')
-
-  renderable(props => {
-    const { context, width, height } = props;
-
-    context.clearRect(0, 0, width, height)
-
-    context.beginPath()
-    context.lineWidth = 2
-
-    lines.forEach((line) => {
-      const {
-        start, end, cp0, cp1
-      } = line
-
-      context.moveTo(...start)
-      context.bezierCurveTo(...cp0, ...cp1, ...end)
-    })
-
-    context.stroke()
-
-    lines.forEach(line => {
-      const { start, end, cp0, cp1 } = line
-      drawRed(context, start)
-      drawRed(context, end)
-      drawBlue(context, cp0)
-      drawBlue(context, cp1)
-    })
-  });
-
+  ])
 </script>
 
 <input type='number' bind:value={numberOfLines} min='1' disabled={setting} />
-<button on:click={() => setting = true} disabled={setting}>Start</button>
+<button onclick={() => setting = true} disabled={setting}>Start</button>
 <Thinger steps={steps} bind:setting={setting} finishDrawing={finishDrawing}/>

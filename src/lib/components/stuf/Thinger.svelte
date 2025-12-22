@@ -1,9 +1,7 @@
 <script>
-  import { renderable } from '../Canvas/game.ts';
+  import { renderable } from '../Canvas/game.js';
 
-  export let steps
-  export let finishDrawing
-  export let setting = false
+  let { steps, finishDrawing, setting = $bindable(false) } = $props();
 
   let currentPoints = []
   const allPoints = []
@@ -52,6 +50,6 @@
 </script>
 
 <svelte:window
-  on:mouseup={handleMouseUp}
-  on:mousemove={handleMouseMove}
+  onmouseup={handleMouseUp}
+  onmousemove={handleMouseMove}
 />

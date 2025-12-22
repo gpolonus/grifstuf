@@ -1,16 +1,17 @@
 <script>
-	import { renderable } from './game.ts';
+	import { renderable } from './game.js';
 
-	export let color = 'hsl(0, 0%, 100%)';
-	export let align = 'center';
-	export let baseline = 'middle';
-
-	export let text = '';
-	export let x = 0;
-	export let y = 0;
-
-	export let fontSize = 16;
-	export let fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica';
+	let {
+		color = 'hsl(0, 0%, 100%)',
+		align = 'center',
+		baseline = 'middle',
+		text = '',
+		x = 0,
+		y = 0,
+		fontSize = 16,
+		fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica',
+		children
+	} = $props();
 
 	renderable(props => {
 		const { context, width, height } = props;
@@ -25,4 +26,4 @@
 </script>
 
 <!-- The following allows this component to nest children -->
-<slot></slot>
+{@render children?.()}

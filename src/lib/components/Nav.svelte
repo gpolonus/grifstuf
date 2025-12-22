@@ -1,5 +1,5 @@
-<script lang="ts">
-  export let segment: string | null;
+<script>
+  let { segment } = $props();
 </script>
 
 <style>

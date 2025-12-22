@@ -1,5 +1,4 @@
-<script lang="ts">
-  // @ts-nocheck
+<script>
 
   import Canvas from "$lib/components/Canvas.svelte";
 
@@ -40,7 +39,7 @@
      * @param boundingCoords
      * @param layerNum
      */
-    const rec = (boundingCoords: Array<number>, layerNum = 0) => {
+    const rec = (boundingCoords, layerNum = 0) => {
       // Ensures that every section has a unique splitting line
       // Every splitting line will be t1 - t0 away from its respective previous line, while still being seperate from all other lines
       // CHAOS REIGNS

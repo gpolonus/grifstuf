@@ -1,5 +1,4 @@
-<script lang="ts">
-  // @ts-nocheck
+<script>
   import { onMount } from "svelte";
   import { siteTitle } from "$lib/stores";
 

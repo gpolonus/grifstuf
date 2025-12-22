@@ -1,5 +1,5 @@
-<script lang="ts">
-  // @ts-nocheck
+<script>
+
   import Canvas from "$lib/components/Canvas.svelte";
 
   const render = (c, x, S, C, T, R) => {

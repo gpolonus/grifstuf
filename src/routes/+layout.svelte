@@ -1,11 +1,12 @@
 <script>
   import Nav from '$lib/components/Nav.svelte';
 
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
   import { siteTitle } from '$lib/stores';
+  let { children } = $props();
 
-  $:segment = $page.route.id?.split('/')[1];
-  $:blogPost = $page.route.id === '/blog/[slug]'
+  let segment = $derived(page.route.id?.split('/')[1]);
+  let blogPost = $derived(page.route.id === '/blog/[slug]')
 
 </script>
 
@@ -57,7 +58,7 @@
   <Nav {segment}/>
 {/if}
 <main class:home={!segment} class={segment} class:blog-post={blogPost}>
-  <slot></slot>
+  {@render children?.()}
 </main>
 <footer>
   © Griffin Polonus 2025. All Rights Reserved.

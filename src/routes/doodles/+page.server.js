@@ -1,4 +1,4 @@
-import { fetchDoodles } from '$lib/doodles-data';
+import { fetchDoodles } from '$lib/doodles-data.js';
 import { error } from '@sveltejs/kit';
 
 export const prerender = true;

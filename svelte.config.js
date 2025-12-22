@@ -3,9 +3,9 @@ import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import 'isomorphic-fetch'
 
-const url = process.env.NODE_ENV === 'production'
-  ? 'https://box.grifstuf.com'
-  : 'http://localhost:3000'
+// const url = process.env.NODE_ENV === 'production'
+//   ? 'https://box.grifstuf.com'
+//   : 'http://localhost:3000'
 
 // const numberOfDoodles = await fetch(`${url}/api/doodles?limit=1`)
 //   .then((response) => {
@@ -23,6 +23,10 @@ const config = {
   preprocess: vitePreprocess(),
 
   kit: {
+    alias: {
+      "@/*": "lib/*",
+      "$lib/*": "lib/*",
+    },
     adapter: adapter(
     //   {
     //   pages: 'build',

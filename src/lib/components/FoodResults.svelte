@@ -1,6 +1,6 @@
 <script>
   export const onSelect = () => {};
-  let terms = '';
+  let terms = $state('');
   let results;
 
   const makeRequest = async (endPoint, data) => {
@@ -16,8 +16,8 @@
   }
 </script>
 
-<input value={terms} on:change={({ target: { value } }) => { terms = value }} />
-<button on:click={fetchFoodResults}>Search</button>
+<input value={terms} onchange={({ target: { value } }) => { terms = value }} />
+<button onclick={fetchFoodResults}>Search</button>
 
 {#if results}
   <ul>

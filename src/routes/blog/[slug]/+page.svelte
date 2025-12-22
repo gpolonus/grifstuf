@@ -1,8 +1,8 @@
-<script lang="ts">
+<script>
   import { marked } from 'marked'
 
-  export let data: { attributes: string, body: string }
-  $: content = data.body
+  let { data } = $props();
+  let content = $derived(data.body)
 </script>
 
 <style>

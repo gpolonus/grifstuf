@@ -1,6 +1,7 @@
 
 <script>
   import { siteTitle } from "$lib/stores";
+  let { children } = $props();
 
   siteTitle.set("grif's blog")
 </script>
@@ -35,6 +36,6 @@
 
 <div class='wrapper'>
   <div class='content'>
-    <slot />
+    {@render children?.()}
   </div>
 </div>

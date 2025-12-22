@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   const tv = fn => ({ target: { value } }) => fn(value)
 
   const multipleCompounds = ({ P, r, n, t }) => {
@@ -28,9 +28,9 @@
     [TYPE_NAMES.TIME]: timeToAmount
   }
 
-  let calcType = TYPE_NAMES.ONE
+  let calcType = $state(TYPE_NAMES.ONE)
 
-  const values = {}
+  const values = $state({})
 </script>
 
 <style>
@@ -62,40 +62,40 @@
 
 {#if calcType === TYPE_NAMES.ONE}
   <div>
-    P: <input type='number' value={values.P} on:change={tv(P => values.P = P)} />
+    P: <input type='number' value={values.P} onchange={tv(P => values.P = P)} />
   </div>
   <div>
-    r: <input type='number' value={values.r} on:change={tv(r => values.r = r)} />%
+    r: <input type='number' value={values.r} onchange={tv(r => values.r = r)} />%
   </div>
   <div>
-    t: <input type='number' value={values.t} on:change={tv(t => values.t = t)} />
+    t: <input type='number' value={values.t} onchange={tv(t => values.t = t)} />
   </div>
 {:else if calcType === TYPE_NAMES.MULTIPLE}
   <div>
-    P: <input type='number' value={values.P} on:change={tv(P => values.P = P)} />
+    P: <input type='number' value={values.P} onchange={tv(P => values.P = P)} />
   </div>
   <div>
-    r: <input type='number' value={values.r} on:change={tv(r => values.r = r)} />%
+    r: <input type='number' value={values.r} onchange={tv(r => values.r = r)} />%
   </div>
   <div>
-    n: <input type='number' value={values.n} on:change={tv(n => values.n = n)} />
+    n: <input type='number' value={values.n} onchange={tv(n => values.n = n)} />
   </div>
   <div>
-    t: <input type='number' value={values.t} on:change={tv(t => values.t = t)} />
+    t: <input type='number' value={values.t} onchange={tv(t => values.t = t)} />
 </div>
 {:else if calcType === TYPE_NAMES.TIME}
   <div>
     <div>
-      P: <input type='number' value={values.P} on:change={tv(P => values.P = P)} />
+      P: <input type='number' value={values.P} onchange={tv(P => values.P = P)} />
     </div>
     <div>
-      A: <input type='number' value={values.A} on:change={tv(A => values.A = A)} />
+      A: <input type='number' value={values.A} onchange={tv(A => values.A = A)} />
     </div>
     <div>
-      r: <input type='number' value={values.r} on:change={tv(r => values.r = r)} />%
+      r: <input type='number' value={values.r} onchange={tv(r => values.r = r)} />%
     </div>
     <div>
-      n: <input type='number' value={values.n || 1} on:change={tv(n => values.n = n)} />
+      n: <input type='number' value={values.n || 1} onchange={tv(n => values.n = n)} />
     </div>
   </div>
 {/if}

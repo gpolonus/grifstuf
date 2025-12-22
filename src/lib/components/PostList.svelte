@@ -1,6 +1,6 @@
 <script>
 	import distractions from '../data/distractions.yaml';
-	$: posts = distractions.slice(1)
+	let posts = $derived(distractions.slice(1))
 </script>
 
 <ul>

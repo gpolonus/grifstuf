@@ -1,6 +1,6 @@
 
 <script>
-  export let src;
+  let { src } = $props();
 </script>
 
 <style>
@@ -9,4 +9,4 @@
   }
 </style>
 
-<iframe title='asdf' width='100%' height='100%' frameborder='0' src={src} />
+<iframe title='asdf' width='100%' height='100%' frameborder='0' src={src}></iframe>

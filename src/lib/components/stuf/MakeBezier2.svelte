@@ -1,5 +1,5 @@
 <script>
-  import { renderable } from '../Canvas/game.ts';
+  import { renderable } from '../Canvas/game.js';
   import Thinger from './Thinger.svelte'
 
   const steps = [
@@ -54,7 +54,7 @@
     addPointCheck(line.cp2, index, 'cp2')
   }
 
-  let setting = true;
+  let setting = $state(true);
 
   const startLine = () => {
     setting = true
@@ -139,11 +139,11 @@
 
 </script>
 
-<button on:click={startLine} disabled={setting}>Add Line</button>
+<button onclick={startLine} disabled={setting}>Add Line</button>
 <Thinger steps={steps} bind:setting={setting} finishDrawing={finishDrawing}/>
 
 <svelte:window
-  on:mouseup={handleMouseUp}
-  on:mousemove={handleMouseMove}
-  on:mousedown={handleMouseDown}
+  onmouseup={handleMouseUp}
+  onmousemove={handleMouseMove}
+  onmousedown={handleMouseDown}
 />

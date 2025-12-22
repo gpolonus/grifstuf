@@ -1,10 +1,12 @@
 <script>
-  import { height, renderable, width } from './game.ts';
+  import { run } from 'svelte/legacy';
+
+  import { height, renderable, width } from './game.js';
 
   const color = 'hsl(0, 0%, 90%)';
   const pointSize = 30;
-  const divisions = Math.floor(($width > $height ? $width : $height) / pointSize) || 1;
-  let zooming = 0
+  const divisions = Math.floor((width > height ? width : height) / pointSize) || 1;
+  let zooming = $state(0)
 
   const degToRad = Math.PI / 180;
 
@@ -14,14 +16,14 @@
     lineWidth: Math.round(Math.random() * 3) + 1
   })
 
-  let arcs = Array(divisions).fill().map(makeArc)
+  let arcs = $state(Array(divisions).fill().map(makeArc))
 
-  $: {
+  run(() => {
     if (zooming === pointSize) {
       arcs = [makeArc(), ...arcs.slice(0, arcs.length - 1)];
       zooming = 0;
     }
-  }
+  });
 
   renderable(props => {
     const { context, width, height } = props;

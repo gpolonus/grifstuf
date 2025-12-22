@@ -1,5 +1,5 @@
 <script>
-  import { height, renderable, width } from '../Canvas/game.ts';
+  import { height, renderable, width } from '../Canvas/game.js';
 
   renderable(props => {
     const { context, width, height } = props;

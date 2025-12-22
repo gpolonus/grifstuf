@@ -1,32 +1,30 @@
-<script lang="ts">
-  import { height, renderable, width } from '../Canvas/game.ts';
+<script>
+  import { height, renderable, width } from '../Canvas/game.js';
 
-  type Point = [number, number]
+  let hideControls = $state(false)
+  let numberOfRefPoints = $state(3)
+  let midPointFraction = $state(2)
+  let currentPoint;
+  let willClear = $state(false);
 
-  let hideControls = false
-  let numberOfRefPoints = 3
-  let midPointFraction = 2
-  let currentPoint: number[];
-  let willClear = false;
+  let halfHeight = $derived($height / 2);
+  let halfWidth = $derived($width / 2);
 
-  $: halfHeight = $height / 2;
-  $: halfWidth = $width / 2;
-
-  $: refs = Array(numberOfRefPoints).fill(0).map((_, i) => {
+  let refs = $derived(Array(numberOfRefPoints).fill(0).map((_, i) => {
     const angle = Math.PI * 2 * i / numberOfRefPoints - Math.PI / 2
     const radius = $height < $width ? halfHeight : halfWidth;
     return [ Math.cos(angle) * radius, Math.sin(angle) * radius ]
-  })
+  }))
 
-  const handleMouseUp = ({ clientX, clientY }: MouseEvent) => {
+  const handleMouseUp = ({ clientX, clientY }) => {
     if (!currentPoint) {
       currentPoint = [ clientX - halfWidth, clientY - halfHeight ]
     }
   }
 
-  const c = ([ x, y ]: Point) => [ x + halfWidth, y + halfHeight ]
+  const c = ([ x, y ]) => [ x + halfWidth, y + halfHeight ]
 
-  const drawPoint = (context, [x, y]: Point, color = 'white', size = 2) => {
+  const drawPoint = (context, [x, y], color = 'white', size = 2) => {
     context.save();
     context.fillStyle = color;
     context.beginPath()
@@ -35,14 +33,13 @@
     context.restore();
   }
 
-  const nextPoint = ([x, y]: Point, [xx, yy]: Point) => {
+  const nextPoint = ([x, y], [xx, yy]) => {
     const newX = (x + xx) / midPointFraction
     const newY = (y + yy) / midPointFraction
     return [ newX, newY ]
   }
 
-  type Props = { context, width: number, height: number }
-  renderable((props: Props) => {
+  renderable((props) => {
     if (!currentPoint) return
 
     const { context, width, height } = props;
@@ -78,30 +75,30 @@
 </style>
 
 <svelte:window
-  on:mouseup={handleMouseUp}
+  onmouseup={handleMouseUp}
 />
 
 <div class:hideControls>
   <p>Click to start!</p>
   <p>
     Number of Points to move between:
-    <button on:click={() => numberOfRefPoints--}>-</button>
+    <button onclick={() => numberOfRefPoints--}>-</button>
     {numberOfRefPoints}
-    <button on:click={() => numberOfRefPoints++}>+</button>
+    <button onclick={() => numberOfRefPoints++}>+</button>
   </p>
   <p>
     Fraction for calculating the next point
-    <button on:click={() => midPointFraction--}>-</button>
+    <button onclick={() => midPointFraction--}>-</button>
     1/{midPointFraction}
-    <button on:click={() => midPointFraction++}>+</button>
+    <button onclick={() => midPointFraction++}>+</button>
   </p>
   <p>
-    <button on:click={() => willClear = true}>Clear</button>
+    <button onclick={() => willClear = true}>Clear</button>
   </p>
 </div>
 
 {#if hideControls}
-<p on:click={() => hideControls = false}>&gt;Show&gt;</p>
+<p onclick={() => hideControls = false}>&gt;Show&gt;</p>
 {:else}
-<p on:click={() => hideControls = true}>&lt;Hide&lt;</p>
+<p onclick={() => hideControls = true}>&lt;Hide&lt;</p>
 {/if}

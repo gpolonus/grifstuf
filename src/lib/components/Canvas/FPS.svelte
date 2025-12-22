@@ -1,8 +1,9 @@
 <script>
 	import Text from './Text.svelte';
-	import { time, renderable } from './game.ts';
+	import { time, renderable } from './game.js'
+	let { children } = $props();
 
-	let text = '';
+	let text = $state('');
 
 	let elapsed = 0;
 	let frames = 0;
@@ -29,4 +30,4 @@
 	y={20} />
 
 <!-- The following allows this component to nest children -->
-<slot></slot>
+{@render children?.()}

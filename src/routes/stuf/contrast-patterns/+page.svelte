@@ -1,5 +1,5 @@
-<script lang="ts">
-  // @ts-nocheck
+<script>
+
 
   import Canvas from "$lib/components/Canvas.svelte";
   import { siteTitle } from "$lib/stores";
