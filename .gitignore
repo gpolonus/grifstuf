@@ -15,3 +15,5 @@ payload_secret.txt
 /backend/doodles
 
 /entries.json
+
+.vercel

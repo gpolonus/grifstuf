@@ -1,7 +1,13 @@
 <script>
   import { onDestroy, onMount } from "svelte";
 
-  let { render, stoppable = false, steppable = false } = $props();
+  let { render,
+    stoppable = false,
+    steppable = false,
+    zoomable = false,
+    width = 1920,
+    height = 1080
+  } = $props();
 
   // u(t) is called 60 times per second.
   // t: elapsed time in seconds.
@@ -16,7 +22,7 @@
   const T = v => Math.tan(v)
   const R = (r,g,b,a) => {
     a = a === undefined ? 1 : a;
-    return "rgba("+(r|0)+","+(g|0)+","+(b|0)+","+a+")";
+    return `rgba(${r|0}, ${g|0}, ${b|0}, ${a})`;
   };
 
   let running = true;
@@ -28,17 +34,26 @@
 
   onMount(() => {
     const c = (document.getElementById('canvas'))
-    c.width = 1920
-    c.height = 1080
+    c.width = width
+    c.height = height
     const x = c.getContext('2d')
     const u = render(c, x, S, C, T, R) || (() => {})
+
+    window.drawSpot = (x0, y0, r = 100) => {
+      x.fillStyle= 'red'
+      x.beginPath()
+      x.arc(x0, y0, r, 0, Math.PI * 2)
+      x.fill()
+    }
 
     if (steppable) {
       let t = 0
       c.onclick = () => {
-        u(t)
         t += steppable
+        u(t)
       }
+
+      u(t)
 
       return
     }
@@ -71,6 +86,36 @@
       return
     }
 
+    if (zoomable) {
+      console.log('zoomable');
+      (() => {
+        let mousePosition;
+        c.addEventListener('mousedown', (e) => {
+          console.log('mousedown', e)
+          mousePosition = [e.offsetX, e.offsetY]
+          c.addEventListener('mousemove', onMouseMove)
+        })
+
+        const onMouseMove = (e) => {
+          console.log('mousemove', e.offsetX, mousePosition[0], e.offsetY, mousePosition[1])
+          x.setTransform({
+            e: (e.offsetX - mousePosition[0]) / e.target.clientWidth * width,
+            f: (e.offsetY - mousePosition[1]) / e.target.clientHeight * height
+          })
+        }
+
+        c.addEventListener('mouseup', () => {
+          console.log('mouseup')
+          mousePosition = 0
+          c.removeEventListener('mousemove', onMouseMove)
+        })
+
+        c.addEventListener('scroll', (e) => {
+          console.log(e)
+        })
+      })()
+    }
+
     start()
   })
 
@@ -84,7 +129,8 @@
   canvas {
     display: block;
     margin: auto;
-    padding: 1rem;
+    /* padding: 1rem; */
+    border: 1px black solid;
     max-width: calc(100vw - 2rem);
     max-height: calc(100vh - 7rem);
   }
