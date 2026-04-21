@@ -1,12 +1,14 @@
+import { mdsvex } from 'mdsvex';
+
 // import adapter from '@sveltejs/adapter-static';
 import adapter from '@sveltejs/adapter-vercel';
+
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import 'isomorphic-fetch'
+import 'isomorphic-fetch';
 
 // const url = process.env.NODE_ENV === 'production'
 //   ? 'https://box.grifstuf.com'
 //   : 'http://localhost:3000'
-
 // const numberOfDoodles = await fetch(`${url}/api/doodles?limit=1`)
 //   .then((response) => {
 //     if (response.status >= 400) {
@@ -15,37 +17,33 @@ import 'isomorphic-fetch'
 //     return response.json();
 //   })
 //   .then(data => data.totalDocs)
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://kit.svelte.dev/docs/integrations#preprocessors
   // for more information about preprocessors
-  preprocess: vitePreprocess(),
-
+  preprocess: [vitePreprocess(), mdsvex({ extensions: ['.svx', '.md'] })],
   kit: {
-    alias: {
-      "@/*": "lib/*",
-      "$lib/*": "lib/*",
-    },
-    adapter: adapter(
+    alias: { "@/*": "lib/*", "$lib/*": "lib/*" },
+    adapter: adapter(),
     //   {
     //   pages: 'build',
-		// 	assets: 'build',
-		// 	fallback: undefined,
-		// 	precompress: false,
-		// 	strict: true
+    // 	assets: 'build',
+    // 	fallback: undefined,
+    // 	precompress: false,
+    // 	strict: true
     // }
-    ),
     prerender: {
       entries: [
         // ...(Array(numberOfDoodles).fill().map((_, i) => `/doodles/${i}`)),
         '/stuf/triangle-boxes',
         '/stuf/square-spiral',
-        '/stuf/spiral',
-      ],
+        '/stuf/spiral'
+      ]
+
       // handleHttpError: () => {}
     }
-  }
+  },
+  extensions: ['.svelte', '.svx', '.md']
 };
 
 export default config;
