@@ -1,0 +1,4 @@
+# Recipes
+
+- [Bean and Cabbage Soup](/recipes/bean-cabbage-curry-soup)
+- [Cookies](/recipes/cookies)
