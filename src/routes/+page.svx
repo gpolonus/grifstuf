@@ -5,3 +5,7 @@ Site Under Construction
 ## Recipes
 
 [/recipes](/recipes)
+
+## Instructions
+
+[/goblins-vs-dragon](/goblins-vs-dragon)

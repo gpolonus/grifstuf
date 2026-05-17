@@ -1,0 +1,68 @@
+# Goblins vs Dragon Instructions
+## Setup
+- 10 HP per Goblin, 20 HP for the Dragon.
+- Player Stats: begin with 1 speed, then at player's discretion distribute 4 more points between stealth and speed.
+- Dragon Stats: d6 at 3 for anger, d4 at 2 for suspicion, roll 3d6 for weak spots.
+	- or utilize special anger/suspicion tracker
+- Board is 9 spots in a line labeled 0-8, Dragon is placed beyond distance 0, players start at distance 8. The board spots are large enough to have a playing card placed on it.
+## Goblin Turn
+- Movement
+	- The player first decides if they wish to Berserk Charge or move. If they choose Berserk Charge, see Goblin Actions. That completes their turn.
+	- The player rolls a number of `d6`s equal to their current distance. This is their first roll, and the player may roll a number of times equal to their speed stat. After each roll, the player may set aside an arbitrary number of dice to keep, and they may decide to end their rolling early if they like all of their dice.
+	- Each individual die that passes the check of `stealth + d6 > anger + suspicion` may be used to move one space forward or backward, but only in one direction (eg you can't use two movement dice to move forward and backward). Dice of the same value can be used together for combos:
+		- `2d6`: reduce suspicion
+		- `3d6`: reduce anger
+			- if Dragon anger is already at minimum, the Dragon gains 5 HP
+		- `4d6`: +1 attack bonus on this turn only
+			- If the player manages to hit the Dragon with this buff, it becomes permanent.
+		- `5d6`: +1 attack bonus permanently
+			- For attack bonuses, the player receives the corresponding attack bonus marker.
+		- The player can always take the value of the dice individually instead of being forced to take them as a combo (eg you have a pair of `6`s but you want to move instead of reduce the suspicion).
+		- Any dice in a combo can be summed up into one movement check (eg if a single `2` fails, but you have two `2`s , then you can add them together into one `4` and if that passes you can use that to move on space).
+	- Any dice that can be used, must be used. Dice combos are resolved largest to smallest with failing dice being resolved last.
+	- If after the player stops rolling all dice are utilized, they may resolve all dice effects and continue.
+	- If the player can't use all of their dice, they first resolve any existing dice combos. Then suspicion goes up by the number of dice that aren't used, and their turn is over. If suspicion reaches maximum, all players are attacked. If the player can't use any of their dice, they are individually attacked by the Dragon.
+	- If the player reaches distance 0, the player is attacking the Dragon. See Goblin Attack.
+- Action
+	- After the movement phase and if the player's turn hasn't ended by other means, they can **take an action** or **take a frustration token**. If at the beginning of a player’s turn they have 3 frustration tokens, their stealth is reduced by 1 for that turn. A player’s frustration tokens are only removed after a player takes an action. See Goblin Actions for possible actions.
+- After moving, acting, and resolving any Dragon actions, the player's turn is over.
+## Goblin Actions
+- Throw a Goblin
+    - Who is at the same distance as you at the Dragon.
+    - You can throw them a max distance equal to a `d6` roll.
+    - Players thrown to distance 0 are instantly attacking the Dragon.
+- Chuck a Rock
+    - Force all players at a chosen distance within `d6` of yours but not at your distance to do a stealth check.
+- Insult the Dragon
+    - Only able to do if you are able to pass a stealth check. If you fail the check, you are attacked.
+    - Makes the Dragon's anger and suspicion go up by 1. A weak spot is added at this point.
+    - If suspicion is now at max, the Dragon attacks everyone (see Dragon Attack).
+- Set a Trap
+    - Able do this if you are at a distance alone.
+    - The placing player is dealt 2 cards A-6 and then they choose one to place at their distance. The next player to land at that distance rolls a `d6` and then they must guess if the secret number at that distance is higher, lower, or the same as the `d6` they rolled. If they succeed in guessing, the trap has been avoided successfully, otherwise they are individually seen by the Dragon and are attacked (see Dragon Attack). Regardless of the result the trap is now gone, it is only a one time use.
+- Berserk Charge
+    - No one can be at a distance closer than you when choosing to do this.
+    - You can charge towards the Dragon head on without doing stealth checks, but you must decide to do this at the beginning of your turn.
+    - Dragon attempts to hit you at every step you take, and every hit does double damage since you are facing the Dragon directly and you aren't attempting to hide.
+    - When starting the charge, the Dragon's suspicion is maxed, but only the charging player is being attacked.
+    - Either the player reaches the Dragon or dies.
+    - If the player reaches the Dragon to attack it, they do 2 HP damage to the Dragon for each weak spot instead of the regular 1. Other than that, follow the Goblin Attack section.
+## Goblin Attack
+- Any player at distance 0 is automatically attacking the Dragon.
+- The attacking player is allowed to hit a number of weak spots equal to the farthest distance from which they traveled to get to the Dragon (includes if the player was thrown).
+- The attacking player rolls the same number of dice as weak spots present one time and matches up rolled dice with weak spots to determine which ones get struck and/or damaged. All weak spots are reduced in value by the attack dice that the player assigns to each weak spot plus any attack bonus they may have. Any weak spots at or less than zero are hit and removed.
+- The Dragon's HP decreases by 1 for each weak spot hit.
+- The attacking player gets a single stat point towards stealth or speed when they hit the last available weak point on the Dragon.
+- After the player attacks, the Dragon anger goes up by 1, and if there are no longer any weak points, new ones are set out (this also happens if there were no weak spots present to begin with). The player rolls a number of dice equal to the anger stat and those dice become the new weak spots.
+- The Dragon now attacks that player back regardless of how many weak spots were hit. See Dragon Attack.
+## Dragon Attack
+- If the Dragon is attacking everyone, each player does a stealth check. All the players who fail their stealth check are now being attacked. Otherwise, only the attacked player will do the following.
+- The player begins by rolling a `d6` representing the Dragon's effort to launch a fireball. If the roll is strictly less than the anger stat, no fireball is shot. Otherwise a fireball is launched at all attacked players, and they each lose 1 HP.
+- If a player reaches 0 HP, they are dead and the Dragon's anger is reduced by 1.
+	- If anger is already at minimum, the Dragon gains 5 HP
+- Afterwards, the attacked players move one space backward, and do a stealth check at their new distance. If a player's stealth check succeeds, they are no longer attacked.
+- If any players fail their stealth check, another cycle of Dragon attacks and stealth checks occur. This cycle repeats until all players are hidden or dead.
+- If all attacked players have successfully hidden, the Dragon attack is over. Suspicion is reduced by 1. The next goblin begins their turn.
+## Winning
+- Once the Dragon runs out of health, the game is finished.
+- Whoever kills the Dragon is the winner
